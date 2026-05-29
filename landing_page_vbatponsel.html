@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VBATPonsel - Video Belajar Akademi Teknisi Ponsel</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#000000',
+                            orange: '#F59E0B', // amber-500
+                            green: '#10B981', // emerald-500
+                            greenGlow: '#059669',
+                            blueHighlight: '#1e3a8a', // blue-900
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 15px rgba(16, 185, 129, 0.5), inset 0 0 10px rgba(16, 185, 129, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #000000; color: #ffffff; }
+        .text-highlight {
+            background-color: #1e3a8a; /* Blue background */
+            padding: 2px 4px;
+            line-height: 1.8;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+        /* Custom scrollbar for better look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative">
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.89-4.443 9.892-9.892.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.739-.974zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
+
+    <!-- Header / Logo Area -->
+    <header class="w-full px-6 md:px-20 py-8 absolute top-0 left-0 z-10">
+        <div class="flex items-center gap-2">
+            <!-- Simulated Logo -->
+            <div class="w-8 h-8 grid grid-cols-3 gap-0.5">
+                <div class="bg-brand-green"></div><div class="bg-brand-green opacity-75"></div><div class="bg-brand-green opacity-50"></div>
+                <div class="bg-brand-green"></div><div class="bg-brand-green opacity-75"></div><div class="bg-brand-green opacity-50"></div>
+                <div class="col-span-3 h-1 mt-0.5 bg-brand-green"></div>
+            </div>
+            <h1 class="text-2xl font-poppins font-bold tracking-wider">VBAT<span class="text-white">PONSEL</span></h1>
+        </div>
+    </header>
+
+    <!-- 1. HERO SECTION -->
+    <section class="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pt-32 pb-20 relative">
+        <div class="w-full md:w-1/2 flex flex-col gap-6 z-10">
+            <h2 class="text-2xl md:text-3xl font-poppins font-bold">
+                Upgrade Life Skill Dari <span class="text-brand-orange">Genggaman</span>
+            </h2>
+            <h1 class="text-5xl md:text-6xl font-poppins font-extrabold leading-tight">
+                <span class="text-brand-orange">Video Belajar</span><br>
+                Akademi Teknisi<br>
+                <span class="text-brand-orange">PONSEL</span>
+            </h1>
+            <p class="text-gray-300 text-sm md:text-base max-w-lg leading-relaxed mt-2">
+                LPK Quantum Telecommunication Semarang telah meluncurkan sebuah aplikasi inovatif yang memudahkan para teknisi ponsel dalam belajar dan mendapatkan panduan. Aplikasi ini menyediakan video pembelajaran yang komprehensif dan panduan praktis yang dapat diunduh melalui Play Store.
+            </p>
+            <div class="mt-4 inline-block w-48">
+                <!-- Play Store Badge Placeholder -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="w-full h-auto cursor-pointer hover:opacity-80 transition">
+            </div>
+        </div>
+        
+        <!-- Hero Images (3 Phones mockup) -->
+        <div class="w-full md:w-1/2 mt-16 md:mt-0 flex justify-center items-center relative">
+            <div class="relative w-full max-w-lg h-[500px] flex justify-center items-center">
+                <!-- Middle Phone -->
+                <div class="absolute z-20 w-52 h-[420px] bg-[#0a0a0a] border-4 border-gray-800 rounded-3xl overflow-hidden shadow-2xl transform scale-105">
+                    <div class="w-full h-full bg-[#111] p-3 flex flex-col justify-center items-center relative">
+                        <!-- App UI Mockup -->
+                        <div class="w-full flex justify-between items-center mb-4 text-xs"><span class="text-brand-green font-bold">VBAT</span> <span>&#9776;</span></div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=200&q=80" class="w-full h-32 object-cover rounded opacity-50 mb-2">
+                        <div class="w-full h-2 bg-gray-800 rounded mb-1"></div>
+                        <div class="w-3/4 h-2 bg-gray-800 rounded mb-4"></div>
+                        <div class="w-full h-10 bg-brand-green rounded mt-auto flex items-center justify-center text-xs font-bold text-black">UPGRADE LIFE SKILL</div>
+                    </div>
+                </div>
+                <!-- Left Phone -->
+                <div class="absolute z-10 w-48 h-[380px] bg-[#0a0a0a] border-4 border-gray-800 rounded-3xl overflow-hidden -ml-40 opacity-70 transform -rotate-6">
+                    <img src="https://images.unsplash.com/photo-1592890288564-76628a30a657?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover">
+                </div>
+                <!-- Right Phone -->
+                <div class="absolute z-10 w-48 h-[380px] bg-[#0a0a0a] border-4 border-gray-800 rounded-3xl overflow-hidden ml-40 opacity-70 transform rotate-6">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover grayscale">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. INSTRUCTOR SECTION -->
+    <section class="py-20 px-6 md:px-20 bg-brand-dark border-t border-gray-900">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <!-- Laptop Mockup with Image inside -->
+                <div class="relative w-full max-w-xl mx-auto pt-[60%]">
+                    <div class="absolute inset-0 bg-gray-300 rounded-t-xl border-8 border-gray-400 overflow-hidden shadow-2xl">
+                        <!-- Instructor image placeholder -->
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80" alt="Instruktur memperbaiki ponsel" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-[120%] h-4 bg-gray-400 rounded-b-lg"></div>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 flex flex-col gap-8">
+                <h2 class="text-3xl md:text-4xl font-poppins font-bold leading-tight">
+                    Materi mudah dipahami<br>disampaikan oleh <span class="text-brand-orange">Instruktur<br>Berpengalaman</span>
+                </h2>
+                <div class="space-y-6 text-sm md:text-base text-gray-100">
+                    <p>
+                        <span class="text-highlight">VBATPonsel menyajikan materi dengan jelas dan terstruktur, memudahkan siapa pun untuk mengikuti pembelajaran</span>
+                    </p>
+                    <p>
+                        <span class="text-highlight">Oleh karena itu, Video Belajar Akademi Teknisi Ponsel adalah sumber belajar yang efektif dan efisien serta cocok bagi teknisi pemula maupun yang berpengalaman</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. FLEXIBILITY SECTION -->
+    <section class="py-20 px-6 md:px-20 bg-[#050505]">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 flex flex-col gap-6 order-2 md:order-1">
+                <h2 class="text-3xl md:text-4xl font-poppins font-bold leading-tight">
+                    Dimanapun &<br>Kapanpun <span class="text-brand-orange">BISA</span>
+                </h2>
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                    Anda dapat mengakses video belajar kapan saja dan di mana saja melalui aplikasi <strong>VBATPonsel</strong> di Smartphone Anda.
+                </p>
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                    Belajar sesuai jadwal dan kebutuhan Anda, tanpa khawatir dengan batasan waktu, karena semua video dapat diakses dengan mudah melalui aplikasi ini.
+                </p>
+            </div>
+            
+            <div class="w-full md:w-1/2 order-1 md:order-2">
+                <div class="rounded-3xl overflow-hidden shadow-2xl relative border border-gray-800">
+                    <!-- User holding phone placeholder -->
+                    <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=80" alt="Belajar dari HP" class="w-full h-auto object-cover opacity-80">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FEATURES SECTION -->
+    <section class="py-20 px-6 md:px-20 bg-brand-dark">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 flex flex-col gap-6">
+                <h2 class="text-3xl md:text-4xl font-poppins font-bold leading-tight">
+                    Keunggulan Aplikasi<br><span class="text-brand-orange">VBATPonsel</span>
+                </h2>
+                
+                <ul class="space-y-4 text-gray-300 text-sm md:text-base list-none mt-4">
+                    <li class="flex items-start gap-3">
+                        <span class="text-gray-500 mt-1">•</span>
+                        <span>Materi yang spesifik dan sesuai dengan kebutuhan industri disusun berdasarkan SKKNI</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-gray-500 mt-1">•</span>
+                        <span>Terintegrasi dengan grup diskusi di WhatsApp untuk pembahasan semua kasus dan masalah dalam perbaikan ponsel</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-gray-500 mt-1">•</span>
+                        <span>Tes untuk menguji pemahaman dalam belajar</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-gray-500 mt-1">•</span>
+                        <span>E-Sertifikat + Kaos Official VBATPonsel bagi pengguna baru</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-gray-500 mt-1">•</span>
+                        <span>E-book berisi panduan dan tips perbaikan ponsel</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-gray-500 mt-1">•</span>
+                        <span>Link firmware untuk keperluan perbaikan ponsel</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-gray-500 mt-1">•</span>
+                        <span>Link penyedia sparepart di seluruh Indonesia</span>
+                    </li>
+                </ul>
+                
+                <div class="mt-6 w-48">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="w-full h-auto cursor-pointer hover:opacity-80 transition">
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 flex justify-center gap-6 mt-10 md:mt-0">
+                <!-- Phone Mockups -->
+                <div class="w-40 md:w-48 h-auto rounded-[2rem] border-[6px] border-gray-800 overflow-hidden shadow-xl transform -translate-y-4">
+                    <div class="bg-[#111] h-full p-4 flex flex-col">
+                        <div class="w-full flex justify-between items-center mb-8">
+                           <span class="text-green-500 text-xs font-bold">VBAT</span> <span class="text-white text-xs">...</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center justify-center border border-green-500/30 rounded p-2 border-dashed">
+                             <div class="w-20 h-10 border-2 border-green-500 rounded relative mb-4">
+                                 <div class="absolute -right-2 -top-2 w-4 h-4 rounded-full border-2 border-green-500"></div>
+                             </div>
+                        </div>
+                        <div class="h-8 bg-green-500 rounded mt-8 text-black text-[8px] flex items-center justify-center font-bold">VBATPONSEL</div>
+                    </div>
+                </div>
+                <div class="w-40 md:w-48 h-auto rounded-[2rem] border-[6px] border-gray-800 overflow-hidden shadow-xl transform translate-y-4">
+                     <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&w=200&q=80" alt="App UI" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5-9. TUTORIAL SECTION -->
+    <section class="py-20 px-6 md:px-20 bg-[#020202]">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            
+            <!-- Tutorial Header -->
+            <div class="text-center mb-20">
+                <h2 class="text-2xl md:text-3xl font-poppins font-bold mb-8">
+                    Tutorial Berlangganan<br>Aplikasi <span class="text-brand-orange">VBATPonsel</span>
+                </h2>
+                <div class="inline-block px-8 py-2 text-brand-green font-bold text-xl border-2 border-brand-green rounded-lg shadow-glow tracking-wider">
+                    Tutorial
+                </div>
+            </div>
+
+            <!-- Tutorial Steps Container -->
+            <div class="w-full flex flex-col gap-24 relative">
+                <!-- Vertical dashed line for visual flow (optional, but helps layout) -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-gray-800 -translate-x-1/2 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-black flex flex-col relative">
+                            <!-- Mock Play Store Search -->
+                            <div class="p-2 border-b border-gray-800 flex items-center gap-2"><div class="w-4 h-4 bg-gray-700 rounded-full"></div><div class="h-4 bg-gray-800 flex-1 rounded text-[10px] pl-2 text-gray-500">vbatponsel</div></div>
+                            <div class="flex-1 bg-[#111] p-4 flex flex-col items-center justify-end">
+                                <div class="bg-red-700 text-white text-[10px] py-1 px-4 rounded w-full text-center font-bold mb-2">CARI VBATPONSEL</div>
+                                <div class="w-full h-32 bg-gray-800 rounded grid grid-cols-10 gap-0.5 p-1">
+                                    <!-- Keyboard mock -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:mx-0">
+                            Cari Akses Aplikasi VBATPonsel, pergi ke Play Store, lalu cari aplikasi VBATPonsel.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-black flex flex-col">
+                             <!-- Mock Download App -->
+                             <div class="p-4 flex gap-4 border-b border-gray-800">
+                                 <div class="w-12 h-12 bg-green-900 rounded flex items-center justify-center text-[8px]">V</div>
+                                 <div class="flex-1 flex flex-col gap-1">
+                                     <div class="h-3 w-full bg-gray-700 rounded"></div>
+                                     <div class="h-2 w-1/2 bg-gray-800 rounded"></div>
+                                     <div class="mt-2 w-full h-1 bg-gray-800 rounded"><div class="w-1/2 h-full bg-brand-green rounded"></div></div>
+                                 </div>
+                             </div>
+                             <div class="p-4">
+                                 <div class="bg-red-700 text-white text-[8px] py-1 px-2 rounded w-full text-center font-bold mb-4">DOWNLOAD LALU TUNGGU PROSESNYA</div>
+                                 <div class="grid grid-cols-2 gap-2 mt-4">
+                                     <div class="h-16 bg-gray-900 rounded"></div><div class="h-16 bg-gray-900 rounded"></div>
+                                     <div class="h-16 bg-gray-900 rounded"></div><div class="h-16 bg-gray-900 rounded"></div>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-right">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:ml-auto md:mr-0">
+                            Download aplikasinya dan tunggu proses hingga selesai.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-[#0a0a0a] flex flex-col p-4 relative justify-center">
+                            <!-- Mock Splash screen -->
+                            <div class="w-full h-32 border border-green-500 border-dashed rounded flex justify-center items-center mb-10"><div class="text-xs text-green-500">Logo</div></div>
+                            <div class="bg-red-700 text-white text-[10px] py-1 px-4 rounded w-full text-center font-bold mb-2 absolute bottom-20 left-0 right-0 mx-4">LALU KLIK DAFTAR SEKARANG</div>
+                            <div class="absolute bottom-4 left-0 right-0 flex justify-center"><div class="w-1/2 h-1 bg-gray-600 rounded"></div></div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:mx-0">
+                            Buka aplikasi VBATPonsel yang sudah di download.
+                        </p>
+                    </div>
+                </div>
+
+                 <!-- Step 4 -->
+                 <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-[#0a0a0a] flex flex-col p-4">
+                            <!-- Mock Register Form -->
+                            <div class="text-[10px] font-bold text-center mb-4">Daftar</div>
+                            <div class="space-y-3">
+                                <div class="h-6 border border-gray-700 rounded w-full"></div>
+                                <div class="h-6 border border-gray-700 rounded w-full"></div>
+                                <div class="h-6 border border-gray-700 rounded w-full"></div>
+                                <div class="h-6 border border-gray-700 rounded w-full"></div>
+                                <div class="h-8 bg-brand-green rounded w-full mt-4"></div>
+                            </div>
+                            <div class="mt-auto mb-4 bg-red-700 text-white text-[8px] py-2 px-2 rounded w-full text-center font-bold">MASUKAN NAMA DAN EMAIL</div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-right">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:ml-auto md:mr-0">
+                            Klik daftar
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-[#0a0a0a] flex flex-col p-4">
+                            <!-- Mock Form filled -->
+                             <div class="text-[10px] font-bold text-center mb-4">Daftar</div>
+                            <div class="space-y-3">
+                                <div class="h-6 border border-gray-500 bg-gray-900 rounded w-full px-1 text-[8px] flex items-center">Budi Santoso</div>
+                                <div class="h-6 border border-gray-500 bg-gray-900 rounded w-full px-1 text-[8px] flex items-center">budi@email.com</div>
+                                <div class="h-6 border border-gray-500 bg-gray-900 rounded w-full px-1 text-[8px] flex items-center">08123456789</div>
+                                <div class="h-6 border border-gray-500 bg-gray-900 rounded w-full px-1 text-[8px] flex items-center">********</div>
+                                <div class="h-8 bg-brand-green rounded w-full mt-4 flex justify-center items-center text-[10px] font-bold text-black">Daftar</div>
+                            </div>
+                             <div class="mt-auto mb-4 bg-red-700 text-white text-[8px] py-2 px-2 rounded w-full text-center font-bold">MASUKAN NAMA DAN EMAIL</div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:mx-0">
+                            Masukkan nama, email, lalu masukkan nomor telpon, password, dan konfirmasi password.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                 <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-black flex flex-col relative">
+                             <!-- Mock Home App -->
+                             <div class="p-2 border-b border-gray-800 text-[10px] text-green-500">VBAT</div>
+                             <div class="p-2 w-full h-16 bg-white flex items-center justify-center text-orange-500 font-bold text-xs mb-2">Onglai Store</div>
+                             <div class="grid grid-cols-2 gap-2 p-2">
+                                 <div class="h-12 bg-gray-800 rounded"></div><div class="h-12 bg-gray-800 rounded"></div>
+                                 <div class="h-12 bg-gray-800 rounded"></div><div class="h-12 bg-gray-800 rounded"></div>
+                             </div>
+                             <div class="absolute bottom-0 w-full h-10 border-t border-gray-800 flex justify-around items-center px-2">
+                                 <div class="w-4 h-4 bg-gray-600 rounded-full"></div>
+                                 <div class="w-4 h-4 bg-gray-600 rounded-full"></div>
+                                 <div class="w-4 h-4 bg-green-500 rounded-full relative">
+                                     <!-- Highlight profile -->
+                                     <div class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full animate-ping"></div>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-right">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:ml-auto md:mr-0">
+                            Lalu masuk ke halaman utama VBATPonsel, masuk ke bagian profil di bagian pojok kanan bawah
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-[#0a0a0a] flex flex-col p-4 relative">
+                            <!-- Mock Profile -->
+                             <div class="flex items-center gap-2 mb-6">
+                                 <div class="w-10 h-10 rounded-full bg-gray-300"></div>
+                                 <div>
+                                     <div class="h-2 w-16 bg-gray-400 rounded mb-1"></div>
+                                     <div class="h-1.5 w-10 bg-red-600 rounded"></div> <!-- Non-active status -->
+                                 </div>
+                             </div>
+                             <div class="space-y-4 text-[8px] text-gray-400">
+                                 <div class="flex justify-between border-b border-gray-800 pb-1"><span>Info Profil</span> <span>></span></div>
+                                 <div class="flex justify-between border-b border-gray-800 pb-1"><span>Status Langganan</span> <span>></span></div>
+                                 <div class="flex justify-between border-b border-gray-800 pb-1"><span>Riwayat Beli</span> <span>></span></div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:mx-0">
+                            Lalu klik berlangganan
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 8 -->
+                 <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-[#0a0a0a] flex flex-col relative p-4">
+                            <!-- Mock Subscription -->
+                             <div class="text-[10px] font-bold text-center mb-4 pb-2 border-b border-gray-800">Berlangganan</div>
+                             <div class="border border-gray-700 p-2 rounded mb-4">
+                                 <div class="text-[8px] font-bold mb-1">Akses Penuh</div>
+                                 <div class="text-[7px] text-gray-400">Dapatkan akses ke semua video materi...</div>
+                             </div>
+                             <div class="absolute bottom-4 left-4 right-4 h-8 bg-brand-green rounded flex justify-center items-center text-[10px] font-bold text-black">
+                                 Berlangganan Sekarang
+                             </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-right">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:ml-auto md:mr-0">
+                            Dan berlangganan sekarang.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 9 -->
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-[#0a0a0a] flex flex-col p-4 relative">
+                            <!-- Mock Payment Selection -->
+                             <div class="text-[10px] font-bold text-center mb-4 pb-2 border-b border-gray-800">Pembayaran</div>
+                             <div class="flex justify-between items-center bg-gray-900 p-2 rounded mb-4 border border-orange-500">
+                                 <div class="text-[8px]">Total Tagihan</div>
+                                 <div class="text-[8px] font-bold text-orange-500">Rp 800.000,-</div>
+                             </div>
+                             <div class="text-[8px] mb-2 text-gray-400">Pilih Metode</div>
+                             <div class="space-y-2">
+                                 <div class="border border-gray-700 p-2 rounded flex gap-2 items-center">
+                                     <div class="w-6 h-4 bg-blue-600 rounded"></div> <span class="text-[8px]">Virtual Account</span>
+                                 </div>
+                                 <div class="border border-gray-700 p-2 rounded flex gap-2 items-center">
+                                     <div class="w-6 h-4 bg-pink-600 rounded flex justify-center items-center text-[5px] font-bold">QRIS</div> <span class="text-[8px]">QRIS</span>
+                                 </div>
+                             </div>
+                             <div class="absolute bottom-4 left-4 right-4 h-8 bg-brand-green rounded flex justify-center items-center text-[10px] font-bold text-black opacity-50">
+                                 Lanjutkan
+                             </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:mx-0">
+                            Anda akan diarahkan ke halaman pembayaran. Pilih pembayaran menggunakan BRE virtual akun atau Qris.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 10 -->
+                <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+                         <!-- Same mock as Step 9 but button is active -->
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-[#0a0a0a] flex flex-col p-4 relative">
+                             <div class="text-[10px] font-bold text-center mb-4 pb-2 border-b border-gray-800">Pembayaran</div>
+                             <div class="flex justify-between items-center bg-gray-900 p-2 rounded mb-4">
+                                 <div class="text-[8px]">Total Tagihan</div>
+                                 <div class="text-[8px] font-bold text-orange-500">Rp 800.000,-</div>
+                             </div>
+                             <div class="space-y-2">
+                                 <div class="border border-brand-green p-2 rounded flex gap-2 items-center bg-green-900/20">
+                                     <div class="w-6 h-4 bg-blue-600 rounded"></div> <span class="text-[8px]">Virtual Account</span>
+                                 </div>
+                                  <div class="border border-gray-700 p-2 rounded flex gap-2 items-center">
+                                     <div class="w-6 h-4 bg-pink-600 rounded flex justify-center items-center text-[5px] font-bold">QRIS</div> <span class="text-[8px]">QRIS</span>
+                                 </div>
+                             </div>
+                             <div class="absolute bottom-4 left-4 right-4 h-8 bg-brand-green rounded flex justify-center items-center text-[10px] font-bold text-black">
+                                 Klik Berlangganan
+                             </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-right">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:ml-auto md:mr-0">
+                            Lalu Klik Berlangganan Sekarang
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 11 -->
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-[#0a0a0a] flex flex-col">
+                            <!-- Mock Certificate form -->
+                             <div class="p-4 flex-1">
+                                <div class="text-[10px] font-bold mb-2">&lt; Lengkapi Profile Anda</div>
+                                <div class="text-[6px] text-gray-400 mb-4">Biodata untuk e-Sertifikat...</div>
+                                <div class="space-y-3">
+                                    <div class="h-6 border border-gray-700 rounded w-full flex items-center px-2 text-[8px]">Budi Santoso</div>
+                                    <div class="h-6 border border-gray-700 rounded w-full flex items-center px-2 text-[8px] text-gray-500">budi@email.com</div>
+                                </div>
+                                <div class="mt-4 bg-red-700 text-white text-[7px] p-2 rounded text-center font-bold">MASUKAN NAMA LENGKAP YANG AKAN DIGUNAKAN UNTUK E-SERTIFIKAT</div>
+                             </div>
+                             <div class="w-full h-32 bg-gray-800 grid grid-cols-10 gap-0.5 p-1 mt-auto">
+                                 <!-- Keyboard -->
+                             </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:mx-0">
+                            Masukkan biodata anda sesuai dengan KTP karna, setelah pembelajaran selesai anda akan mendapatkan e-Sertifikat yang akan muncul di bagian profil.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 12 -->
+                <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-[#0a0a0a] flex flex-col p-4 relative">
+                            <!-- Mock Payment Code -->
+                             <div class="text-[10px] text-center mb-4">Menunggu Pembayaran</div>
+                             <div class="text-[8px] text-gray-400 text-center mb-1">Nomor Virtual Account</div>
+                             <div class="text-[12px] font-bold text-center mb-4 tracking-widest text-brand-orange">1234 5678 9012</div>
+                             
+                             <div class="bg-brand-green text-black text-[8px] font-bold text-center py-2 rounded mb-4">Salin Kode</div>
+
+                             <div class="text-[7px] text-gray-400 border-t border-gray-800 pt-2">
+                                 Cara Pembayaran:<br>
+                                 1. Buka m-banking<br>
+                                 2. Pilih Transfer > Virtual Account<br>
+                                 3. Masukkan kode di atas<br>
+                                 4. Konfirmasi pembayaran
+                             </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-right">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:ml-auto md:mr-0">
+                            Lalu anda akan diberikan kode pembayaran, yang bisa langsung anda bayarkan melalui BRE virtual akun, atau aplikasi E-Wallet lainnya.
+                        </p>
+                    </div>
+                </div>
+
+                 <!-- Step 13 -->
+                 <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 relative z-10 w-full">
+                    <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+                        <div class="w-48 h-96 border-4 border-gray-800 rounded-xl overflow-hidden bg-[#0a0a0a] flex flex-col p-4 relative">
+                            <!-- Mock Profile Active -->
+                             <div class="flex items-center gap-2 mb-6 mt-4">
+                                 <div class="w-10 h-10 rounded-full bg-gray-300"></div>
+                                 <div>
+                                     <div class="h-2 w-16 bg-gray-400 rounded mb-1"></div>
+                                     <div class="h-1.5 w-12 bg-green-500 rounded"></div> <!-- Active status -->
+                                 </div>
+                             </div>
+                             <div class="space-y-4 text-[8px] text-gray-400 mt-8">
+                                 <div class="flex justify-between border-b border-gray-800 pb-1"><span>Info Profil</span> <span>></span></div>
+                                 <div class="flex justify-between border-b border-gray-800 pb-1 text-green-500"><span>Status: BERLANGGANAN</span> <span>></span></div>
+                                 <div class="flex justify-between border-b border-gray-800 pb-1"><span>E-Sertifikat</span> <span>></span></div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left">
+                        <p class="text-gray-200 text-sm md:text-base font-medium max-w-xs mx-auto md:mx-0">
+                            Setelah pembayaran selesai cek profil anda, pastikan status akun sudah berganti menjadi berlangganan.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. SUPPORT & PRICING SECTION -->
+    <section class="py-20 px-6 md:px-20 bg-brand-dark flex flex-col items-center border-t border-gray-900">
+        
+        <p class="text-center max-w-lg mb-10 text-gray-300">
+            Jika ada kendala setelah pembayaran anda dapat menghubungi admin VBATPonsel yang ada di bagian bawah profil.
+        </p>
+
+        <div class="inline-block px-8 py-2 text-brand-green font-bold text-xl border-2 border-brand-green rounded-lg shadow-glow tracking-wider mb-20">
+            Tutorial
+        </div>
+
+        <div class="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center gap-10">
+            <!-- Left Card Image -->
+            <div class="w-full md:w-1/2">
+                <div class="rounded-2xl overflow-hidden relative border border-gray-800 bg-[#0a0a0a]">
+                     <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" alt="App Preview" class="w-full h-auto opacity-60">
+                     <div class="absolute inset-0 flex flex-col justify-center items-center p-6 text-center z-10">
+                         <h3 class="text-xl font-bold text-brand-green mb-2">VBATPONSEL</h3>
+                         <p class="text-xs text-white mb-1">Video Belajar Akademi Teknisi Ponsel</p>
+                         <p class="text-xs text-brand-orange font-bold mb-4">UPGRADE LIFE SKILL DARI GENGGAMAN</p>
+                         <div class="w-24 mt-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+                         </div>
+                     </div>
+                </div>
+            </div>
+
+            <!-- Right Pricing Text -->
+            <div class="w-full md:w-1/2 flex flex-col gap-6">
+                <h3 class="text-2xl font-poppins font-bold">Biaya Berlangganan Aplikasi<br><span class="text-brand-orange">VBATPonsel</span></h3>
+                
+                <div>
+                    <p class="text-sm text-gray-400">Pengguna Baru :</p>
+                    <p class="text-3xl font-bold text-brand-green">Rp 800.000,-</p>
+                </div>
+                
+                <div>
+                    <p class="text-sm text-gray-400">Alumni LPK Quantum Telecommunication</p>
+                    <p class="text-3xl font-bold text-brand-green">Rp 100.000,-</p>
+                </div>
+
+                <div class="w-32 mt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="cursor-pointer hover:opacity-80 transition">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. STATS SECTION -->
+    <section class="py-16 px-6 md:px-20 bg-[#020202] border-t border-gray-900 pb-32">
+        <div class="max-w-4xl mx-auto grid grid-cols-3 gap-4 text-center">
+            <div class="flex flex-col">
+                <span class="text-4xl md:text-6xl font-poppins font-bold text-brand-green mb-2">13</span>
+                <span class="text-sm md:text-base text-gray-400">Team</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-4xl md:text-6xl font-poppins font-bold text-brand-green mb-2">2.423</span>
+                <span class="text-sm md:text-base text-gray-400">Pengguna</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-4xl md:text-6xl font-poppins font-bold text-brand-green mb-2">18+</span>
+                <span class="text-sm md:text-base text-gray-400">Sponsor</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. CALL TO ACTION SECTION -->
+    <section class="py-24 px-6 md:px-20 bg-[#000000]">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <!-- Left Mockup 3D Phones -->
+            <div class="w-full md:w-1/2 flex justify-center relative h-[450px]">
+                <!-- Phone Back (Dark) -->
+                <div class="absolute z-10 w-56 h-[420px] bg-[#141414] rounded-[2.5rem] border border-gray-800 shadow-2xl transform -rotate-[25deg] -translate-x-12 translate-y-8 flex flex-col p-4">
+                    <!-- Camera Lenses -->
+                    <div class="w-10 h-28 bg-[#0a0a0a] rounded-full border border-gray-800 mt-2 ml-1 flex flex-col justify-evenly items-center py-1">
+                        <div class="w-6 h-6 rounded-full bg-gray-900 border-2 border-gray-700"></div>
+                        <div class="w-6 h-6 rounded-full bg-gray-900 border-2 border-gray-700"></div>
+                        <div class="w-6 h-6 rounded-full bg-gray-900 border-2 border-gray-700"></div>
+                    </div>
+                </div>
+                <!-- Phone Front (App UI) -->
+                <div class="absolute z-20 w-56 h-[420px] bg-[#050505] rounded-[2.5rem] border-[6px] border-gray-900 shadow-2xl transform -rotate-12 translate-x-8 -translate-y-4 overflow-hidden">
+                    <div class="w-full h-full flex flex-col p-4">
+                        <div class="w-full flex justify-between items-center mb-6">
+                            <span class="text-brand-green font-bold text-xs">VBAT</span>
+                            <span class="text-white text-xs">>>></span>
+                        </div>
+                        <div class="flex-1 border-2 border-dashed border-brand-green rounded-xl flex items-center justify-center opacity-75 mb-6 p-4">
+                             <!-- Visual graphic mock -->
+                             <div class="w-full h-24 border border-brand-green rounded transform rotate-12 relative flex justify-center items-center bg-[#0a0a0a]">
+                                 <div class="w-10 h-10 border border-brand-green rounded-full"></div>
+                                 <div class="absolute w-2 h-2 bg-brand-green rounded-full -top-1 -right-1"></div>
+                                 <div class="absolute w-2 h-2 bg-brand-green rounded-full -bottom-1 -left-1"></div>
+                             </div>
+                        </div>
+                        <div class="flex justify-center mb-2">
+                             <div class="w-8 h-8 bg-brand-green rounded-sm flex items-center justify-center font-bold text-black text-[10px]">V</div>
+                        </div>
+                        <div class="text-center text-[8px] text-white font-bold mb-1">VBATPONSEL</div>
+                        <div class="text-center text-[6px] text-gray-500 mb-6">UPGRADE LIFE SKILL DARI GENGGAMAN</div>
+                        <div class="w-full h-8 bg-brand-green mt-auto rounded flex items-center justify-center text-[9px] font-bold text-black">UPGRADE LIFE SKILL SEKARANG</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Content -->
+            <div class="w-full md:w-1/2 flex flex-col gap-6 z-30">
+                <h2 class="text-5xl md:text-7xl font-poppins font-bold text-brand-green leading-tight">
+                    Tunggu Apa<br>Lagi ?
+                </h2>
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed mt-4 max-w-lg">
+                    Yuk! unduh dan instal aplikasi <span class="text-brand-orange">VBATPonsel</span> untuk mendapatkan ilmu tentang perbaikan ponsel. Dengan menggunakan aplikasi ini, Anda dapat mempelajari berbagai teknik dan metode untuk memperbaiki ponsel yang rusak dengan mudah.
+                </p>
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-lg">
+                    Jadi, jangan ragu untuk mengunduh dan menginstal aplikasi <span class="text-brand-orange">VBATPonsel</span> sekarang juga!
+                </p>
+                <div class="mt-4 w-48">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="w-full h-auto cursor-pointer hover:opacity-80 transition">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. FAQ SECTION -->
+    <section class="py-20 px-6 md:px-20 bg-[#050505] border-t border-gray-900">
+        <div class="max-w-3xl mx-auto flex flex-col items-center">
+            <!-- Icon -->
+            <div class="text-7xl md:text-8xl font-bold text-brand-green mb-4 leading-none">?</div>
+            
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold text-brand-green mb-2 text-center">Frequently Asked Questions</h2>
+            <p class="text-gray-300 text-xs md:text-sm mb-12 text-center">Pertanyaan Umum tentang Aplikasi VBATPonsel</p>
+
+            <div class="w-full flex flex-col gap-3">
+                <!-- FAQ Item 1 -->
+                <details class="group bg-[#111] border border-gray-800 rounded">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none [&::-webkit-details-marker]:hidden p-5 text-brand-green text-sm">
+                        <span>Apa itu aplikasi VBATPonsel?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="20" width="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-5 pt-0 text-sm border-t border-gray-800 mt-2">
+                        VBATPonsel adalah platform belajar akademi teknisi ponsel yang menyediakan video materi dan panduan lengkap.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="group bg-[#111] border border-gray-800 rounded">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none [&::-webkit-details-marker]:hidden p-5 text-brand-green text-sm">
+                        <span>Apa Jenis pelatihan yang ada di dalam Aplikasi VBATPonsel?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="20" width="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-5 pt-0 text-sm border-t border-gray-800 mt-2">
+                        Terdapat berbagai jenis pelatihan mulai dari tingkat dasar hingga mahir dalam perbaikan hardware dan software.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 3 -->
+                <details class="group bg-[#111] border border-gray-800 rounded">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none [&::-webkit-details-marker]:hidden p-5 text-brand-green text-sm">
+                        <span>Apa fitur utama yang tersedia di dalam aplikasi VBATPonsel?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="20" width="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-5 pt-0 text-sm border-t border-gray-800 mt-2">
+                        Fitur utama meliputi Video Materi Terstruktur, E-Sertifikat, Akses Grup Diskusi, dan Link download file.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 4 -->
+                <details class="group bg-[#111] border border-gray-800 rounded">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none [&::-webkit-details-marker]:hidden p-5 text-brand-green text-sm">
+                        <span>Bagaimana cara menggunakan aplikasi VBATPonsel?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="20" width="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-5 pt-0 text-sm border-t border-gray-800 mt-2">
+                        Cukup unduh aplikasinya, daftar akun, dan berlangganan untuk mulai mengakses semua fiturnya.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 5 -->
+                <details class="group bg-[#111] border border-gray-800 rounded">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none [&::-webkit-details-marker]:hidden p-5 text-brand-green text-sm">
+                        <span>Apa saja Materi yang terdapat pada aplikasi VBATPonsel?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="20" width="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-5 pt-0 text-sm border-t border-gray-800 mt-2">
+                        Materi disusun sesuai standar SKKNI untuk industri servis ponsel modern.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 6 -->
+                <details class="group bg-[#111] border border-gray-800 rounded">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none [&::-webkit-details-marker]:hidden p-5 text-brand-green text-sm">
+                        <span>Apa saja yang didapatkan ketika belajar di aplikasi VBATPonsel</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="20" width="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-5 pt-0 text-sm border-t border-gray-800 mt-2">
+                        Anda mendapatkan akses video, e-Sertifikat kelulusan, dan free Kaos Official bagi member baru.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 7 -->
+                <details class="group bg-[#111] border border-gray-800 rounded">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none [&::-webkit-details-marker]:hidden p-5 text-brand-green text-sm">
+                        <span>Berapa biaya yang diperlukan untuk mengakses aplikasi VBATPonsel?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="20" width="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-5 pt-0 text-sm border-t border-gray-800 mt-2">
+                        Biaya langganan sangat terjangkau dengan promo khusus untuk member/alumni.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 8 -->
+                <details class="group bg-[#111] border border-gray-800 rounded">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none [&::-webkit-details-marker]:hidden p-5 text-brand-green text-sm">
+                        <span>Bagaimana cara pembayarannya?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="20" width="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-5 pt-0 text-sm border-t border-gray-800 mt-2">
+                        Mendukung pembayaran via Virtual Account, QRIS, dan e-Wallet ternama.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 9 -->
+                <details class="group bg-[#111] border border-gray-800 rounded">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none [&::-webkit-details-marker]:hidden p-5 text-brand-green text-sm">
+                        <span>Apa yang harus saya lakukan jika mengalami masalah saat menggunakan aplikasi ini?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="20" width="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-5 pt-0 text-sm border-t border-gray-800 mt-2">
+                        Silakan hubungi admin Customer Support kami melalui WhatsApp di bagian footer/profil aplikasi.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. SPONSORS SECTION -->
+    <section class="py-20 px-6 md:px-20 bg-[#000000]">
+        <div class="max-w-5xl mx-auto flex flex-col items-center">
+            
+            <!-- Header Text -->
+            <div class="text-center mb-10">
+                <div class="flex items-center justify-center gap-2 text-2xl font-poppins font-bold tracking-wider mb-2">
+                    <div class="w-6 h-6 grid grid-cols-3 gap-[1px]">
+                        <div class="bg-brand-green"></div><div class="bg-brand-green opacity-75"></div><div class="bg-brand-green opacity-50"></div>
+                        <div class="bg-brand-green"></div><div class="bg-brand-green opacity-75"></div><div class="bg-brand-green opacity-50"></div>
+                        <div class="col-span-3 h-1 mt-[1px] bg-brand-green"></div>
+                    </div>
+                    <span class="text-brand-green">BAT<span class="text-white">PONSEL</span></span>
+                </div>
+                <p class="text-white font-bold text-lg">Di Dukung Oleh :</p>
+            </div>
+
+            <!-- Big Sponsor -->
+            <div class="mb-12">
+                <div class="flex items-center gap-4 cursor-pointer hover:scale-105 transition-transform duration-300">
+                    <!-- Custom Battery Mock Logo for BT-ACC -->
+                    <div class="relative w-16 h-28 border-[5px] border-white rounded-[1rem] flex items-center justify-center bg-black overflow-hidden">
+                        <div class="absolute -top-3 w-6 h-3 bg-white rounded-t"></div>
+                        <span class="text-5xl font-extrabold text-[#e60000]">B</span>
+                    </div>
+                    <span class="text-6xl md:text-[80px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-500 drop-shadow-md tracking-tighter" style="-webkit-text-stroke: 3px white;">
+                        BT-ACC
+                    </span>
+                    <!-- Mascot placeholder on top right -->
+                    <div class="absolute -mt-32 ml-48 w-16 h-16 bg-white rounded-xl shadow flex items-center justify-center text-xs font-bold rotate-12">
+                        <span class="text-black text-center">^ ^<br><span class="text-red-500">B</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Small Sponsors -->
+            <div class="grid grid-cols-3 md:grid-cols-6 gap-4 w-full">
+                <!-- Row 1 -->
+                <div class="bg-white rounded-2xl h-20 flex items-center justify-center p-2 hover:shadow-glow transition cursor-pointer">
+                    <span class="font-bold text-black text-[10px] text-center text-yellow-500 uppercase leading-tight"><span class="text-xl">∞</span><br>MAGIC SERVICE</span>
+                </div>
+                <div class="bg-white rounded-2xl h-20 flex items-center justify-center p-2 hover:shadow-glow transition cursor-pointer">
+                    <span class="font-bold text-blue-900 text-xs text-center">WINFOCUS</span>
+                </div>
+                <div class="bg-white rounded-2xl h-20 flex items-center justify-center p-2 hover:shadow-glow transition cursor-pointer">
+                    <span class="font-bold text-green-700 text-xs text-center flex flex-col items-center"><div class="w-6 h-6 border-2 border-green-700 rotate-45 mb-1"></div>BAMUIS BNI</span>
+                </div>
+                <div class="bg-white rounded-2xl h-20 flex items-center justify-center p-2 hover:shadow-glow transition cursor-pointer">
+                    <span class="font-bold text-blue-600 text-xs text-center flex flex-col items-center"><span class="text-xl font-black mb-1">X</span>SUNSHINE</span>
+                </div>
+                <div class="bg-white rounded-2xl h-20 flex items-center justify-center p-2 hover:shadow-glow transition cursor-pointer">
+                    <span class="font-bold text-red-600 text-xs text-center flex flex-col items-center"><span class="text-xl font-black mb-1">B</span>BORNEO</span>
+                </div>
+                <div class="bg-white rounded-2xl h-20 flex items-center justify-center p-2 hover:shadow-glow transition cursor-pointer">
+                    <span class="font-bold text-black text-[10px] text-center uppercase flex flex-col items-center"><span class="text-xl text-orange-500 mb-1">(((X)))</span>future store</span>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="bg-[#111] rounded-2xl h-20 flex items-center justify-center p-2 border border-gray-800 hover:shadow-glow transition cursor-pointer">
+                    <span class="font-bold text-blue-400 text-sm">Meet<span class="text-red-500">oo</span></span>
+                </div>
+                <div class="bg-[#111] rounded-2xl h-20 flex items-center justify-center p-2 border border-gray-800 hover:shadow-glow transition cursor-pointer">
+                    <span class="font-bold text-green-500 text-sm">AiMPro</span>
+                </div>
+                <div class="bg-[#111] rounded-2xl h-20 flex flex-row items-center justify-center p-2 border border-gray-800 hover:shadow-glow transition cursor-pointer gap-2">
+                    <div class="w-8 h-8 rounded-full bg-orange-600 flex justify-center items-center font-bold">S</div>
+                    <div class="text-[8px] font-bold text-yellow-500">OG<br>****</div>
+                </div>
+                <div class="bg-[#111] border border-green-500 rounded-2xl h-20 flex items-center justify-center p-2 hover:shadow-glow transition cursor-pointer">
+                    <span class="font-bold text-brand-green text-xs flex flex-col items-center"><span class="text-xl font-black italic">CD</span>ND-TECH</span>
+                </div>
+                <div class="bg-gradient-to-tr from-purple-800 to-blue-600 rounded-2xl h-20 flex items-center justify-center p-2 hover:shadow-glow transition cursor-pointer">
+                    <span class="font-bold text-white text-xl">Pozi</span>
+                </div>
+                <div class="bg-[#111] rounded-2xl h-20 flex items-center justify-center p-2 border border-gray-800 hover:shadow-glow transition cursor-pointer relative overflow-hidden">
+                     <span class="absolute inset-0 flex justify-center items-center text-4xl font-black text-gray-800 opacity-50">P</span>
+                     <span class="font-bold text-white text-[8px] text-center z-10 bg-black/50 px-1 rounded">PRAGMAFIX</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. FOOTER -->
+    <footer class="bg-[#0a0a0a] border-t border-gray-900 pt-12 pb-8 px-6 md:px-20">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+            
+            <!-- Column 1: Branding -->
+            <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-2 font-poppins font-bold tracking-wider">
+                    <div class="w-5 h-5 grid grid-cols-3 gap-[1px]">
+                        <div class="bg-brand-green"></div><div class="bg-brand-green opacity-75"></div><div class="bg-brand-green opacity-50"></div>
+                        <div class="bg-brand-green"></div><div class="bg-brand-green opacity-75"></div><div class="bg-brand-green opacity-50"></div>
+                        <div class="col-span-3 h-1 mt-[1px] bg-brand-green"></div>
+                    </div>
+                    <span class="text-brand-green text-lg">BAT<span class="text-white">PONSEL</span></span>
+                </div>
+                <p class="text-xs text-gray-400">By. Quantum Telecommunication</p>
+                <div class="flex items-center gap-3 mt-2">
+                    <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.89-4.443 9.892-9.892.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.739-.974z"/></svg>
+                    </div>
+                    <span class="text-brand-green font-bold">082 171 72 73 37</span>
+                </div>
+                <!-- Quantum Small Logo Mock -->
+                <div class="flex items-center gap-2 mt-2">
+                    <div class="w-8 h-8 text-blue-500">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 6a6 6 0 100 12 6 6 0 000-12z" fill="currentColor" opacity="0.5"/></svg>
+                    </div>
+                    <span class="text-blue-500 font-bold text-xs uppercase">Quantum<br><span class="text-[8px] font-normal">Telecommunication</span></span>
+                </div>
+            </div>
+
+            <!-- Column 2: Info -->
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-white text-sm">Informasi</h4>
+                <p class="text-xs text-gray-400">admin@quantumtelecom.id</p>
+                <div class="flex gap-4 mt-2">
+                    <!-- Social icons using SVG -->
+                    <a href="#" class="text-gray-500 hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.89-4.443 9.892-9.892.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.739-.974z"/></svg></a>
+                </div>
+            </div>
+
+            <!-- Column 3: Location -->
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-white text-sm">Lokasi</h4>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                    Jl. Bina Remaja No.4, Srondol Wetan, Kec. Banyumanik, Kota Semarang, Jawa Tengah 50263
+                </p>
+            </div>
+            
+        </div>
+    </footer>
+
+</body>
+</html>
