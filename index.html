@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VBATPonsel - Akademi Teknisi Indonesia</title>
+    <!-- SEO Dasar -->
+<meta name="description" content="Bootcamp Spesialis Perbaikan iPhone Advanced di Pontianak. Pelatihan 5 hari (15-19 Juni 2026) dengan instruktur iRepair Academy. Kuota terbatas 12 peserta!">
+<meta name="keywords" content="kursus teknisi iphone, pelatihan service hp pontianak, belajar servis iphone, vbatponsel, teknisi apple">
+<meta name="author" content="VBATPonsel">
+
+<!-- Open Graph / Meta Tags untuk Share WhatsApp & Sosmed -->
+<meta property="og:title" content="Bootcamp Spesialis Perbaikan iPhone - VBATPonsel">
+<meta property="og:description" content="Tingkatkan skill teknisimu ke ekosistem Apple. Daftar kelas offline di Pontianak sekarang! Kuota terbatas.">
+<meta property="og:url" content="https://vbatponsel.com/akademi/teknisi-iphone.html">
+<meta property="og:type" content="website">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,6 +57,7 @@
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
+
         .hide-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -95,9 +106,43 @@
                 </div>
 
                 <!-- Desktop Menu -->
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#" class="text-primary font-semibold border-b-2 border-primary py-7">Beranda</a>
-                    <a href="#" class="text-gray-500 hover:text-primary font-medium transition-colors">Akademi</a>
+                    <a href="index.html" class="text-gray-500 hover:text-primary font-medium transition-colors">Beranda</a>
+                    
+                    <!-- Menu Akademi dengan Dropdown -->
+                    <div class="relative group h-20 flex items-center">
+                        <button class="text-primary font-semibold border-b-2 border-primary h-full flex items-center gap-1">
+                            Akademi <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        
+                        <!-- Dropdown Content -->
+                        <div class="absolute top-[70px] left-0 w-64 bg-white rounded-2xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0 flex flex-col p-2 z-50">
+                            
+                            <!-- Opsi Kelas iPhone (Highlight) -->
+                            <a href="teknisi-iphone.html" class="px-4 py-3 hover:bg-blue-50 rounded-xl transition-colors flex items-start gap-3 relative overflow-hidden group/item">
+                                <!-- Badge Urgency -->
+                                <div class="absolute top-0 right-0 bg-red-500 text-white text-[8px] font-bold px-2 py-0.5 rounded-bl-lg">HAMPIR PENUH</div>
+                                
+                                <div class="w-10 h-10 bg-blue-100 text-primary rounded-lg flex items-center justify-center flex-shrink-0 mt-1"><i class="fa-brands fa-apple text-xl"></i></div>
+                                <div>
+                                    <div class="text-sm font-bold text-gray-800 group-hover/item:text-primary transition-colors">Spesialis iPhone</div>
+                                    <div class="text-xs text-gray-500 mt-0.5">Offline • Pontianak</div>
+                                </div>
+                            </a>
+
+                            <!-- Opsi Katalog Umum -->
+                            <a href="#" class="px-4 py-3 hover:bg-gray-50 rounded-xl transition-colors flex items-start gap-3 group/item">
+                                <div class="w-10 h-10 bg-gray-100 text-gray-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"><i class="fa-solid fa-layer-group"></i></div>
+                                <div>
+                                    <div class="text-sm font-bold text-gray-800 group-hover/item:text-primary transition-colors">Semua Kelas</div>
+                                    <div class="text-xs text-gray-500 mt-0.5">Lihat katalog akademi</div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+
                     <a href="#" class="text-gray-500 hover:text-primary font-medium transition-colors">Marketplace</a>
                     <a href="#" class="text-gray-500 hover:text-primary font-medium transition-colors">Komunitas</a>
                     <a href="#" class="text-gray-500 hover:text-primary font-medium transition-colors">Sponsor</a>
