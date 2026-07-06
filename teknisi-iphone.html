@@ -111,31 +111,34 @@
 
     <!-- Hero Section -->
     <!-- Hero Section -->
-    <section class="relative w-full flex flex-col justify-center items-center aspect-square md:aspect-auto md:min-h-screen bg-slate-900 bg-[url('banner-kelas-iphone-pontianak.jpeg')] bg-contain bg-center bg-no-repeat overflow-hidden pt-20 pb-10 md:pt-32 md:pb-16">
-        
-        <!-- Overlay putih disesuaikan agar teks terbaca, tapi gambar di belakang tetap utuh dan jelas -->
-        <div class="absolute inset-0 bg-white/75 backdrop-blur-[2px] z-0"></div>
+    <!-- Hero Section -->
+    <section class="relative w-full flex flex-col items-center bg-white md:bg-slate-900 md:min-h-screen md:justify-center overflow-hidden pt-20 md:pt-32 md:pb-16">
 
-        <!-- Background Glow (Sengaja disembunyikan di HP agar tidak menutupi gambar) -->
-        <div class="absolute top-20 right-0 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob z-0 hidden md:block"></div>
-        <div class="absolute top-40 left-10 w-72 h-72 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 z-0 hidden md:block"></div>
+        <!-- Background Image & Overlay KHUSUS DESKTOP -->
+        <div class="hidden md:block absolute inset-0 bg-[url('banner-kelas-iphone-pontianak.jpeg')] bg-contain bg-center bg-no-repeat z-0"></div>
+        <div class="hidden md:block absolute inset-0 bg-white/80 backdrop-blur-[2px] z-0"></div>
 
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-block bg-white border border-gray-200 text-gray-600 text-[10px] sm:text-xs font-semibold px-4 py-1.5 rounded-full mb-4 sm:mb-6 uppercase tracking-wider shadow-sm mt-8 md:mt-0">
+        <!-- Banner Image KHUSUS MOBILE (Tampil utuh 1:1 di atas, tanpa blur/overlay) -->
+        <div class="w-full aspect-square bg-[url('banner-kelas-iphone-pontianak.jpeg')] bg-cover bg-center bg-no-repeat block md:hidden z-10 shadow-md"></div>
+
+        <!-- Area Teks -->
+        <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center pt-8 pb-10 md:pt-0 md:pb-0">
+            <div class="inline-block bg-white border border-gray-200 text-gray-600 text-[10px] sm:text-xs font-semibold px-4 py-1.5 rounded-full mb-4 sm:mb-6 uppercase tracking-wider shadow-sm">
                 <span class="text-primary">●</span> KELAS OFFLINE ADVANCED
             </div>
             
-            <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 sm:mb-6 text-secondary drop-shadow-md">
+            <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 sm:mb-6 text-secondary md:drop-shadow-md">
                 From Android to Apple: <br>
                 <span class="text-primary">Spesialis Perbaikan iPhone</span>
             </h1>
             
-            <p class="text-gray-900 font-semibold text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed px-2 sm:px-0 drop-shadow-md">
+            <p class="text-gray-600 md:text-gray-900 font-medium md:font-semibold text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed px-2 sm:px-0 md:drop-shadow-md">
                 Tingkatkan skill teknisimu ke level selanjutnya. Pelatihan intensif 40 Jam Pelajaran (8 JP/hari @60 menit) khusus untuk teknisi yang siap ekspansi ke ekosistem Apple.
             </p>
         </div>
-    </section>
 
+    </section>
+    
     <section class="pb-12">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gradient-to-r from-secondary to-primary rounded-3xl p-8 shadow-xl text-white relative overflow-hidden">
