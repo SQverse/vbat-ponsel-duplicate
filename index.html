@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VBAT Ponsel — Dari Nol Jadi Teknisi HP Profesional</title>
-
-<meta name="description" content="Bootcamp Spesialis Perbaikan iPhone Advanced di Pontianak. Pelatihan dengan instruktur iRepair Academy. Kuota terbatas!">
-<meta name="keywords" content="kursus teknisi iphone, pelatihan service hp pontianak, belajar servis iphone, vbatponsel, teknisi apple">
+<meta name="description" content="Program pelatihan teknisi Android & iPhone dari LPK Quantum Telecommunication. Mentor berpengalaman, sertifikasi resmi, akses marketplace alat & sparepart setelah lulus.">
+<meta name="keywords" content="kursus teknisi hp, pelatihan service hp, belajar servis android iphone, vbatponsel, lpk quantum telecommunication">
 <meta name="author" content="VBATPonsel">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
@@ -29,88 +29,44 @@
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
-  body{
-    background:var(--navy-deep);
-    color:var(--white);
-    font-family:'Inter',sans-serif;
-    line-height:1.6;
-    overflow-x:hidden;
-  }
+  body{ background:var(--navy-deep); color:var(--white); font-family:'Inter',sans-serif; line-height:1.6; overflow-x:hidden; }
   h1,h2,h3,h4{font-family:'Sora',sans-serif; letter-spacing:-0.01em;}
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
   .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:16px;
-  }
+  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
   .eyebrow::before{content:''; width:18px; height:2px; background:var(--gold); display:inline-block;}
-
-  /* ===== BACKGROUND CIRCUIT TEXTURE ===== */
   .circuit-bg{ position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.35; }
 
   /* ===== NAV ===== */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(8,15,36,0.85); backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 24px; max-width:1120px; margin:0 auto;
-  }
-  .logo{display:flex; align-items:center; gap:10px; font-family:'Sora'; font-weight:800; font-size:19px; line-height:1.2;}
-  .logo .mark{
-    width:34px; height:34px; border-radius:9px;
-    background:linear-gradient(145deg, var(--gold-light), var(--gold-dim));
-    display:flex; align-items:center; justify-content:center;
-    font-size:16px; color:var(--navy-deep); font-weight:800;
-  }
-  .logo-text span{display:block; font-size:10px; font-family:'Inter'; color:var(--slate); font-weight:600; letter-spacing:1px; text-transform:uppercase;}
+  header{ position:sticky; top:0; z-index:50; background:rgba(8,15,36,0.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1120px; margin:0 auto; }
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Sora'; font-weight:800; font-size:19px;}
+  .logo .mark{ width:34px; height:34px; border-radius:9px; background:linear-gradient(145deg, var(--gold-light), var(--gold-dim)); display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--navy-deep); font-weight:800; }
   .navlinks{display:flex; gap:32px; font-size:14px; font-weight:500; color:var(--slate);}
   .navlinks a:hover{color:var(--white);}
-  .nav-cta{
-    background:var(--gold); color:var(--navy-deep); padding:10px 20px; border-radius:8px;
-    font-weight:700; font-size:14px; white-space:nowrap; transition:transform .2s;
-  }
+  .nav-cta{ background:var(--gold); color:var(--navy-deep); padding:10px 20px; border-radius:8px; font-weight:700; font-size:14px; white-space:nowrap; transition:transform .2s;}
   .nav-cta:hover{transform:translateY(-2px);}
   @media(max-width:760px){ .navlinks{display:none;} }
 
   /* ===== HERO ===== */
-  .hero{
-    position:relative; z-index:1; padding:88px 24px 40px;
-    max-width:1120px; margin:0 auto;
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
-  }
+  .hero{ position:relative; z-index:1; padding:88px 24px 70px; max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center; }
   @media(max-width:900px){ .hero{grid-template-columns:1fr; padding-top:56px;} }
   .hero h1{ font-size:clamp(34px,5vw,54px); font-weight:800; line-height:1.08; margin-bottom:22px; }
   .hero h1 .accent{color:var(--gold);}
   .hero p.lead{font-size:17px; color:var(--slate); max-width:480px; margin-bottom:32px;}
   .cta-row{display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
-  .btn-primary{
-    background:var(--gold); color:var(--navy-deep); font-weight:700; font-size:15px;
-    padding:15px 28px; border-radius:9px; display:inline-flex; align-items:center; gap:8px;
-    box-shadow:0 8px 24px rgba(242,183,5,0.22); transition:transform .15s ease;
-  }
+  .btn-primary{ background:var(--gold); color:var(--navy-deep); font-weight:700; font-size:15px; padding:15px 28px; border-radius:9px; display:inline-flex; align-items:center; gap:8px; box-shadow:0 8px 24px rgba(242,183,5,0.22); transition:transform .15s ease; }
   .btn-primary:hover{transform:translateY(-2px);}
-  .btn-ghost{
-    border:1px solid var(--line); color:var(--white); font-weight:600; font-size:15px;
-    padding:14px 24px; border-radius:9px; transition:border-color .2s;
-  }
+  .btn-ghost{ border:1px solid var(--line); color:var(--white); font-weight:600; font-size:15px; padding:14px 24px; border-radius:9px; transition:border-color .2s; }
   .btn-ghost:hover{border-color:var(--gold);}
-
-  /* ===== HERO VISUAL 3D (Haidar's Fix) ===== */
+  .hero-stats{display:flex; gap:30px; margin-top:40px; flex-wrap:wrap;}
+  .hero-stat b{display:block; font-family:'Sora'; font-size:26px; color:var(--gold); font-weight:800;}
+  .hero-stat span{font-size:12.5px; color:var(--slate);}
+  
   .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
-  .hero-visual::before {
-    content: ''; position: absolute; width: 300px; height: 300px;
-    background: rgba(242, 183, 5, 0.25); filter: blur(80px); border-radius: 50%; z-index: 0;
-  }
-  .phone-image {
-    position: relative; z-index: 1; width: 100%; max-width: 400px;
-    transform: rotate(10deg); filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.6));
-    animation: float 6s ease-in-out infinite;
-  }
+  .hero-visual::before { content: ''; position: absolute; width: 300px; height: 300px; background: rgba(242, 183, 5, 0.25); filter: blur(80px); border-radius: 50%; z-index: 0; }
+  .phone-image { position: relative; z-index: 1; width: 100%; max-width: 400px; transform: rotate(10deg); filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.6)); animation: float 6s ease-in-out infinite; }
   @keyframes float {
     0% { transform: translateY(0px) rotate(10deg); }
     50% { transform: translateY(-15px) rotate(8deg); }
@@ -118,51 +74,66 @@
   }
   @media(max-width:900px){ 
     .phone-image { max-width: 320px; transform: rotate(0deg); }
-    @keyframes float {
-      0% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(2deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
+    @keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-10px) rotate(2deg); } 100% { transform: translateY(0px) rotate(0deg); } }
+  }
+
+  /* ===== MARQUEE SPONSOR (UPDATE TERBARU) ===== */
+  .trustbar { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--navy-mid); padding: 36px 0; overflow: hidden; position: relative; z-index: 1; }
+  .trust-label { text-align: center; font-size: 12.5px; color: var(--slate); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; margin-bottom: 24px; }
+  
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 40px; /* Jarak antar konten */
+  }
+  .marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: 40px;
+    animation: scroll 35s linear infinite;
+  }
+  
+  /* Animasi berhenti jika kursor ditaruh di atas logo */
+  .marquee-content:hover { animation-play-state: paused; }
+  
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - 40px)); }
+  }
+  
+  .marquee-logo {
+    height: 40px; /* Tinggi diseragamkan agar rapi */
+    width: auto; /* Lebar menyesuaikan rasio asli */
+    max-width: 180px; /* Batas maksimal lebar untuk banner */
+    object-fit: contain; /* Memaksa gambar pas tanpa gepeng */
+    filter: grayscale(1) opacity(0.6) brightness(1.5); /* Menyatukan gambar dengan tema gelap */
+    transition: filter 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  .marquee-logo:hover {
+    filter: grayscale(0) opacity(1) brightness(1); /* Tampilkan warna asli saat di-hover */
+    transform: scale(1.05);
+  }
+
+  @media(max-width: 760px) {
+    .marquee-logo { height: 32px; max-width: 140px; }
+    .marquee-content { gap: 24px; animation-duration: 25s; }
+    .marquee { gap: 24px; }
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(-100% - 24px)); }
     }
   }
 
-  /* ===== STATS BANNER (Dari Abid, Dimodifikasi ke Dark) ===== */
-  .stats-banner {
-    max-width: 1120px; margin: 20px auto 70px; padding: 0 24px; position: relative; z-index: 2;
-  }
-  .stats-inner {
-    background: linear-gradient(135deg, var(--navy-mid), var(--navy-card));
-    border: 1px solid var(--line); border-radius: 20px; padding: 32px;
-    display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  }
-  .stat-item { border-right: 1px solid rgba(255,255,255,0.05); padding: 0 10px;}
-  .stat-item:last-child { border-right: none; }
-  .stat-item i { font-size: 26px; color: var(--gold-light); margin-bottom: 12px; opacity: 0.8; }
-  .stat-item b { display: block; font-family: 'Sora'; font-size: 24px; font-weight: 800; color: var(--white); margin-bottom: 4px;}
-  .stat-item span { font-size: 12px; color: var(--slate); font-weight: 500;}
-  @media(max-width:900px) {
-    .stats-inner { grid-template-columns: repeat(3, 1fr); gap: 30px 20px; }
-    .stat-item:nth-child(3) { border-right: none; }
-  }
-  @media(max-width:500px) {
-    .stats-inner { grid-template-columns: repeat(2, 1fr); }
-    .stat-item:nth-child(even) { border-right: none; }
-  }
-
-  /* ===== TRUST BAR ===== */
-  .trustbar{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--navy-mid); padding:26px 24px; position:relative; z-index:1; }
-  .trust-inner{ max-width:1120px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
-  .trust-label{ font-size:12.5px; color:var(--slate); letter-spacing:0.06em; text-transform:uppercase; font-weight:600; }
-  .trust-logos{ display:flex; gap:28px; flex-wrap:wrap; align-items:center; }
-  .trust-logos span{ font-family:'Sora'; font-weight:700; font-size:14px; color:var(--slate); opacity:0.75; transition:opacity .15s; cursor:pointer;}
-  .trust-logos span:hover{ opacity:1; color:var(--white); }
-
-  /* ===== SECTION GENERIC (Sudah dirapikan) ===== */
-  section{ position:relative; z-index:1; padding:88px 24px; }
-  .section-head{ max-width:640px; margin:0 auto 52px auto; text-align:center; display:flex; flex-direction:column; align-items:center; }
-  .section-head.left { text-align: left; align-items: flex-start; margin: 0 0 40px 0; }
-  .section-head h2{ font-size:clamp(26px,3.6vw,38px); font-weight:800; margin-bottom:14px; }
-  .section-head p{ color:var(--slate); font-size:16px; }
+  /* ===== SECTION GENERIC ===== */
+  section{position:relative; z-index:1; padding:88px 24px;}
+  .section-head{max-width:640px; margin:0 auto 52px auto; text-align:center; display:flex; flex-direction:column; align-items:center;}
+  .section-head h2{font-size:clamp(26px,3.6vw,38px); font-weight:800; margin-bottom:14px;}
+  .section-head p{color:var(--slate); font-size:16px;}
 
   /* ===== PROBLEM/SOLVE ===== */
   .problem-grid{ max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
@@ -182,69 +153,40 @@
   .program-grid{ max-width:1120px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
   @media(max-width:900px){ .program-grid{grid-template-columns:1fr 1fr;} }
   @media(max-width:560px){ .program-grid{grid-template-columns:1fr;} }
-  .program-card{
-    background:var(--navy-card); border:1px solid var(--line); border-radius:var(--radius);
-    padding:26px 22px; display:flex; flex-direction:column; gap:14px; transition:border-color .15s, transform .15s;
-  }
+  .program-card{ background:var(--navy-card); border:1px solid var(--line); border-radius:var(--radius); padding:26px 22px; display:flex; flex-direction:column; gap:14px; transition:border-color .15s, transform .15s; }
   .program-card:hover{border-color:var(--gold); transform:translateY(-4px);}
-  .program-icon{
-    width:44px; height:44px; border-radius:10px;
-    background:linear-gradient(145deg, rgba(242,183,5,0.18), rgba(242,183,5,0.04));
-    display:flex; align-items:center; justify-content:center; font-size:20px;
-  }
+  .program-icon{ width:44px; height:44px; border-radius:10px; background:linear-gradient(145deg, rgba(242,183,5,0.18), rgba(242,183,5,0.04)); display:flex; align-items:center; justify-content:center; font-size:20px; }
   .program-card h3{font-size:17px; font-weight:700;}
   .program-card p{font-size:13.5px; color:var(--slate); flex-grow:1;}
   .program-link{font-size:13px; font-weight:700; color:var(--gold); display:flex; align-items:center; gap:6px;}
 
-  /* ===== FASILITAS GRID (Fitur dari Abid) ===== */
-  .fasilitas-grid { max-width:1120px; margin:0 auto; display:grid; grid-template-columns:repeat(6,1fr); gap:16px; }
-  .fasilitas-card {
-    background:var(--navy-card); border:1px solid var(--line); border-radius:var(--radius);
-    padding:24px 16px; text-align:center; transition:transform .2s, border-color .2s;
-  }
-  .fasilitas-card:hover { transform:translateY(-4px); border-color:var(--gold); }
-  .fasilitas-icon { width:50px; height:50px; margin:0 auto 16px; background:rgba(242,183,5,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:20px; }
-  .fasilitas-card h3 { font-size:14px; font-weight:700; margin-bottom:8px; color:var(--white); }
-  .fasilitas-card p { font-size:12px; color:var(--slate); line-height:1.4; }
-  @media(max-width: 900px) { .fasilitas-grid { grid-template-columns: repeat(3, 1fr); } }
-  @media(max-width: 500px) { .fasilitas-grid { grid-template-columns: repeat(2, 1fr); } }
+  /* ===== FASILITAS GRID ===== */
+  .why-grid{ max-width:1120px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media(max-width:800px){ .why-grid{grid-template-columns:1fr;} }
+  .why-item{padding-top:18px; border-top:2px solid var(--gold);}
+  .why-item h3{font-size:18px; margin-bottom:10px;}
+  .why-item p{color:var(--slate); font-size:14.5px;}
 
-  /* ===== MARKETPLACE SLIDER (Dari Abid) ===== */
-  .market-header { max-width: 1120px; margin: 0 auto 30px; display: flex; justify-content: space-between; align-items: flex-end;}
-  .market-slider-wrap { max-width: 1120px; margin: 0 auto; position: relative; }
-  .market-slider {
-    display: flex; overflow-x: auto; gap: 20px; scroll-behavior: smooth; 
-    padding-bottom: 20px; padding-top: 10px; scrollbar-width: none; /* Firefox */
-  }
-  .market-slider::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
-  .market-card {
-    min-width: 200px; background: var(--navy-card); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 16px; text-align: center; transition: border-color .2s, transform .2s; cursor: pointer; flex-shrink: 0; scroll-snap-align: start;
-  }
-  .market-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-  .market-card img { width: 100%; height: 130px; object-fit: contain; margin-bottom: 16px; border-radius: 8px; background: rgba(255,255,255,0.02); padding: 10px; }
-  .market-card h3 { font-size: 16px; color: var(--white); margin-bottom: 4px; }
-  .market-card p { font-size: 12px; color: var(--slate); }
-  
-  .slider-btn {
-    position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px;
-    background: var(--navy-mid); border: 1px solid var(--line); border-radius: 50%; color: var(--white);
-    display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10;
-    transition: background .2s, color .2s;
-  }
-  .slider-btn:hover { background: var(--gold); color: var(--navy-deep); }
-  .slider-btn.left { left: -22px; }
-  .slider-btn.right { right: -22px; }
-  @media(max-width:1160px) { .slider-btn { display: none; } } /* Hide on mobile/tablet to just swipe */
+  /* ===== MARKETPLACE ===== */
+  .market-grid{ max-width:1120px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  @media(max-width:900px){ .market-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .market-grid{grid-template-columns:1fr;} }
+  .market-card{ background:var(--navy-card); border:1px solid var(--line); border-radius:var(--radius); padding:22px; text-align:center; transition:border-color .15s, transform .15s; }
+  .market-card:hover{border-color:var(--gold); transform:translateY(-3px);}
+  .market-icon{ width:52px; height:52px; margin:0 auto 14px; border-radius:12px; background:linear-gradient(145deg, rgba(242,183,5,0.18), rgba(242,183,5,0.04)); display:flex; align-items:center; justify-content:center; font-size:22px; }
+  .market-card h3{font-size:15px; margin-bottom:4px; color:var(--white);}
+  .market-card span{font-size:12.5px; color:var(--slate);}
+  .market-note{ max-width:1120px; margin:24px auto 0; font-size:13px; color:var(--slate); text-align:center; }
 
   /* ===== TESTIMONIALS ===== */
   .testi-grid{ max-width:1120px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   @media(max-width:800px){ .testi-grid{grid-template-columns:1fr;} }
-  .testi-card{ background:var(--navy-card); border:1px solid var(--line); border-radius:var(--radius); padding:26px; }
-  .testi-card p{font-size:14.5px; color:var(--white); margin-bottom:20px; font-style:italic;}
-  .testi-person{display:flex; align-items:center; gap:12px;}
+  .testi-card{ background:var(--navy-card); border:1px solid var(--line); border-radius:var(--radius); padding:26px; display:flex; flex-direction:column; gap:16px; }
+  .testi-card p{font-size:14.5px; color:var(--white); font-style:italic;}
+  .testi-result{ font-size:12.5px; color:var(--gold); font-weight:700; background:rgba(242,183,5,0.1); padding:6px 10px; border-radius:6px; display:inline-block; align-self:flex-start; }
+  .testi-person{display:flex; align-items:center; gap:12px; margin-top:auto;}
   .avatar{ width:38px; height:38px; border-radius:50%; background:linear-gradient(145deg,var(--gold-light),var(--gold-dim)); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--navy-deep); font-size:13px; }
-  .testi-person b{display:block; font-size:14px;}
+  .testi-person b{display:block; font-size:14px; color:var(--white);}
   .testi-person span{font-size:12.5px; color:var(--slate);}
 
   /* ===== FAQ ===== */
@@ -256,75 +198,34 @@
   .faq-a{ max-height:0; overflow:hidden; transition:max-height .25s ease; color:var(--slate); font-size:14.5px; }
   .faq-item.open .faq-a{max-height:200px; padding-bottom:22px;}
 
-  /* ===== APP DOWNLOAD BANNER (Dari Abid) ===== */
-  .app-banner {
-    max-width: 1120px; margin: 40px auto;
-    background: linear-gradient(120deg, var(--navy-card), var(--navy-mid));
-    border: 1px solid var(--line); border-radius: 24px; padding: 48px;
-    display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px;
-    position: relative; overflow: hidden;
-  }
-  .app-banner::before {
-    content: ''; position: absolute; top: -100px; right: -50px; width: 300px; height: 300px;
-    background: rgba(242, 183, 5, 0.05); border-radius: 50%;
-  }
-  .app-content h2 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 12px; }
-  .app-content p { color: var(--slate); font-size: 15px; margin-bottom: 30px; max-width: 400px;}
-  .store-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-  .store-btn {
-    background: var(--navy-deep); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
-    padding: 10px 20px; display: flex; align-items: center; gap: 12px;
-    color: var(--white); transition: border-color .2s;
-  }
-  .store-btn:hover { border-color: var(--gold); }
-  .store-btn i { font-size: 28px; }
-  .store-text small { display: block; font-size: 10px; color: var(--slate); text-transform: uppercase; letter-spacing: 0.5px;}
-  .store-text b { font-size: 15px; }
-  
-  .app-mockup { position: relative; height: 300px; display: flex; justify-content: center; }
-  .mockup-img { width: 100%; max-width: 250px; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5)); transform: rotate(-5deg); position: absolute; bottom: -80px;}
-  @media(max-width:800px) {
-    .app-banner { grid-template-columns: 1fr; text-align: center; padding: 40px 24px 0;}
-    .app-content p { margin: 0 auto 30px; }
-    .store-btns { justify-content: center; }
-    .app-mockup { height: 250px; }
-  }
+  /* ===== APP SECTION ===== */
+  .app-section{ max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center; }
+  @media(max-width:900px){ .app-section{grid-template-columns:1fr;} }
+  .app-badges{display:flex; gap:12px; margin-top:26px; flex-wrap:wrap;}
+  .app-badge{ display:flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius:9px; padding:11px 18px; font-size:13px; color:var(--slate); }
+  .app-badge.soon{opacity:0.7; cursor:default;}
+  .app-badge b{font-family:'Sora'; font-size:13.5px; color:var(--white); display:block;}
 
-  /* ===== MEGA FOOTER (Gabungan Data Abid & Skema Warna Haidar) ===== */
-  footer { border-top: 1px solid var(--line); padding: 60px 24px 30px; position: relative; z-index: 1; background: var(--navy-mid); }
-  .footer-grid {
-    max-width: 1120px; margin: 0 auto; display: grid;
-    grid-template-columns: 2fr 1fr 1.5fr 1.5fr; gap: 40px; margin-bottom: 40px;
-  }
-  .foot-col h4 { font-family: 'Inter'; font-size: 16px; color: var(--white); margin-bottom: 24px; font-weight: 700; }
-  .foot-brand p { font-size: 14px; color: var(--slate); margin: 20px 0; max-width: 300px; }
-  .social-icons { display: flex; gap: 12px; }
-  .social-icons a {
-    width: 36px; height: 36px; border-radius: 50%; background: var(--navy-card); border: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: center; color: var(--slate); transition: all .2s;
-  }
-  .social-icons a:hover { background: var(--gold); color: var(--navy-deep); }
-  
-  .foot-links { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .foot-links a { font-size: 14px; color: var(--slate); transition: color .2s; }
-  .foot-links a:hover { color: var(--gold); }
-  
-  .foot-contact { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-  .foot-contact li { display: flex; gap: 12px; font-size: 13px; color: var(--slate); line-height: 1.5; }
-  .foot-contact i { color: var(--gold); font-size: 16px; flex-shrink: 0; margin-top: 2px; }
-  .foot-contact a { transition: color .2s; }
-  .foot-contact a:hover { color: var(--gold); }
+  /* ===== FINAL CTA ===== */
+  .final-cta{ max-width:1120px; margin:0 auto; background:linear-gradient(120deg, var(--navy-card), var(--navy-mid)); border:1px solid rgba(242,183,5,0.35); border-radius:20px; padding:56px 40px; text-align:center; position:relative; overflow:hidden; }
+  .final-cta h2{font-size:clamp(24px,3.4vw,34px); margin-bottom:14px;}
+  .final-cta p{color:var(--slate); margin-bottom:30px;}
+  .final-btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
 
-  .foot-map { width: 100%; height: 140px; background: var(--navy-card); border-radius: 12px; border: 1px solid var(--line); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;}
-  .foot-map i { font-size: 24px; color: var(--gold); position: absolute; z-index: 2;}
-  
-  .footer-bottom {
-    max-width: 1120px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05);
-    padding-top: 24px; text-align: center; font-size: 12px; color: var(--slate);
-  }
-  @media(max-width:900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-  @media(max-width:600px) { .footer-grid { grid-template-columns: 1fr; } }
+  /* ===== FOOTER ===== */
+  footer{ border-top:1px solid var(--line); padding:56px 24px 30px; position:relative; z-index:1; }
+  .footer-grid{ max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:36px; font-size:13.5px; color:var(--slate); }
+  @media(max-width:800px){ .footer-grid{grid-template-columns:1fr;} }
+  .footer-grid h4{color:var(--white); font-size:14px; margin-bottom:14px; font-family:'Sora';}
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:9px;}
+  .footer-grid li a{transition: color .2s;}
+  .footer-grid li a:hover{color:var(--gold);}
+  .footer-map{ border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); margin-top:14px; }
+  .footer-map iframe{width:100%; height:160px; border:0; display:block; filter:grayscale(0.3) invert(0.9) contrast(0.9);}
+  .footer-bottom{ max-width:1120px; margin:36px auto 0; padding-top:24px; border-top:1px solid var(--line); font-size:12.5px; color:var(--slate); text-align: center; }
 
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important;} }
   ::selection{background:var(--gold); color:var(--navy-deep);}
 </style>
 </head>
@@ -339,60 +240,82 @@
   <rect width="1200" height="900" fill="url(#grid)"/>
   <path d="M0 120 H220 V260 H480" stroke="#F2B705" stroke-width="1" fill="none" opacity="0.25"/>
   <circle cx="480" cy="260" r="4" fill="#F2B705" opacity="0.4"/>
+  <path d="M1200 700 H960 V520 H700" stroke="#F2B705" stroke-width="1" fill="none" opacity="0.25"/>
+  <circle cx="700" cy="520" r="4" fill="#F2B705" opacity="0.4"/>
 </svg>
 
 <header>
   <nav>
-    <div class="logo">
-      <div class="mark">V</div>
-      <div class="logo-text">VBAT Ponsel <span>Akademi Teknisi</span></div>
-    </div>
+    <div class="logo"><div class="mark">V</div>VBAT Ponsel</div>
     <div class="navlinks">
       <a href="#program">Program</a>
       <a href="#fasilitas">Fasilitas</a>
       <a href="#marketplace">Marketplace</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a href="https://vbatponsel.id" class="nav-cta">Akses LMS &amp; Market</a>
+    <a href="https://vbatponsel.id" class="nav-cta">Akses LMS & Market</a>
   </nav>
 </header>
 
 <section class="hero">
   <div>
     <div class="eyebrow">LPK Quantum Telecommunication</div>
-    <h1>Dari Nol Jadi <span class="accent">Teknisi HP Profesional</span></h1>
-    <p class="lead">Program pelatihan teknisi Android &amp; iPhone dengan mentor berpengalaman, sertifikasi resmi, dan akses ke marketplace alat &amp; sparepart setelah lulus.</p>
+    <h1>Dari Nol Jadi <span class="accent">Teknisi HP Profesional</span> — Belajar, Bersertifikat, Siap Buka Usaha</h1>
+    <p class="lead">Program pelatihan teknisi Android & iPhone dengan mentor berpengalaman, sertifikasi resmi, dan akses ke marketplace alat & sparepart setelah lulus.</p>
     <div class="cta-row">
-      <a href="https://vbatponsel.id" target="_blank" class="btn-primary">Lihat Kelas &amp; Marketplace →</a>
+      <a href="https://vbatponsel.id" class="btn-primary">Lihat Kelas & Marketplace →</a>
       <a href="#program" class="btn-ghost">Pelajari Program</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><b>+5000</b><span>Alumni terlatih</span></div>
+      <div class="hero-stat"><b>+100</b><span>Kota terjangkau</span></div>
+      <div class="hero-stat"><b>11</b><span>Mitra & sponsor resmi</span></div>
     </div>
   </div>
   <div class="hero-visual">
-    <img src="hp-rusak.png" alt="Ilustrasi Teknisi HP" class="phone-image" onerror="this.src='https://placehold.co/400x500/15224A/F2B705?text=Gambar+HP'">
+    <img src="hp-rusak.png" alt="Ilustrasi teknisi memperbaiki smartphone" class="phone-image" onerror="this.src='https://placehold.co/400x500/15224A/F2B705?text=Gambar+HP'">
   </div>
 </section>
 
-<div class="stats-banner">
-  <div class="stats-inner">
-    <div class="stat-item"><i class="fa-solid fa-users"></i><b>100K+</b><span>Teknisi Aktif</span></div>
-    <div class="stat-item"><i class="fa-regular fa-circle-play"></i><b>5000+</b><span>Video Materi</span></div>
-    <div class="stat-item"><i class="fa-solid fa-map-location-dot"></i><b>34</b><span>Provinsi</span></div>
-    <div class="stat-item"><i class="fa-solid fa-box-open"></i><b>1000+</b><span>Produk Sparepart</span></div>
-    <div class="stat-item"><i class="fa-regular fa-comments"></i><b>24/7</b><span>Komunitas Aktif</span></div>
-    <div class="stat-item"><i class="fa-solid fa-handshake"></i><b>5K+</b><span>Mitra Sponsor</span></div>
-  </div>
-</div>
-
-<div class="trustbar">
-  <div class="trust-inner">
-    <div class="trust-label">Dipercaya &amp; disponsori oleh</div>
-    <div class="trust-logos">
-      <span><i class="fa-solid fa-certificate"></i> Digital Ways</span>
-      <span><i class="fa-solid fa-wrench"></i> Brader Parts</span>
-      <span><i class="fa-solid fa-star"></i> ShineStar</span>
-      <span><i class="fa-solid fa-bolt"></i> Meetoo</span>
-      <span><i class="fa-solid fa-battery-full"></i> BT-ACC</span>
-      <span><i class="fa-solid fa-microchip"></i> BPlus</span>
+<!-- ===== BAGIAN SPONSOR ANIMASI (MARQUEE) ===== -->
+<div class="trustbar" id="sponsor">
+  <div class="trust-label">Dipercaya & disponsori oleh</div>
+  <div class="marquee">
+    <!-- BARIS 1: Konten Utama (Berisi 14 Gambar) -->
+    <div class="marquee-content">
+      <!-- Tinggal ganti atribut src="..." di bawah ini dengan gambar asli dari Paman kamu -->
+      <img src="assets/sponsor/1 Brader.png" class="marquee-logo" alt="Sponsor 1">
+      <img src="assets/sponsor/2 Digital ways Hitam.png" class="marquee-logo" alt="Sponsor 2">
+      <img src="assets/sponsor/3 BTACC.png" class="marquee-logo" alt="Sponsor 3">
+      <img src="assets/sponsor/4 B PLUS.png" class="marquee-logo" alt="Sponsor 4">
+      <img src="assets/sponsor/5 MEETOO SUNSHINE.png" class="marquee-logo" alt="Sponsor 5">
+      <img src="assets/sponsor/6 FUTURE STORE.png" class="marquee-logo" alt="Sponsor 6">
+      <img src="assets/sponsor/7Onglai.png" class="marquee-logo" alt="Sponsor 7">
+      <img src="assets/sponsor/8 libre style.png" class="marquee-logo" alt="Sponsor 8">
+      <img src="assets/sponsor/9 SPH.png" class="marquee-logo" alt="Sponsor 9">
+      <img src="assets/sponsor/10 OGSS.png" class="marquee-logo" alt="Sponsor 10">
+      <img src="assets/sponsor/11 lf future.png" class="marquee-logo" alt="Sponsor 11">
+      <img src="assets/sponsor/tambahan/Digital ways putih.png" class="marquee-logo" alt="Sponsor 12">
+      <img src="assets/sponsor/tambahan/Meetoo.png" class="marquee-logo" alt="Sponsor 13">
+      <img src="assets/sponsor/tambahan/Sungine.png" class="marquee-logo" alt="Sponsor 14">
+    </div>
+    
+    <!-- BARIS 2: Salinan Sama Persis (Supaya Putaran Animasinya Seamless/Mulus) -->
+    <div class="marquee-content" aria-hidden="true">
+      <img src="assets/sponsor/1 Brader.png" class="marquee-logo" alt="Sponsor 1">
+      <img src="assets/sponsor/2 Digital ways Hitam.png" class="marquee-logo" alt="Sponsor 2">
+      <img src="assets/sponsor/3 BTACC.png" class="marquee-logo" alt="Sponsor 3">
+      <img src="assets/sponsor/4 B PLUS.png" class="marquee-logo" alt="Sponsor 4">
+      <img src="assets/sponsor/5 MEETOO SUNSHINE.png" class="marquee-logo" alt="Sponsor 5">
+      <img src="assets/sponsor/6 FUTURE STORE.png" class="marquee-logo" alt="Sponsor 6">
+      <img src="assets/sponsor/7Onglai.png" class="marquee-logo" alt="Sponsor 7">
+      <img src="assets/sponsor/8 libre style.png" class="marquee-logo" alt="Sponsor 8">
+      <img src="assets/sponsor/9 SPH.png" class="marquee-logo" alt="Sponsor 9">
+      <img src="assets/sponsor/10 OGSS.png" class="marquee-logo" alt="Sponsor 10">
+      <img src="assets/sponsor/11 lf future.png" class="marquee-logo" alt="Sponsor 11">
+      <img src="assets/sponsor/tambahan/Digital ways putih.png" class="marquee-logo" alt="Sponsor 12">
+      <img src="assets/sponsor/tambahan/Meetoo.png" class="marquee-logo" alt="Sponsor 13">
+      <img src="assets/sponsor/tambahan/Sungine.png" class="marquee-logo" alt="Sponsor 14">
     </div>
   </div>
 </div>
@@ -419,7 +342,7 @@
         <li>Kurikulum terstruktur dari dasar sampai mahir</li>
         <li>Praktik langsung didampingi mentor berpengalaman</li>
         <li>Sertifikat resmi sebagai bukti kompetensi</li>
-        <li>Akses marketplace alat &amp; sparepart setelah lulus</li>
+        <li>Akses marketplace alat & sparepart setelah lulus</li>
       </ul>
     </div>
   </div>
@@ -429,32 +352,32 @@
   <div class="section-head">
     <div class="eyebrow">Program Pelatihan</div>
     <h2>Pilih jalur yang sesuai tujuanmu</h2>
-    <p>Detail lengkap silabus, jadwal, dan biaya tersedia di marketplace &amp; LMS kami.</p>
+    <p>Detail lengkap silabus, jadwal, dan biaya tersedia di marketplace & LMS kami.</p>
   </div>
   <div class="program-grid">
     <div class="program-card">
       <div class="program-icon"><i class="fa-brands fa-android"></i></div>
       <h3>Teknisi Android</h3>
-      <p>Dari dasar elektronika, baca skematik, sampai penanganan kasus mati total &amp; short circuit.</p>
-      <a href="https://vbatponsel.id" target="_blank" class="program-link">Detail &amp; Daftar →</a>
+      <p>Dari dasar elektronika, baca skematik, sampai penanganan kasus mati total & short circuit.</p>
+      <a href="https://vbatponsel.id" class="program-link">Detail & Daftar →</a>
     </div>
     <div class="program-card">
       <div class="program-icon"><i class="fa-brands fa-apple"></i></div>
       <h3>Teknisi iPhone</h3>
       <p>Kelas pemula sampai mahir, khusus untuk ekosistem iOS dengan studi kasus nyata.</p>
-      <a href="https://vbatponsel.id" target="_blank" class="program-link">Detail &amp; Daftar →</a>
+      <a href="https://vbatponsel.id" class="program-link">Detail & Daftar →</a>
     </div>
     <div class="program-card">
       <div class="program-icon"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
       <h3>Kelas Upgrade</h3>
       <p>Untuk teknisi Android yang ingin naik level menjadi spesialis iPhone lanjutan.</p>
-      <a href="https://vbatponsel.id" target="_blank" class="program-link">Detail &amp; Daftar →</a>
+      <a href="https://vbatponsel.id" class="program-link">Detail & Daftar →</a>
     </div>
     <div class="program-card">
       <div class="program-icon"><i class="fa-solid fa-store"></i></div>
       <h3>Kelas Bisnis Konter</h3>
-      <p>Belajar cara mendirikan, memanajemen &amp; mengelola konter servis retail sendiri.</p>
-      <a href="https://vbatponsel.id" target="_blank" class="program-link">Detail &amp; Daftar →</a>
+      <p>Belajar cara mendirikan, memanajemen & mengelola konter servis retail sendiri.</p>
+      <a href="https://vbatponsel.id" class="program-link">Detail & Daftar →</a>
     </div>
   </div>
 </section>
@@ -462,95 +385,36 @@
 <section id="fasilitas">
   <div class="section-head">
     <div class="eyebrow">Fasilitas Tambahan</div>
-    <h2>Ekosistem Lengkap Untukmu</h2>
+    <h2>Ekosistem lengkap untukmu</h2>
     <p>Tidak hanya belajar materi, kami menyiapkan segala hal untuk menunjang karirmu.</p>
   </div>
-  <div class="fasilitas-grid">
-    <div class="fasilitas-card">
-      <div class="fasilitas-icon"><i class="fa-solid fa-book-open"></i></div>
-      <h3>Materi SKKNI</h3>
-      <p>Sesuai standar kompetensi industri kerja.</p>
-    </div>
-    <div class="fasilitas-card">
-      <div class="fasilitas-icon"><i class="fa-solid fa-comments"></i></div>
-      <h3>Grup Diskusi</h3>
-      <p>Bahas kasus nyata bersama instruktur &amp; teknisi lain.</p>
-    </div>
-    <div class="fasilitas-card">
-      <div class="fasilitas-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-      <h3>Tes Pemahaman</h3>
-      <p>Uji kemampuan &amp; review setelah kelas selesai.</p>
-    </div>
-    <div class="fasilitas-card">
-      <div class="fasilitas-icon"><i class="fa-solid fa-id-card"></i></div>
-      <h3>Sertifikat &amp; Kaos</h3>
-      <p>Identitas resmi sebagai lulusan akademi.</p>
-    </div>
-    <div class="fasilitas-card">
-      <div class="fasilitas-icon"><i class="fa-solid fa-cloud-arrow-down"></i></div>
-      <h3>E-book &amp; Firmware</h3>
-      <p>Link firmware lengkap untuk bekal usahamu.</p>
-    </div>
-    <div class="fasilitas-card">
-      <div class="fasilitas-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-      <h3>Akses LMS App</h3>
-      <p>Belajar modul lanjutan kapan saja di mana saja.</p>
-    </div>
+  <div class="why-grid">
+    <div class="why-item"><h3>Materi SKKNI</h3><p>Sesuai standar kompetensi industri kerja.</p></div>
+    <div class="why-item"><h3>Grup Diskusi</h3><p>Bahas kasus nyata bersama instruktur & teknisi lain.</p></div>
+    <div class="why-item"><h3>Tes Pemahaman</h3><p>Uji kemampuan & review setelah kelas selesai.</p></div>
+    <div class="why-item"><h3>Sertifikat & Kaos</h3><p>Identitas resmi sebagai lulusan akademi.</p></div>
+    <div class="why-item"><h3>E-book & Firmware</h3><p>Link firmware lengkap untuk bekal usahamu.</p></div>
+    <div class="why-item"><h3>Akses LMS App</h3><p>Belajar modul lanjutan kapan saja di mana saja.</p></div>
   </div>
 </section>
 
 <section id="marketplace">
-  <div class="market-header">
-    <div class="section-head left">
-      <div class="eyebrow">Marketplace</div>
-      <h2 style="margin-bottom:8px;">Semua Kebutuhan Teknisi</h2>
-      <p>Sparepart original, tools, software, hingga mesin.</p>
-    </div>
-    <a href="#" class="btn-ghost" style="padding:10px 18px; margin-bottom: 40px; font-size:13px;">Lihat Semua <i class="fa-solid fa-chevron-right"></i></a>
+  <div class="section-head">
+    <div class="eyebrow">Marketplace</div>
+    <h2>Semua kebutuhan teknisi</h2>
+    <p>Sparepart original, tools, software, hingga mesin — katalog lengkap & transaksi ada di vbatponsel.id.</p>
   </div>
-  
-  <div class="market-slider-wrap">
-    <button class="slider-btn left" onclick="scrollMarket(-300)"><i class="fa-solid fa-chevron-left"></i></button>
-    <button class="slider-btn right" onclick="scrollMarket(300)"><i class="fa-solid fa-chevron-right"></i></button>
-    
-    <div class="market-slider" id="market-slider">
-      <div class="market-card">
-        <img src="https://placehold.co/150x150/101C3E/F2B705?text=LCD" alt="LCD">
-        <h3>LCD Panel</h3>
-        <p>1.250+ Produk</p>
-      </div>
-      <div class="market-card">
-        <img src="https://placehold.co/150x150/101C3E/F2B705?text=IC+Chip" alt="IC">
-        <h3>IC &amp; Chip</h3>
-        <p>2.840+ Produk</p>
-      </div>
-      <div class="market-card">
-        <img src="https://placehold.co/150x150/101C3E/F2B705?text=Battery" alt="Battery">
-        <h3>Baterai Ori</h3>
-        <p>1.980+ Produk</p>
-      </div>
-      <div class="market-card">
-        <img src="https://placehold.co/150x150/101C3E/F2B705?text=Tools" alt="Tools">
-        <h3>Hardware Tools</h3>
-        <p>3.210+ Produk</p>
-      </div>
-      <div class="market-card">
-        <img src="https://placehold.co/150x150/101C3E/F2B705?text=Mesin" alt="Mesin">
-        <h3>Mesin Bawah/Atas</h3>
-        <p>680+ Produk</p>
-      </div>
-      <div class="market-card">
-        <img src="https://placehold.co/150x150/101C3E/F2B705?text=Software" alt="Software">
-        <h3>Dongle &amp; Software</h3>
-        <p>350+ Produk</p>
-      </div>
-      <div class="market-card">
-        <img src="https://placehold.co/150x150/101C3E/F2B705?text=Aksesoris" alt="Aksesoris">
-        <h3>Aksesoris Service</h3>
-        <p>5.000+ Produk</p>
-      </div>
-    </div>
+  <div class="market-grid">
+    <a href="https://vbatponsel.id" class="market-card"><div class="market-icon">🖥️</div><h3>LCD Panel</h3><span>Lihat katalog →</span></a>
+    <a href="https://vbatponsel.id" class="market-card"><div class="market-icon">🔩</div><h3>IC & Chip</h3><span>Lihat katalog →</span></a>
+    <a href="https://vbatponsel.id" class="market-card"><div class="market-icon">🔋</div><h3>Baterai Ori</h3><span>Lihat katalog →</span></a>
+    <a href="https://vbatponsel.id" class="market-card"><div class="market-icon">🛠️</div><h3>Hardware Tools</h3><span>Lihat katalog →</span></a>
+    <a href="https://vbatponsel.id" class="market-card"><div class="market-icon">⚙️</div><h3>Mesin Bawah/Atas</h3><span>Lihat katalog →</span></a>
+    <a href="https://vbatponsel.id" class="market-card"><div class="market-icon">💾</div><h3>Dongle & Software</h3><span>Lihat katalog →</span></a>
+    <a href="https://vbatponsel.id" class="market-card"><div class="market-icon">🎒</div><h3>Aksesoris Service</h3><span>Lihat katalog →</span></a>
+    <a href="https://vbatponsel.id" class="market-card"><div class="market-icon">➕</div><h3>Lihat Semua</h3><span>Buka marketplace →</span></a>
   </div>
+  <p class="market-note">Jumlah produk per kategori sengaja tidak ditampilkan di sini agar selalu akurat — cek jumlah & stok real-time langsung di vbatponsel.id.</p>
 </section>
 
 <section id="testimoni">
@@ -560,25 +424,19 @@
   </div>
   <div class="testi-grid">
     <div class="testi-card">
+      <span class="testi-result">Kini buka jasa servis sendiri</span>
       <p>"Awalnya cuma iseng ikut workshop, sekarang saya sudah buka jasa servis sendiri di rumah."</p>
-      <div class="testi-person">
-        <div class="avatar">RA</div>
-        <div><b>Rafi A.</b><span>Alumni Teknisi Android</span></div>
-      </div>
+      <div class="testi-person"><div class="avatar">RA</div><div><b>Rafi A.</b><span>Alumni Teknisi Android</span></div></div>
     </div>
     <div class="testi-card">
+      <span class="testi-result">Berani pegang unit pelanggan</span>
       <p>"Materinya runtut banget, dari yang tidak tahu apa-apa sampai berani pegang unit pelanggan."</p>
-      <div class="testi-person">
-        <div class="avatar">DS</div>
-        <div><b>Dimas S.</b><span>Alumni Teknisi iPhone</span></div>
-      </div>
+      <div class="testi-person"><div class="avatar">DS</div><div><b>Dimas S.</b><span>Alumni Teknisi iPhone</span></div></div>
     </div>
     <div class="testi-card">
+      <span class="testi-result">Terhubung ke jaringan mitra</span>
       <p>"Setelah lulus saya langsung dibantu terhubung ke jaringan konter mitra. Sangat membantu."</p>
-      <div class="testi-person">
-        <div class="avatar">NF</div>
-        <div><b>Nur F.</b><span>Alumni Kelas Bisnis Konter</span></div>
-      </div>
+      <div class="testi-person"><div class="avatar">NF</div><div><b>Nur F.</b><span>Alumni Kelas Bisnis Konter</span></div></div>
     </div>
   </div>
 </section>
@@ -595,7 +453,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">Berapa lama waktu belajarnya? <span class="plus">+</span></div>
-      <div class="faq-a">Bervariasi tergantung program, mulai dari kelas intensif beberapa hari sampai program penuh beberapa minggu. Detail jadwal ada di marketplace &amp; LMS kami.</div>
+      <div class="faq-a">Bervariasi tergantung program, mulai dari kelas intensif beberapa hari sampai program penuh beberapa minggu. Detail jadwal ada di marketplace & LMS kami.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Apakah dapat sertifikat? <span class="plus">+</span></div>
@@ -608,101 +466,64 @@
   </div>
 </section>
 
-<section style="padding-top:20px;">
-  <div class="app-banner">
-    <div class="app-content">
-      <div class="eyebrow" style="color:var(--white);">Ekosistem Lengkap</div>
-      <h2>Unduh Aplikasi VBATPonsel</h2>
-      <p>Belajar materi LMS lebih mudah, diskusi lebih seru di forum komunitas, dan cari sparepart langsung dari genggaman. Dapatkan aplikasinya sekarang!</p>
-      
-      <div class="store-btns">
-        <a href="#" class="store-btn">
-          <i class="fa-brands fa-google-play"></i>
-          <div class="store-text">
-            <small>Get it on</small>
-            <b>Google Play</b>
-          </div>
-        </a>
-        <a href="#" class="store-btn">
-          <i class="fa-brands fa-apple"></i>
-          <div class="store-text">
-            <small>Download on the</small>
-            <b>App Store</b>
-          </div>
-        </a>
+<section id="app">
+  <div class="app-section">
+    <div>
+      <div class="eyebrow">Ekosistem Lengkap</div>
+      <h2>Unduh Aplikasi VBAT Ponsel</h2>
+      <p style="color:var(--slate); margin-top:14px;">Belajar materi LMS lebih mudah, diskusi lebih seru di forum komunitas, dan cari sparepart langsung dari genggaman.</p>
+      <div class="app-badges">
+        <span class="app-badge soon"><i class="fa-brands fa-google-play fa-lg"></i> <div><b>Google Play</b>Segera Hadir</div></span>
+        <span class="app-badge soon"><i class="fa-brands fa-apple fa-xl"></i> <div><b>App Store</b>Segera Hadir</div></span>
       </div>
     </div>
-    <div class="app-mockup">
-      <img src="app-mockup.jpeg" alt="App VBAT Ponsel" class="mockup-img">
+    <div><img src="app-mockup.jpeg" alt="Tampilan aplikasi VBAT Ponsel" class="phone-image" style="transform: rotate(-5deg); max-width:280px; margin: 0 auto;" onerror="this.src='https://placehold.co/250x450/15224A/F2B705?text=App+Mockup'"></div>
+  </div>
+</section>
+
+<section>
+  <div class="final-cta">
+    <h2>Siap mulai jadi teknisi HP profesional?</h2>
+    <p>Lihat semua program, jadwal, dan harga lengkap di marketplace & LMS resmi kami.</p>
+    <div class="final-btns">
+      <a href="https://vbatponsel.id" class="btn-primary">Buka Marketplace & LMS →</a>
+      <a href="tel:082171727337" class="btn-ghost">Hubungi Admin</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="footer-grid">
-    <div class="foot-col foot-brand">
-      <div class="logo" style="margin-bottom: 8px;">
-        <div class="mark">V</div>
-        <div class="logo-text">VBAT Ponsel <span>Akademi Teknisi</span></div>
-      </div>
-      <p>Ekosistem lengkap untuk teknisi HP Indonesia. Belajar, berbagi, berbisnis, dan berkembang bersama.</p>
-      <div class="social-icons">
-        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-      </div>
+    <div>
+      <div class="logo" style="margin-bottom:12px;"><div class="mark">V</div>VBAT Ponsel</div>
+      <p>Ekosistem lengkap untuk teknisi HP Indonesia. Belajar, berbagi, berbisnis, dan berkembang bersama LPK Quantum Telecommunication.</p>
     </div>
-
-    <div class="foot-col">
+    <div>
       <h4>Navigasi</h4>
-      <ul class="foot-links">
-        <li><a href="#">Beranda</a></li>
-        <li><a href="#">Akademi</a></li>
-        <li><a href="#">Marketplace</a></li>
-        <li><a href="#">Komunitas</a></li>
-        <li><a href="#">Sponsor</a></li>
-        <li><a href="#">Tentang Kami</a></li>
-        <li><a href="#">Karir</a></li>
-        <li><a href="#">FAQ</a></li>
+      <ul>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#fasilitas">Fasilitas</a></li>
+        <li><a href="https://vbatponsel.id">Marketplace</a></li>
+        <li><a href="#sponsor">Sponsor</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
-
-    <div class="foot-col">
+    <div>
       <h4>Kontak Kami</h4>
-      <ul class="foot-contact">
-        <li>
-          <i class="fa-solid fa-location-dot"></i>
-          <span>Jl. Bina Remaja No.4, Srondol Wetan, Kec. Banyumanik, Kota Semarang, Jawa Tengah 50263</span>
-        </li>
-        <li>
-          <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:admin@quantumtelecom.id">admin@quantumtelecom.id</a>
-        </li>
-        <li>
-          <i class="fa-solid fa-phone"></i>
-          <a href="tel:082171727337">082 171 72 73 37</a>
-        </li>
+      <ul>
+        <li><i class="fa-solid fa-location-dot" style="margin-right:8px; color:var(--gold);"></i> Jl. Bina Remaja No.4, Srondol Wetan, Kec. Banyumanik, Kota Semarang, Jawa Tengah 50263</li>
+        <li><i class="fa-solid fa-envelope" style="margin-right:8px; color:var(--gold);"></i> <a href="mailto:admin@quantumtelecom.id">admin@quantumtelecom.id</a></li>
+        <li><i class="fa-solid fa-phone" style="margin-right:8px; color:var(--gold);"></i> <a href="tel:082171727337">082 171 72 73 37</a></li>
       </ul>
-    </div>
-
-    <div class="foot-col">
-      <h4>Lokasi LPK Quantum</h4>
-      <div class="foot-map">
-        <img src="https://placehold.co/400x200/15224A/8E96AE?text=Peta+Lokasi" alt="Peta Lokasi Semarang" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-        <i class="fa-solid fa-location-dot"></i>
+      <div class="footer-map">
+        <iframe loading="lazy" src="https://maps.google.com/maps?q=Jl.+Bina+Remaja+No.4,+Srondol+Wetan,+Kec.+Banyumanik,+Kota+Semarang&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Lokasi LPK Quantum"></iframe>
       </div>
     </div>
   </div>
-
-  <div class="footer-bottom">
-    &copy; 2024 - 2026 LPK Quantum Telecommunication &amp; VBATPonsel.com. All Rights Reserved.
-  </div>
+  <div class="footer-bottom">© 2024 - 2026 LPK Quantum Telecommunication & VBATPonsel.com. All Rights Reserved.</div>
 </footer>
 
 <script>
-  // Script FAQ
   document.querySelectorAll('.faq-item').forEach(item=>{
     item.querySelector('.faq-q').addEventListener('click', ()=>{
       const wasOpen = item.classList.contains('open');
@@ -710,12 +531,6 @@
       if(!wasOpen) item.classList.add('open');
     });
   });
-
-  // Script Slider Marketplace
-  function scrollMarket(amount) {
-    const slider = document.getElementById('market-slider');
-    slider.scrollBy({ left: amount, behavior: 'smooth' });
-  }
 </script>
 
 </body>
