@@ -2,6 +2,9 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+
+<!-- 14/07/2026 -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VBATPonsel — Jadi Teknisi Ponsel Andal dalam 30 Hari</title>
 <meta name="description" content="Platform video pembelajaran teknisi ponsel No.1 Indonesia. 100+ video kasus nyata, mentor berpengalaman, sertifikat resmi LPK Quantum Telecommunication.">
@@ -67,105 +70,74 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800;font-stretch:90%}
 .btn-sm{background:var(--orange);color:#fff;padding:10px 20px;font-size:.9rem}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,26,.35)}
 
-/* ===== HERO (UPDATED TO VIBRANT BLUE) ===== */
-.hero {
-  padding: 110px 0 130px;
-  
-  /* FIELD GAMBAR: Masukkan letak/nama file gambar background kamu di dalam tanda kutip ini */
-  background-image: url('assets/bg/hero-bg.png'); 
-  
-  /* Pengaturan agar gambar pas dan proporsional */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+/* ===== HERO ===== */
+.hero{
+  padding:96px 0 110px;
+  background:
+    radial-gradient(ellipse 900px 500px at 75% -10%, rgba(255,107,26,.13), transparent 60%),
+    var(--navy-950);
+  border-bottom:1px solid var(--line);
 }
-
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative;z-index:1;}
-
-/* ===== GLASSMORPHISM HERO TEXT ===== */
-.hero-text-glass {
-  background: rgba(10, 21, 48, 0.35); 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 24px;
-  padding: 50px;
-  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.2);
-}
-
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
 .badge-live{
   display:inline-flex;align-items:center;gap:8px;
   font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;
-  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;
+  background:var(--navy-800);border:1px solid var(--line);color:var(--orange-soft);
   padding:7px 14px;border-radius:100px;margin-bottom:22px;
 }
 .badge-live .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);animation:pulse 1.6s infinite}
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,107,26,.5)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(255,107,26,0)}}
-
 .hero h1{
   font-size:clamp(2.2rem,5.4vw,3.6rem);font-weight:900;font-stretch:88%;
   margin-bottom:20px;
-  color:#ffffff;
 }
-/* Warna kuning/oranye untuk teks 30 Hari */
-.hero h1 em{font-style:normal;color:#FFC107;position:relative;white-space:nowrap}
-.hero p.lead{font-size:1.1rem;color:rgba(255,255,255,0.9);max-width:520px;margin-bottom:32px}
+.hero h1 em{font-style:normal;color:var(--orange);position:relative;white-space:nowrap}
+.hero h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:4px;height:10px;
+  background:rgba(255,107,26,.22);z-index:-1;border-radius:3px;
+}
+.hero p.lead{font-size:1.1rem;color:var(--ink-dim);max-width:520px;margin-bottom:32px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .btn-big{
   background:linear-gradient(135deg,var(--orange),var(--orange-hot));
   color:#fff;padding:17px 36px;font-size:1.05rem;border-radius:12px;
   box-shadow:0 10px 30px rgba(255,77,0,.4);
 }
-/* Tombol hantu khusus Hero */
-.btn-ghost-hero{
-  color:#ffffff;padding:16px 28px;border:1px solid rgba(255,255,255,0.5);
-  border-radius:12px;font-weight:700;font-size:.98rem;background:transparent;
-}
-.btn-ghost-hero:hover{box-shadow:none;border-color:#ffffff;background:rgba(255,255,255,0.1);}
-
 .btn-ghost{
   color:var(--ink);padding:16px 28px;border:1px solid var(--line);
   border-radius:12px;font-weight:700;font-size:.98rem;background:transparent;
 }
 .btn-ghost:hover{box-shadow:none;border-color:var(--orange);color:var(--orange-soft)}
-.hero-proof{margin-top:30px;font-size:.88rem;color:rgba(255,255,255,0.8)}
-.hero-proof b{color:#FFC107}
+.hero-proof{margin-top:30px;font-size:.88rem;color:var(--ink-dim)}
+.hero-proof b{color:var(--gold)}
 
-/* ===== DIAGNOSTIC PANEL (UPDATED TO LIGHT MODE) ===== */
+/* multimeter-style panel */
 .diag{
-  background:#ffffff;border:1px solid #E2E8F0;border-radius:var(--radius);
-  overflow:hidden;box-shadow:0 24px 60px rgba(0,30,100,.4);
+  background:var(--navy-900);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);
 }
 .diag-head{
   display:flex;align-items:center;justify-content:space-between;
-  padding:14px 20px;border-bottom:1px solid #1E3A8A;background:#0A1530; /* Header tetap gelap sesuai desain */
-  font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.14em;color:#EAF0FB;
+  padding:12px 18px;border-bottom:1px solid var(--line);background:var(--navy-800);
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--ink-dim);
 }
 .diag-head .leds{display:flex;gap:6px}
-.diag-head .leds i{width:10px;height:10px;border-radius:50%;display:block}
-.diag-body{padding:24px 22px;display:grid;gap:12px;background:#ffffff;}
+.diag-head .leds i{width:9px;height:9px;border-radius:50%;display:block}
+.diag-body{padding:22px 20px;display:grid;gap:12px}
 .diag-row{
   display:flex;justify-content:space-between;align-items:center;
   font-family:'JetBrains Mono',monospace;font-size:.86rem;
-  background:#F8FAFC;border:1px solid #E2E8F0; /* Background baris terang */
-  padding:14px 18px;border-radius:9px;
+  background:var(--navy-800);border:1px solid var(--line);
+  padding:12px 16px;border-radius:9px;
 }
-.diag-row .lbl{color:#475569;font-weight:600;} /* Label abu-abu gelap */
+.diag-row .lbl{color:var(--ink-dim)}
 .diag-row .val{font-weight:700}
-/* Warna indikator disesuaikan agar kontras di background putih */
-.diag-row .v-ok{color:#059669;} 
-.diag-row .v-warn{color:#D97706;} 
-.diag-row .v-hot{color:#DC2626;}
+.v-ok{color:var(--green)} .v-warn{color:var(--gold)} .v-hot{color:var(--orange)}
 .diag-foot{
-  padding:16px 22px;border-top:1px dashed #CBD5E1;background:#F8FAFC;
-  font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#64748B;
+  padding:16px 20px;border-top:1px dashed var(--line);
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--ink-dim);
   display:flex;justify-content:space-between;
 }
-.diag-foot span:last-child{color:#0047FF;font-weight:700;} /* Aksen biru di footer card */
 
 /* ===== MASALAH ===== */
 .problems{background:var(--navy-900)}
@@ -388,7 +360,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
 
 @media (max-width:860px){
   section{padding:64px 0}
-  .hero{padding:76px 0 86px}
+  .hero{padding:64px 0 76px}
   .hero-grid,.solusi-grid,.foot-grid{grid-template-columns:1fr}
   .vs-table{grid-template-columns:1fr}
   .vs-no{border-right:none;border-bottom:1px solid var(--line)}
@@ -396,16 +368,12 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   .bonus{flex-wrap:wrap}
   .bonus .tag{margin-left:0;text-align:left}
   .topbar .btn-sm{padding:8px 14px;font-size:.8rem}
-  
-  /* Responsif untuk box kaca di mobile */
-  .hero-text-glass {
-    padding: 24px;
-  }
 }
 </style>
 </head>
 <body>
 
+<!-- TOPBAR -->
 <div class="topbar">
   <div class="wrap">
     
@@ -421,20 +389,21 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </div>
 
+<!-- HERO -->
 <header class="hero">
   <div class="wrap hero-grid">
-    
-    <div class="hero-text-glass">
+    <div>
       <div class="badge-live"><span class="dot"></span> PROMO TERBATAS · 50 PENDAFTAR PERTAMA</div>
-      <h1>Jadi Teknisi Ponsel Andal dalam <em>30 Hari,</em> Tanpa Harus Keluar Rumah!</h1>
+      <h1>Jadi Teknisi Ponsel Andal dalam <em>30 Hari</em>, Tanpa Harus Keluar Rumah!</h1>
       <p class="lead">Platform video pembelajaran teknisi ponsel No.1 di Indonesia. Belajar sistematis, praktis, dan langsung praktek — dibimbing mentor berpengalaman sejak 2010.</p>
       <div class="hero-cta">
         <a href="#daftar" class="btn btn-big">🚀 Gabung Sekarang</a>
-        <a href="#fitur" class="btn btn-ghost-hero">Lihat Materi</a>
+        <a href="#fitur" class="btn btn-ghost">Lihat Materi</a>
       </div>
       <p class="hero-proof">⭐⭐⭐⭐⭐ Telah dipercaya <b>1.000+ teknisi</b> di seluruh Indonesia</p>
     </div>
 
+    <!-- Panel gaya diagnosa multimeter -->
     <div class="diag rev">
       <div class="diag-head">
         <span>VBAT.DIAGNOSTIC — MODE: KARIR</span>
@@ -452,6 +421,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </header>
 
+<!-- MASALAH -->
 <section class="problems">
   <div class="wrap">
     <div class="eyebrow">Diagnosa Awal</div>
@@ -469,6 +439,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </section>
 
+<!-- SOLUSI -->
 <section id="solusi">
   <div class="wrap solusi-grid">
     <div class="solusi rev">
@@ -495,6 +466,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </section>
 
+<!-- FITUR -->
 <section class="fitur" id="fitur">
   <div class="wrap">
     <div class="eyebrow">Apa yang Anda Dapatkan</div>
@@ -511,6 +483,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </section>
 
+<!-- BONUS -->
 <section id="bonus">
   <div class="wrap">
     <div style="text-align:center"><div class="eyebrow" style="justify-content:center">Bonus Eksklusif</div></div>
@@ -536,6 +509,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </section>
 
+<!-- HARGA -->
 <section class="harga" id="daftar">
   <div class="wrap">
     <div style="text-align:center"><div class="eyebrow" style="justify-content:center">Investasi Anda</div></div>
@@ -573,6 +547,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </section>
 
+<!-- PERBANDINGAN -->
 <section>
   <div class="wrap">
     <div style="text-align:center"><div class="eyebrow" style="justify-content:center">Supaya Makin Yakin</div></div>
@@ -596,6 +571,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </section>
 
+<!-- TESTIMONI -->
 <section class="testi">
   <div class="wrap">
     <div class="eyebrow">Kata Alumni</div>
@@ -620,6 +596,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </section>
 
+<!-- GARANSI -->
 <section>
   <div class="wrap">
     <div class="garansi-box rev">
@@ -631,6 +608,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </section>
 
+<!-- CTA FINAL -->
 <section class="cta-final">
   <div class="wrap">
     <div class="eyebrow" style="justify-content:center">Langkah Terakhir</div>
@@ -649,6 +627,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </section>
 
+<!-- FAQ -->
 <section>
   <div class="wrap">
     <div style="text-align:center"><div class="eyebrow" style="justify-content:center">FAQ</div></div>
@@ -674,6 +653,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -691,6 +671,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </footer>
 
+<!-- WA FLOAT -->
 <a class="wa-float" href="https://wa.me/6282171727337?text=Halo%2C%20saya%20tertarik%20dengan%20VBATPonsel" target="_blank" aria-label="Chat WhatsApp">💬</a>
 
 <script>
@@ -702,3 +683,4 @@ document.querySelectorAll('.rev').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
+
