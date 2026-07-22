@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+21 Juli 2026
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VBATPonsel — Jadi Teknisi Ponsel Andal dalam 30 Hari</title>
@@ -72,7 +75,7 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800;font-stretch:90%}
   padding: 110px 0 130px;
   
   /* FIELD GAMBAR: Masukkan letak/nama file gambar background kamu di dalam tanda kutip ini */
-  background-image: url('assets/bg/hero-bg.png'); 
+  background-image: url('assets/bg/hero-bg-lengkung-kuning.jpeg'); 
   
   /* Pengaturan agar gambar pas dan proporsional */
   background-size: cover;
@@ -87,53 +90,71 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800;font-stretch:90%}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative;z-index:1;}
 
 /* ===== GLASSMORPHISM HERO TEXT ===== */
+/* ===== GLASSMORPHISM HERO TEXT ===== */
 .hero-text-glass {
   background: rgba(10, 21, 48, 0.35); 
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 24px;
-  padding: 50px;
+  border-radius: 20px; /* Sedikit lebih membulat dan proporsional */
+  padding: 32px 36px; /* Padding dikurangi agar box tidak terlalu memakan tempat */
   box-shadow: 0 24px 40px rgba(0, 0, 0, 0.2);
 }
 
-.badge-live{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;
-  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;
-  padding:7px 14px;border-radius:100px;margin-bottom:22px;
+.badge-live {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace; 
+  font-size: .68rem; /* Font badge diperkecil */
+  letter-spacing: .12em;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff;
+  padding: 6px 12px; border-radius: 100px; 
+  margin-bottom: 16px; /* Margin bawah dikurangi */
 }
-.badge-live .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);animation:pulse 1.6s infinite}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,107,26,.5)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(255,107,26,0)}}
+.badge-live .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); animation: pulse 1.6s infinite; }
+@keyframes pulse { 0%, 100% {opacity:1; box-shadow:0 0 0 0 rgba(255,107,26,.5)} 50% {opacity:.6; box-shadow:0 0 0 6px rgba(255,107,26,0)} }
 
-.hero h1{
-  font-size:clamp(2.2rem,5.4vw,3.6rem);font-weight:900;font-stretch:88%;
-  margin-bottom:20px;
-  color:#ffffff;
+.hero h1 {
+  /* Ukuran font heading diperkecil (dari max 3.6rem menjadi 2.8rem) */
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem); 
+  font-weight: 900; font-stretch: 88%;
+  margin-bottom: 16px; /* Margin bawah dikurangi */
+  color: #ffffff;
+  line-height: 1.2;
 }
-/* Warna kuning/oranye untuk teks 30 Hari */
-.hero h1 em{font-style:normal;color:#FFC107;position:relative;white-space:nowrap}
-.hero p.lead{font-size:1.1rem;color:rgba(255,255,255,0.9);max-width:520px;margin-bottom:32px}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.btn-big{
-  background:linear-gradient(135deg,var(--orange),var(--orange-hot));
-  color:#fff;padding:17px 36px;font-size:1.05rem;border-radius:12px;
-  box-shadow:0 10px 30px rgba(255,77,0,.4);
-}
-/* Tombol hantu khusus Hero */
-.btn-ghost-hero{
-  color:#ffffff;padding:16px 28px;border:1px solid rgba(255,255,255,0.5);
-  border-radius:12px;font-weight:700;font-size:.98rem;background:transparent;
-}
-.btn-ghost-hero:hover{box-shadow:none;border-color:#ffffff;background:rgba(255,255,255,0.1);}
+.hero h1 em { font-style: normal; color: #FFC107; position: relative; white-space: nowrap; }
 
-.btn-ghost{
-  color:var(--ink);padding:16px 28px;border:1px solid var(--line);
-  border-radius:12px;font-weight:700;font-size:.98rem;background:transparent;
+.hero p.lead {
+  font-size: 0.95rem; /* Ukuran paragraf diturunkan dari 1.1rem */
+  color: rgba(255,255,255,0.9);
+  max-width: 520px;
+  margin-bottom: 24px; /* Margin bawah dikurangi */
 }
-.btn-ghost:hover{box-shadow:none;border-color:var(--orange);color:var(--orange-soft)}
-.hero-proof{margin-top:30px;font-size:.88rem;color:rgba(255,255,255,0.8)}
-.hero-proof b{color:#FFC107}
+
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+/* Ukuran tombol di dalam hero ikut disesuaikan agar tidak kebesaran */
+.hero-cta .btn-big {
+  background: linear-gradient(135deg, var(--orange), var(--orange-hot));
+  color: #fff; 
+  padding: 14px 28px; /* Padding tombol diperkecil */
+  font-size: 0.95rem; /* Font tombol diperkecil */
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(255,77,0,.4);
+}
+.hero-cta .btn-ghost-hero {
+  color: #ffffff; 
+  padding: 13px 24px; /* Padding tombol diperkecil */
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 10px; font-weight: 700; font-size: 0.9rem; background: transparent;
+}
+.hero-cta .btn-ghost-hero:hover { box-shadow: none; border-color: #ffffff; background: rgba(255,255,255,0.1); }
+
+.hero-proof {
+  margin-top: 24px; /* Margin atas dikurangi */
+  font-size: 0.8rem; /* Font rating diperkecil */
+  color: rgba(255,255,255,0.8);
+}
+.hero-proof b { color: #FFC107; }
 
 /* ===== DIAGNOSTIC PANEL (UPDATED TO LIGHT MODE) ===== */
 .diag{
@@ -553,7 +574,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
           <li>Grup WhatsApp + mentor</li>
           <li>E-Sertifikat + kaos official</li>
         </ul>
-        <a href="https://wa.me/6282171727337?text=Halo%2C%20saya%20mau%20gabung%20VBATPonsel%20paket%20Pengguna%20Umum" target="_blank" class="btn btn-big" style="width:100%;padding:16px">Gabung Sekarang</a>
+        <a href="https://wa.me/62818268717?text=Halo%2C%20saya%20mau%20gabung%20VBATPonsel%20paket%20Pengguna%20Umum" target="_blank" class="btn btn-big" style="width:100%;padding:16px">Gabung Sekarang</a>
       </div>
       <div class="pcard rev">
         <h3>Alumni LPK Quantum</h3>
@@ -566,7 +587,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
           <li>Grup WhatsApp + mentor</li>
           <li>E-Sertifikat + kaos official</li>
         </ul>
-        <a href="https://wa.me/6282171727337?text=Halo%2C%20saya%20alumni%20LPK%20Quantum%2C%20mau%20gabung%20VBATPonsel" target="_blank" class="btn btn-ghost" style="width:100%;padding:15px;display:block">Klaim Harga Alumni</a>
+        <a href="https://wa.me/62818268717?text=Halo%2C%20saya%20alumni%20LPK%20Quantum%2C%20mau%20gabung%20VBATPonsel" target="_blank" class="btn btn-ghost" style="width:100%;padding:15px;display:block">Klaim Harga Alumni</a>
       </div>
     </div>
     <div class="urgensi rev">⚠️ <b>Promo terbatas!</b> Hanya untuk <b>50 pendaftar pertama</b> bulan ini. Harga akan naik ke <b>Rp 1.000.000</b> bulan depan.</div>
@@ -620,17 +641,6 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="garansi-box rev">
-      <span class="shield">🛡️</span>
-      <h2>Garansi Uang Kembali <span>100%</span></h2>
-      <p>Kami sangat yakin VBATPonsel akan mengubah kemampuan teknisi Anda. Jika dalam <b style="color:var(--ink)">7 hari pertama</b> Anda merasa tidak puas atau tidak mendapat manfaat sama sekali, kami kembalikan uang Anda 100% tanpa potongan.</p>
-      <p class="tegas">Tanpa drama. Tanpa syarat aneh-aneh.</p>
-    </div>
-  </div>
-</section>
-
 <section class="cta-final">
   <div class="wrap">
     <div class="eyebrow" style="justify-content:center">Langkah Terakhir</div>
@@ -641,9 +651,9 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
       <div class="step rev"><span class="num">LANGKAH 03</span><p>Pilih pembayaran: <b style="color:var(--ink)">QRIS / VA BRI</b>.</p></div>
       <div class="step rev"><span class="num">LANGKAH 04</span><p>Langsung dapat akses ke <b style="color:var(--ink)">semua materi!</b></p></div>
     </div>
-    <a href="https://wa.me/6282171727337?text=Halo%2C%20saya%20mau%20GABUNG%20SEKARANG%20di%20VBATPonsel!" target="_blank" class="btn btn-mega">👇 GABUNG SEKARANG 👇</a>
+    <a href="https://wa.me/62818268717?text=Halo%2C%20saya%20mau%20GABUNG%20SEKARANG%20di%20VBATPonsel!" target="_blank" class="btn btn-mega">👇 GABUNG SEKARANG 👇</a>
     <p class="cta-alt">Atau hubungi kami langsung:<br>
-      📞 WhatsApp: <a href="https://wa.me/6282171727337" target="_blank">0821-7172-7337</a> &nbsp;·&nbsp;
+      📞 WhatsApp: <a href="https://wa.me/62818268717" target="_blank">0821-7172-7337</a> &nbsp;·&nbsp;
       📧 <a href="mailto:admin@quantumtelecom.id" target="_blank">admin@quantumtelecom.id</a>
     </p>
   </div>
@@ -683,7 +693,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
       </div>
       <div>
         <h3>Hubungi Kami</h3>
-        <p>📞 WhatsApp: <a href="https://wa.me/6282171727337">0821-7172-7337</a></p>
+        <p>📞 WhatsApp: <a href="https://wa.me/62818268717">0821-7172-7337</a></p>
         <p>📧 Email: <a href="mailto:admin@quantumtelecom.id">admin@quantumtelecom.id</a></p>
       </div>
     </div>
@@ -691,7 +701,7 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:64px 
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/6282171727337?text=Halo%2C%20saya%20tertarik%20dengan%20VBATPonsel" target="_blank" aria-label="Chat WhatsApp">💬</a>
+<a class="wa-float" href="https://wa.me/62818268717?text=Halo%2C%20saya%20tertarik%20dengan%20VBATPonsel" target="_blank" aria-label="Chat WhatsApp">💬</a>
 
 <script>
 // reveal on scroll
