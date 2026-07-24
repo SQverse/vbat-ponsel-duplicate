@@ -1,0 +1,22 @@
+name: Deploy Website ke cPanel
+
+on:
+  push:
+    branches:
+      - main  # PENTING: Ganti kata 'main' menjadi 'master' jika di VS Code kamu menggunakan branch master
+
+jobs:
+  web-deploy:
+    name: Deploy ke Rumahweb
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mengambil kode terbaru
+      uses: actions/checkout@v4
+
+    - name: Mengirim file via FTP ke cPanel
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: ./
