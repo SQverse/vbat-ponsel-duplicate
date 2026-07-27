@@ -26,17 +26,17 @@ fbq('track', 'PageView');
 
 <style>
 :root{
-  --navy:#061229;          /* biru malam terdalam — hero & footer */
-  --biru-tua:#0B2559;      /* biru korporat dalam */
-  --biru:#1D4ED8;          /* biru utama */
-  --biru-muda:#4DA3FF;     /* biru terang / glow */
-  --es:#EEF4FF;            /* biru es — latar seksi terang */
+  --navy:#061229;          
+  --biru-tua:#0B2559;      
+  --biru:#1D4ED8;          
+  --biru-muda:#4DA3FF;     
+  --es:#EEF4FF;            
   --putih:#FBFDFF;
-  --emas:#C9A227;          /* emas utama */
-  --emas-terang:#E8C15A;   /* emas terang / glow */
-  --tinta:#12213D;         /* teks di latar terang */
-  --redup-gelap:#9FB4D8;   /* teks sekunder di latar gelap */
-  --redup-terang:#5A6B8C;  /* teks sekunder di latar terang */
+  --emas:#C9A227;          
+  --emas-terang:#E8C15A;   
+  --tinta:#12213D;         
+  --redup-gelap:#9FB4D8;   
+  --redup-terang:#5A6B8C;  
   --wa:#25D366;
   --merah:#E8443A;
   --maxw:680px;
@@ -73,17 +73,23 @@ p{margin-bottom:16px}
 .visual-bukti{width:100%;border-radius:16px;margin:24px 0;box-shadow:0 12px 30px rgba(18,33,61,.12);display:block;border:1px solid rgba(77,163,255,.2)}
 .wa-chat{width:100%;max-width:320px;margin:16px auto;border-radius:12px;border:3px solid rgba(37,211,102,.3);display:block;box-shadow:0 8px 24px rgba(0,0,0,.2)}
 
+/* ---- BANNER UTAMA ---- */
+.banner-utama {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
 /* ---- HERO ---- */
 .hero{
   position:relative;overflow:hidden;text-align:center;color:var(--putih);
   padding:64px 0 56px;
-  /* Background diganti dengan placeholder Unsplash, silakan ganti URL aslinya nanti */
   background-image:
     linear-gradient(178deg, rgba(6,18,41,.92) 0%, rgba(11,37,89,.88) 55%, rgba(29,78,216,.72) 100%),
     url('https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=1000');
   background-size:cover;background-position:center;
 }
-/* grid futuristik + glow di atas foto */
 .hero::before{
   content:"";position:absolute;inset:0;pointer-events:none;
   background-image:
@@ -92,7 +98,7 @@ p{margin-bottom:16px}
     linear-gradient(90deg, rgba(77,163,255,.07) 1px, transparent 1px);
   background-size:100% 100%, 42px 42px, 42px 42px;
 }
-.hero::after{ /* garis emas tipis di dasar hero */
+.hero::after{ 
   content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
   background:linear-gradient(90deg,transparent,var(--emas-terang),transparent);
 }
@@ -161,12 +167,11 @@ p{margin-bottom:16px}
   max-width: 180px; 
   object-fit: contain; 
   filter: grayscale(1) opacity(0.6) brightness(1.5); 
-  transition: filter 0.3s ease; /* Transisi transform dihapus agar tidak bertabrakan */
+  transition: filter 0.3s ease; 
   cursor: pointer; 
 }
 .marquee-logo:hover { 
   filter: grayscale(0) opacity(1) brightness(1); 
-  /* Efek scale dihapus agar tidak saling tumpang tindih */
 }
 @media(max-width: 760px) {
   .marquee-logo { height: 32px; max-width: 140px; }
@@ -271,6 +276,9 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
 </head>
 <body>
 
+<!-- ======================= BANNER UTAMA ======================= -->
+<img src="assets/bg/bg-qr.jpeg" class="banner-utama" alt="Banner Utama VBATPonsel">
+
 <!-- ======================= HERO ======================= -->
 <header class="hero gelap">
   <div class="wrap">
@@ -306,7 +314,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
 <div class="sponsor-bar">
   <div class="sponsor-label">Dipercaya &amp; Disponsori Oleh</div>
   <div class="marquee">
-    <!-- BARIS 1: Konten Utama (Berisi 14 Gambar Sponsor) -->
+    <!-- BARIS 1: Konten Utama -->
     <div class="marquee-content">
       <img src="assets/sponsor/1 Brader.png" class="marquee-logo" alt="Brader Parts">
       <img src="assets/sponsor/2 Digital ways Hitam.png" class="marquee-logo" alt="Digital Ways">
@@ -324,7 +332,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
       <img src="assets/sponsor/tambahan/Sungine.png" class="marquee-logo" alt="SUNGINE">
     </div>
     
-    <!-- BARIS 2: Salinan Sama Persis (Supaya Putaran Animasinya Seamless/Mulus) -->
+    <!-- BARIS 2: Salinan Sama Persis -->
     <div class="marquee-content" aria-hidden="true">
       <img src="assets/sponsor/1 Brader.png" class="marquee-logo" alt="Brader Parts">
       <img src="assets/sponsor/2 Digital ways Hitam.png" class="marquee-logo" alt="Digital Ways">
@@ -536,17 +544,6 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     <p style="text-align:center"><span class="urgensi">⚠️ Hanya 50 pendaftar pertama bulan ini — bulan depan naik ke Rp 1.000.000</span></p>
 
     <p class="kecil">💡 Hitung sendiri: rata-rata jasa ganti LCD Rp100–150rb. Artinya <strong>6–8 servisan pertama sudah mengembalikan seluruh biaya belajar Anda.</strong> Sisanya? Murni penghasilan Anda — dan skill-nya milik Anda seumur hidup.</p>
-  </div>
-</section>
-
-<!-- ======================= GARANSI ======================= -->
-<section class="terang" style="padding-top:0">
-  <div class="wrap naik">
-    <div class="garansi">
-      <h3>🛡️ Garansi Uang Kembali 100%</h3>
-      <p>Kami sangat yakin VBATPonsel akan mengubah kemampuan teknisi Anda. Jika dalam <strong>7 hari pertama</strong> Anda merasa tidak puas atau tidak mendapat manfaat sama sekali, uang Anda kembali <strong>100% tanpa potongan</strong>.</p>
-      <p style="margin:0"><strong>Tanpa drama. Tanpa syarat aneh-aneh.</strong></p>
-    </div>
   </div>
 </section>
 
