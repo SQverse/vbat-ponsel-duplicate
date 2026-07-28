@@ -217,52 +217,47 @@ p{margin-bottom:16px}
 .badge{font-size:.75rem;font-weight:700;background:rgba(255,255,255,.07);border:1px solid rgba(77,163,255,.35);padding:7px 13px;border-radius:99px;color:#DCE7FA;backdrop-filter:blur(4px)}
 
 /* =========================================================
-   KOMPRESI EKSTREM HERO UNTUK TAMPILAN HP (PAS 1 LAYAR) 
+   KOMPRESI HERO UNTUK TAMPILAN HP (BANNER TETAP FULL) 
    ========================================================= */
 @media(max-width: 600px) {
+  /* Banner dibiarkan utuh & natural tanpa cropping letterbox */
   .banner-utama {
-    max-height: 22vh; /* Membatasi tinggi banner atas agar sisa layar lebih besar */
-    object-fit: contain; /* Memastikan gambar tidak terpotong atau terlalu dominan */
-    background: #000;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
   }
   .hero {
-    padding: 12px 0 20px; /* Padding sangat tipis */
+    padding: 16px 0 24px; /* Padding diminimalkan */
   }
   .hero .logo {
-    height: 26px; /* Logo jauh lebih kecil */
+    height: 28px; /* Logo diperkecil */
     margin-bottom: 8px;
   }
   .hero .eyebrow {
     font-size: 0.55rem;
     margin-bottom: 6px;
     padding: 3px 10px;
-    display: table; 
-    margin-left: auto; 
-    margin-right: auto;
   }
   .urgensi {
     font-size: 0.6rem;
     padding: 4px 10px;
     margin-bottom: 8px;
-    display: table; 
-    margin-left: auto; 
-    margin-right: auto;
   }
   .hero h1 {
-    font-size: clamp(1.2rem, 5.5vw, 1.4rem); /* Heading dikompres penuh */
+    font-size: clamp(1.15rem, 5.5vw, 1.4rem); /* Heading dikompres */
     line-height: 1.25;
     margin-bottom: 10px;
   }
   .fitur-hero {
     margin: 8px auto 0;
-    padding: 10px 4px; /* Ruang dalam kotak sangat tipis */
+    padding: 8px 4px; /* Ruang dalam kotak ikon sangat tipis */
     gap: 2px;
     border-radius: 12px;
-    flex-wrap: nowrap; /* MEMAKSA 5 IKON DALAM 1 BARIS MENYAMPING */
+    flex-wrap: nowrap; /* MEMAKSA 5 IKON DALAM 1 BARIS */
   }
   .fitur-item {
     flex: 1; /* Dibagi rata 5 kolom */
-    font-size: 0.4rem; /* Teks fitur sangat kecil */
+    font-size: 0.45rem; /* Teks fitur sangat kecil */
     line-height: 1.1;
     gap: 4px;
     letter-spacing: 0;
@@ -277,21 +272,21 @@ p{margin-bottom:16px}
     height: 16px;
   }
   .hero .btn {
-    margin-top: 14px !important;
-    padding: 12px 14px; 
+    margin-top: 12px !important;
+    padding: 10px 14px; 
     font-size: 0.9rem;
   }
   .hero p.kecil {
     font-size: 0.6rem;
-    margin: 4px 0 8px;
+    margin: 4px 0 6px;
   }
   .badges {
-    margin-top: 8px;
+    margin-top: 6px;
     gap: 4px;
   }
   .badge {
     font-size: 0.55rem; 
-    padding: 3px 8px;
+    padding: 3px 6px;
   }
 }
 
@@ -517,7 +512,6 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
   <div class="wrap">
     <img class="logo" src="https://vbatponsel.com/assets/logo/6%20Logo%20persegi%20putih%20biru.png" alt="Logo VBATPonsel">
     
-    <!-- TAG BR SUDAH DIHAPUS, DIGANTI PENGATURAN CSS MARGIN -->
     <span class="eyebrow">Didukung Oleh LPK Quantum Telecommunication · Sejak 2010</span>
     
     <span class="urgensi">⚡ PROMO TERBATAS · 50 PENDAFTAR PERTAMA BULAN INI</span>
