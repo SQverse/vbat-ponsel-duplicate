@@ -161,6 +161,7 @@ p{margin-bottom:16px}
   font-size: 0.85rem; 
   letter-spacing: 1.5px;
   padding: 5px 16px;
+  display: inline-block;
 }
 
 .hero h1 .sorot{background:linear-gradient(100deg,var(--emas-terang),#FFE9A8);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -216,61 +217,81 @@ p{margin-bottom:16px}
 .badge{font-size:.75rem;font-weight:700;background:rgba(255,255,255,.07);border:1px solid rgba(77,163,255,.35);padding:7px 13px;border-radius:99px;color:#DCE7FA;backdrop-filter:blur(4px)}
 
 /* =========================================================
-   PERBAIKAN HERO UNTUK TAMPILAN HP (FIT SATU LAYAR) 
+   KOMPRESI EKSTREM HERO UNTUK TAMPILAN HP (PAS 1 LAYAR) 
    ========================================================= */
 @media(max-width: 600px) {
+  .banner-utama {
+    max-height: 22vh; /* Membatasi tinggi banner atas agar sisa layar lebih besar */
+    object-fit: contain; /* Memastikan gambar tidak terpotong atau terlalu dominan */
+    background: #000;
+  }
   .hero {
-    padding: 30px 0 36px; /* Padding atas bawah dikompres */
+    padding: 12px 0 20px; /* Padding sangat tipis */
   }
   .hero .logo {
-    height: 42px; /* Logo sedikit lebih kecil */
-    margin-bottom: 12px;
+    height: 26px; /* Logo jauh lebih kecil */
+    margin-bottom: 8px;
   }
   .hero .eyebrow {
-    font-size: 0.7rem;
-    margin-bottom: 10px;
-    padding: 4px 12px;
+    font-size: 0.55rem;
+    margin-bottom: 6px;
+    padding: 3px 10px;
+    display: table; 
+    margin-left: auto; 
+    margin-right: auto;
   }
   .urgensi {
-    font-size: 0.7rem;
-    padding: 4px 12px;
-    margin-bottom: 12px;
+    font-size: 0.6rem;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+    display: table; 
+    margin-left: auto; 
+    margin-right: auto;
   }
   .hero h1 {
-    font-size: clamp(1.4rem, 6vw, 1.8rem); /* Font heading dikompres agar tidak makan baris */
+    font-size: clamp(1.2rem, 5.5vw, 1.4rem); /* Heading dikompres penuh */
+    line-height: 1.25;
+    margin-bottom: 10px;
   }
   .fitur-hero {
-    margin: 20px auto 0;
-    padding: 16px 8px; /* Ruang dalam kotak fitur dipersempit */
-    gap: 8px;
-    border-radius: 14px;
+    margin: 8px auto 0;
+    padding: 10px 4px; /* Ruang dalam kotak sangat tipis */
+    gap: 2px;
+    border-radius: 12px;
+    flex-wrap: nowrap; /* MEMAKSA 5 IKON DALAM 1 BARIS MENYAMPING */
   }
   .fitur-item {
-    flex: 1 1 30%; /* Memaksa kotak fitur muat 3 sejajar di atas, 2 di bawah */
-    font-size: 0.55rem; /* Font keterangan ikon diperkecil */
-    gap: 6px;
+    flex: 1; /* Dibagi rata 5 kolom */
+    font-size: 0.4rem; /* Teks fitur sangat kecil */
+    line-height: 1.1;
+    gap: 4px;
+    letter-spacing: 0;
   }
   .fitur-icon {
-    width: 40px; /* Ikon diperkecil */
-    height: 40px;
-    border-radius: 10px;
+    width: 32px; /* Ikon mini */
+    height: 32px;
+    border-radius: 8px;
   }
   .fitur-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
   }
   .hero .btn {
-    margin-top: 20px !important;
-    padding: 14px 20px; /* Tombol CTA lebih ringkas */
-    font-size: 0.95rem;
+    margin-top: 14px !important;
+    padding: 12px 14px; 
+    font-size: 0.9rem;
+  }
+  .hero p.kecil {
+    font-size: 0.6rem;
+    margin: 4px 0 8px;
   }
   .badges {
-    margin-top: 16px;
-    gap: 6px;
+    margin-top: 8px;
+    gap: 4px;
   }
   .badge {
-    font-size: 0.65rem; /* Badge bawah kompres */
-    padding: 4px 10px;
+    font-size: 0.55rem; 
+    padding: 3px 8px;
   }
 }
 
@@ -332,7 +353,6 @@ p{margin-bottom:16px}
   .marquee-content { gap: 24px; animation-duration: 25s; }
   .marquee { gap: 24px; }
   @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(calc(-100% - 24px)); } }
-  .fitur-item { flex: 1 1 30%; } 
 }
 
 /* ---- daftar sakit ---- */
@@ -496,7 +516,10 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
 <header class="hero gelap">
   <div class="wrap">
     <img class="logo" src="https://vbatponsel.com/assets/logo/6%20Logo%20persegi%20putih%20biru.png" alt="Logo VBATPonsel">
-    <br><span class="eyebrow">Didukung Oleh LPK Quantum Telecommunication · Sejak 2010</span><br>
+    
+    <!-- TAG BR SUDAH DIHAPUS, DIGANTI PENGATURAN CSS MARGIN -->
+    <span class="eyebrow">Didukung Oleh LPK Quantum Telecommunication · Sejak 2010</span>
+    
     <span class="urgensi">⚡ PROMO TERBATAS · 50 PENDAFTAR PERTAMA BULAN INI</span>
     
     <h1>Jadi Teknisi Ponsel Andal dalam <span class="sorot">30 Hari</span> — Tanpa Keluar Rumah, <span class="sorot">Dibimbing Sampai Bisa</span></h1>
@@ -507,7 +530,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
           <!-- Ikon Play Video -->
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><polygon points="10 7 15 10 10 13 10 7"></polygon></svg>
         </div>
-        <span>VIDEO<br>PEMBELAJARAN<br>LENGKAP</span>
+        <span>VIDEO<br>LENGKAP</span>
       </div>
       
       <div class="fitur-item">
@@ -515,7 +538,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
           <!-- Ikon Hardware / Chip -->
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
         </div>
-        <span>HARDWARE &<br>SOFTWARE</span>
+        <span>HARDWARE<br>SOFTWARE</span>
       </div>
       
       <div class="fitur-item">
@@ -523,7 +546,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
           <!-- Ikon Tools / Obeng -->
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
         </div>
-        <span>TROUBLESHOOTING<br>& STUDI KASUS</span>
+        <span>STUDI<br>KASUS</span>
       </div>
       
       <div class="fitur-item">
@@ -531,7 +554,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
           <!-- Ikon Dokumen / Skema -->
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
         </div>
-        <span>BORNEO<br>SCHEMATICS</span>
+        <span>BORNEO<br>SCHEMATIC</span>
       </div>
       
       <div class="fitur-item">
@@ -539,12 +562,12 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
           <!-- Ikon Orang / Grup -->
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         </div>
-        <span>GRUP KONSULTASI<br>TEKNISI</span>
+        <span>GRUP<br>KONSULTASI</span>
       </div>
     </div>
 
     <!-- Tombol CTA Hero: Biru -->
-    <a class="btn btn-biru" style="margin-top:32px" onclick="lacak('Lead','cta_hero')" href="https://wa.me/62818268717?text=Halo%20Admin%20VBATPonsel%2C%20saya%20mau%20GABUNG%20promo%2050%20pendaftar%20pertama.">🚀 Gabung Sekarang — Amankan Kuota Promo</a>
+    <a class="btn btn-biru" onclick="lacak('Lead','cta_hero')" href="https://wa.me/62818268717?text=Halo%20Admin%20VBATPonsel%2C%20saya%20mau%20GABUNG%20promo%2050%20pendaftar%20pertama.">🚀 Gabung Sekarang — Amankan Kuota Promo</a>
     <p class="kecil">Dibalas manusia, bukan bot. Tanya-tanya dulu juga boleh.</p>
     
     <div class="badges">
