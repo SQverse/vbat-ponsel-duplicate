@@ -120,9 +120,26 @@ p{margin-bottom:16px}
 .visual-bukti{width:100%;border-radius:16px;margin:24px 0;box-shadow:0 12px 30px rgba(18,33,61,.12);display:block;border:1px solid rgba(77,163,255,.2)}
 .wa-chat{width:100%;max-width:320px;margin:16px auto;border-radius:12px;border:3px solid rgba(37,211,102,.3);display:block;box-shadow:0 8px 24px rgba(0,0,0,.2)}
 
-/* ---- BANNER UTAMA ---- */
-.banner-utama {
+/* =========================================================
+   DUA BANNER RESPONSIVE BARU 
+   ========================================================= */
+.banner-wrapper {
   width: 100%;
+  background-color: var(--navy); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner-atas {
+  width: 100%;
+  max-width: 1600px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.banner-bawah {
+  width: 100%;
+  max-width: 1292px;
   height: auto;
   display: block;
   object-fit: cover;
@@ -217,16 +234,9 @@ p{margin-bottom:16px}
 .badge{font-size:.75rem;font-weight:700;background:rgba(255,255,255,.07);border:1px solid rgba(77,163,255,.35);padding:7px 13px;border-radius:99px;color:#DCE7FA;backdrop-filter:blur(4px)}
 
 /* =========================================================
-   KOMPRESI EKSTREM HERO UNTUK TAMPILAN HP (DIJAMIN PAS 1 LAYAR) 
+   KOMPRESI EKSTREM HERO UNTUK TAMPILAN HP (DIJAMIN PAS) 
    ========================================================= */
 @media(max-width: 600px) {
-  /* Banner dibiarkan 100% utuh & natural */
-  .banner-utama {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  
   /* Kompresi Hero Section */
   .hero {
     padding: 8px 0 16px; /* Padding vertikal sangat ditipiskan */
@@ -526,8 +536,14 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
 </head>
 <body>
 
-<!-- ======================= BANNER UTAMA ======================= -->
-<img src="assets/bg/bg-qr-1.jpeg" class="banner-utama" alt="Banner Utama VBATPonsel">
+<!-- ======================= BANNER UTAMA & SUB BANNER ======================= -->
+<div class="banner-wrapper">
+  <!-- Placeholder Banner 1 (1600x1060) -->
+  <img src="assets/bg/banner-1.jpeg" class="banner-atas" alt="Banner Utama 1">
+  
+  <!-- Placeholder Banner 2 (1292x1218) -->
+  <img src="assets/bg/banner-2.jpeg" class="banner-bawah" alt="Banner Utama 2">
+</div>
 
 <!-- ======================= HERO ======================= -->
 <header class="hero gelap">
