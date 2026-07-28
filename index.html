@@ -121,28 +121,22 @@ p{margin-bottom:16px}
 .wa-chat{width:100%;max-width:320px;margin:16px auto;border-radius:12px;border:3px solid rgba(37,211,102,.3);display:block;box-shadow:0 8px 24px rgba(0,0,0,.2)}
 
 /* =========================================================
-   DUA BANNER RESPONSIVE BARU 
+   DUA BANNER RESPONSIVE BARU (DIPERBAIKI UNTUK LAPTOP)
    ========================================================= */
 .banner-wrapper {
   width: 100%;
   background-color: var(--navy); 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Memastikan banner di tengah saat di laptop */
 }
-.banner-atas {
-  width: 100%;
-  max-width: 1600px;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
+.banner-atas, 
 .banner-bawah {
   width: 100%;
-  max-width: 1292px;
+  max-width: 800px; /* Lebar maksimal sama dengan container Hero agar tidak raksasa */
   height: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* ---- HERO ---- */
@@ -239,11 +233,11 @@ p{margin-bottom:16px}
 @media(max-width: 600px) {
   /* Kompresi Hero Section */
   .hero {
-    padding: 8px 0 16px; /* Padding vertikal sangat ditipiskan */
+    padding: 8px 0 16px; 
   }
   .hero .logo {
-    height: 22px; /* Logo diperkecil ekstra */
-    margin-bottom: 4px; /* Jarak bawah logo dirapatkan */
+    height: 22px; 
+    margin-bottom: 4px; 
   }
   .hero .eyebrow {
     font-size: 0.5rem;
@@ -258,7 +252,7 @@ p{margin-bottom:16px}
     margin-bottom: 6px;
   }
   .hero h1 {
-    font-size: clamp(0.95rem, 4.5vw, 1.2rem); /* Font heading dikompres lagi */
+    font-size: clamp(0.95rem, 4.5vw, 1.2rem); 
     line-height: 1.15;
     margin-bottom: 6px;
   }
@@ -266,33 +260,33 @@ p{margin-bottom:16px}
   /* Kompresi Ekstrem Kotak 5 Ikon */
   .fitur-hero {
     margin: 4px auto 0;
-    padding: 6px 2px; /* Ruang dalam kotak sangat tipis */
+    padding: 6px 2px; 
     gap: 1px;
     border-radius: 8px;
-    flex-wrap: nowrap; /* Memaksa 5 ikon dalam 1 baris */
+    flex-wrap: nowrap; 
   }
   .fitur-item {
     flex: 1; 
-    font-size: 0.4rem; /* Teks fitur super mini */
+    font-size: 0.4rem; 
     line-height: 1.05;
     gap: 2px;
     letter-spacing: -0.2px;
   }
   .fitur-icon {
-    width: 24px; /* Ikon ekstra mini */
+    width: 24px; 
     height: 24px;
     border-radius: 6px;
     border-width: 0.5px;
   }
   .fitur-icon svg {
-    width: 12px; /* Gambar SVG dalam ikon diperkecil */
+    width: 12px; 
     height: 12px;
   }
   
   /* Kompresi Tombol & Badge Hero */
   .hero .btn {
     margin-top: 8px !important;
-    padding: 8px 12px; /* Tombol CTA lebih ceper */
+    padding: 8px 12px; 
     font-size: 0.85rem;
     border-radius: 8px;
   }
@@ -311,7 +305,7 @@ p{margin-bottom:16px}
     border-width: 0.5px;
   }
 
-  /* Kompresi Sticky Footer bawah untuk tambah ruang di layar */
+  /* Kompresi Sticky Footer */
   .sticky-cta {
     padding: 8px 10px;
   }
@@ -322,64 +316,45 @@ p{margin-bottom:16px}
   }
 }
 
-/* ---- MARQUEE SPONSOR ---- */
+/* =========================================================
+   MITRA SPONSOR BARU (SCROLLABLE & WHITE BG)
+   ========================================================= */
 .sponsor-bar { 
-  background-color: var(--navy); 
-  border-bottom: 1px solid rgba(77,163,255,.2); 
-  padding: 36px 0; 
-  overflow: hidden; 
+  background-color: var(--putih); 
+  border-bottom: 1px solid #E3EAF6; 
+  padding: 20px 0 28px; 
   position: relative; 
   z-index: 1; 
 }
 .sponsor-label { 
   text-align: center; 
-  font-size: .75rem; 
-  color: var(--redup-gelap); 
+  font-size: .85rem; 
+  color: var(--tinta); 
   letter-spacing: 2px; 
   text-transform: uppercase; 
-  font-weight: 700; 
-  margin-bottom: 24px; 
+  font-weight: 800; 
+  margin-bottom: 14px; 
   font-family: 'Orbitron', sans-serif; 
 }
-.marquee { 
-  display: flex; 
-  overflow: hidden; 
-  user-select: none; 
-  gap: 40px; 
+.sponsor-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; 
+  padding: 0 20px;
 }
-.marquee-content { 
-  flex-shrink: 0; 
-  display: flex; 
-  align-items: center; 
-  justify-content: space-around; 
-  min-width: 100%; 
-  gap: 40px; 
-  animation: scroll 35s linear infinite; 
-}
-.marquee-content:hover { 
-  animation-play-state: paused; 
-}
-@keyframes scroll { 
-  from { transform: translateX(0); } 
-  to { transform: translateX(calc(-100% - 40px)); } 
-}
-.marquee-logo { 
+.sponsor-scroll::-webkit-scrollbar { display: none; }
+.sponsor-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+.sponsor-img {
+  display: block;
+  margin: 0 auto;
   height: 40px; 
-  width: auto; 
-  max-width: 180px; 
-  object-fit: contain; 
-  filter: grayscale(1) opacity(0.6) brightness(1.5); 
-  transition: filter 0.3s ease; 
-  cursor: pointer; 
+  width: auto;
+  max-width: none; 
 }
-.marquee-logo:hover { 
-  filter: grayscale(0) opacity(1) brightness(1); 
-}
-@media(max-width: 760px) {
-  .marquee-logo { height: 32px; max-width: 140px; }
-  .marquee-content { gap: 24px; animation-duration: 25s; }
-  .marquee { gap: 24px; }
-  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(calc(-100% - 24px)); } }
+@media(max-width: 600px) {
+  .sponsor-bar { padding: 16px 0 24px; }
+  .sponsor-label { font-size: .7rem; margin-bottom: 12px; }
+  .sponsor-img { height: 32px; }
 }
 
 /* ---- daftar sakit ---- */
@@ -389,9 +364,11 @@ p{margin-bottom:16px}
 
 /* ---- statistik ---- */
 .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
-.stat{flex:1 1 130px;background:rgba(255,255,255,.06);border:1px solid rgba(77,163,255,.3);border-radius:16px;padding:18px 14px;text-align:center;backdrop-filter:blur(4px)}
+/* PERUBAHAN: Latar kotak diubah jadi putih */
+.stat{flex:1 1 130px;background:#ffffff;border:1px solid rgba(77,163,255,.3);border-radius:16px;padding:18px 14px;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,0.15)}
 .stat .angka{font-family:'Orbitron',sans-serif;font-weight:700;font-size:1.6rem;background:linear-gradient(100deg,var(--emas),var(--emas-terang));-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat .ket{font-size:.75rem;color:var(--redup-gelap)}
+/* PERUBAHAN: Teks keterangan diubah jadi hitam */
+.stat .ket{font-size:.75rem;color:#000000;font-weight:600}
 
 /* ---- pilar ---- */
 .pilar{background:#fff;border-radius:16px;padding:22px;margin-bottom:16px;border:1px solid #E3EAF6;border-top:3px solid var(--biru);box-shadow:0 8px 26px rgba(18,33,61,.06)}
@@ -610,45 +587,12 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
   </div>
 </header>
 
-<!-- ======================= SPONSOR MARQUEE ======================= -->
+<!-- ======================= SPONSOR & MITRA ======================= -->
 <div class="sponsor-bar">
-  <div class="sponsor-label">Dipercaya &amp; Disponsori Oleh</div>
-  <div class="marquee">
-    <!-- BARIS 1: Konten Utama -->
-    <div class="marquee-content">
-      <img src="assets/sponsor/1 Brader.png" class="marquee-logo" alt="Brader Parts">
-      <img src="assets/sponsor/2 Digital ways Hitam.png" class="marquee-logo" alt="Digital Ways">
-      <img src="assets/sponsor/3 BTACC.png" class="marquee-logo" alt="BTACC">
-      <img src="assets/sponsor/4 B PLUS.png" class="marquee-logo" alt="BPLUS">
-      <img src="assets/sponsor/5 MEETOO SUNSHINE.png" class="marquee-logo" alt="MEETO SUNSHINE">
-      <img src="assets/sponsor/6 FUTURE STORE.png" class="marquee-logo" alt="FUTURE STORE">
-      <img src="assets/sponsor/7Onglai.png" class="marquee-logo" alt="ONGLAI">
-      <img src="assets/sponsor/8 libre style.png" class="marquee-logo" alt="LIBRE STYLE">
-      <img src="assets/sponsor/9 SPH.png" class="marquee-logo" alt="SPH">
-      <img src="assets/sponsor/10 OGSS.png" class="marquee-logo" alt="OGSS">
-      <img src="assets/sponsor/11 lf future.png" class="marquee-logo" alt="Lf Future">
-      <img src="assets/sponsor/tambahan/Digital ways putih.png" class="marquee-logo" alt="DIGITAL WAYS">
-      <img src="assets/sponsor/tambahan/Meetoo.png" class="marquee-logo" alt="MEETO">
-      <img src="assets/sponsor/tambahan/Sungine.png" class="marquee-logo" alt="SUNGINE">
-    </div>
-    
-    <!-- BARIS 2: Salinan Sama Persis -->
-    <div class="marquee-content" aria-hidden="true">
-      <img src="assets/sponsor/1 Brader.png" class="marquee-logo" alt="Brader Parts">
-      <img src="assets/sponsor/2 Digital ways Hitam.png" class="marquee-logo" alt="Digital Ways">
-      <img src="assets/sponsor/3 BTACC.png" class="marquee-logo" alt="BTACC">
-      <img src="assets/sponsor/4 B PLUS.png" class="marquee-logo" alt="BPLUS">
-      <img src="assets/sponsor/5 MEETOO SUNSHINE.png" class="marquee-logo" alt="MEETO SUNSHINE">
-      <img src="assets/sponsor/6 FUTURE STORE.png" class="marquee-logo" alt="FUTURE STORE">
-      <img src="assets/sponsor/7Onglai.png" class="marquee-logo" alt="ONGLAI">
-      <img src="assets/sponsor/8 libre style.png" class="marquee-logo" alt="LIBRE STYLE">
-      <img src="assets/sponsor/9 SPH.png" class="marquee-logo" alt="SPH">
-      <img src="assets/sponsor/10 OGSS.png" class="marquee-logo" alt="OGSS">
-      <img src="assets/sponsor/11 lf future.png" class="marquee-logo" alt="Lf Future">
-      <img src="assets/sponsor/tambahan/Digital ways putih.png" class="marquee-logo" alt="DIGITAL WAYS">
-      <img src="assets/sponsor/tambahan/Meetoo.png" class="marquee-logo" alt="MEETO">
-      <img src="assets/sponsor/tambahan/Sungine.png" class="marquee-logo" alt="SUNGINE">
-    </div>
+  <div class="sponsor-label">Mitra Kami</div>
+  <div class="sponsor-scroll">
+    <!-- Placeholder diset khusus dengan proporsi 4717x324 -->
+    <img src="assets/bg/logo logo sponsor di LPK Quantum.png" class="sponsor-img" alt="Mitra Kami">
   </div>
 </div>
 
@@ -681,8 +625,8 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     
     <div class="stats">
       <div class="stat"><div class="angka">2010</div><div class="ket">LPK resmi, 15+ tahun mendidik teknisi</div></div>
-      <div class="stat"><div class="angka">100+</div><div class="ket">Video kasus servis nyata dari meja kerja</div></div>
-      <div class="stat"><div class="angka">1.000+</div><div class="ket">Alumni teknisi &amp; pemilik konter se-Indonesia</div></div>
+      <div class="stat"><div class="angka">1.000+</div><div class="ket">Video kasus servis nyata dari meja kerja</div></div>
+      <div class="stat"><div class="angka">6.000+</div><div class="ket">Alumni teknisi &amp; pemilik konter se-Indonesia</div></div>
     </div>
   </div>
 </section>
@@ -693,10 +637,10 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     <span class="eyebrow">Apa Yang Anda Dapatkan</span>
     <h2>Semua Yang Anda Butuhkan, <span class="aksen">Dalam 1 Aplikasi</span></h2>
     
-    <img src="https://placehold.co/600x400/0B2559/FFFFFF?text=Mockup+Aplikasi+/+Grup+VVIP" alt="Tampilan Aplikasi VBATPonsel" class="visual-bukti">
+    <img src="assets/testimoni/ss-grup.jpeg" alt="Tampilan Aplikasi VBATPonsel" class="visual-bukti">
 
     <div class="pilar utama">
-      <h3>🩺 Didampingi, Bukan Dilepas Sendirian <span class="tag-hero">TIDAK ADA DI YOUTUBE</span></h3>
+      <h3>🩺 Didampingi, Bukan Dilepas Sendirian</h3>
       <ul>
         <li><strong>Grup WhatsApp VVIP Bedah Kasus</strong> — aktif setiap hari; kirim foto mesin Anda, dibedah bareng mentor &amp; sesama teknisi.</li>
         <li><strong>LIVE Streaming Bedah Kasus</strong> di grup Facebook tertutup khusus peserta.</li>
@@ -707,7 +651,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     <div class="pilar">
       <h3>🎥 Belajar Sampai Bisa, Bukan Sekadar Nonton</h3>
       <ul>
-        <li><strong>100+ video servis kasus nyata</strong> — dari HP rusak beneran, bukan teori doang.</li>
+        <li><strong>1000+ video servis kasus nyata</strong> — dari HP rusak beneran, bukan teori doang.</li>
         <li>Materi sistematis <strong>dasar → mahir</strong>, sesuai standar <strong>SKKNI</strong>, di-update berkala.</li>
         <li><strong>Tes pemahaman</strong> tiap materi — biar tahu mana yang masih kurang.</li>
         <li>Akses kapan saja dari HP Anda — ulang sepuasnya sampai paham.</li>
@@ -715,7 +659,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     </div>
 
     <div class="pilar">
-      <h3>📜 Diakui &amp; Siap Cari Nafkah</h3>
+      <h3>📜 Resmi &amp; Siap Kerja</h3>
       <ul>
         <li><strong>E-Sertifikat resmi</strong> dari LPK terdaftar — bukti kompetensi yang diakui industri.</li>
         <li><strong>Kaos Official VBATPonsel</strong> — tanda Anda bagian dari komunitas profesional.</li>
@@ -726,7 +670,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     <div class="pilar">
       <h3>🧰 Senjata Lengkap Teknisi</h3>
       <ul>
-        <li><strong>E-Book panduan teknisi</strong> — bisa dibaca kapan saja.</li>
+        <!-- <li><strong>E-Book panduan teknisi</strong> — bisa dibaca kapan saja.</li> -->
         <li><strong>Daftar supplier sparepart se-Indonesia</strong> — belanja tangan pertama, margin servis lebih tebal.</li>
       </ul>
     </div>
@@ -739,14 +683,14 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     <span class="eyebrow">Bonus Eksklusif</span>
     <h2>Hanya Untuk <span class="aksen">Pendaftar Awal!</span> 🎁</h2>
     
-    <div class="bonus-item">
+    <!-- <div class="bonus-item">
       <img src="https://placehold.co/160x240/C9A227/FFFFFF?text=Cover+E-Book" alt="E-Book Teknisi" class="bonus-img">
       <div class="bonus-text">
         <strong>🎁 E-Book "50 Kerusakan HP Paling Sering Terjadi &amp; Cara Mengatasinya"</strong>
         <p class="kecil" style="margin:4px 0 6px">Panduan cepat mengatasi kerusakan paling umum di lapangan.</p>
         <span class="nilai"><s>Rp 150.000</s> → <b>GRATIS!</b></span>
       </div>
-    </div>
+    </div> -->
     
     <div class="bonus-item">
       <img src="https://placehold.co/160x240/1D4ED8/FFFFFF?text=Folder+Firmware" alt="Kumpulan Firmware Premium" class="bonus-img">
@@ -774,7 +718,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
 <section class="es-bg">
   <div class="wrap naik">
     <span class="eyebrow">Supaya Makin Yakin</span>
-    <h2>Bedanya <span class="aksen">Apa?</span></h2>
+    <h2>MENGAPA <span class="aksen">MEMILIH KAMI?</span></h2>
     <div class="banding">
       <div class="kolom tanpa">
         <h3>TANPA VBATPonsel</h3>
@@ -813,8 +757,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
       <p class="peran">Teknisi, Surabaya</p>
     </div>
     
-    <img src="https://placehold.co/400x600/25D366/FFFFFF?text=Screenshot+Chat+WA+1" class="wa-chat" alt="Testimoni WhatsApp 1">
-    <img src="https://placehold.co/400x600/25D366/FFFFFF?text=Screenshot+Chat+WA+2" class="wa-chat" alt="Testimoni WhatsApp 2">
+    <img src="assets/testimoni/ss-grup.jpeg" alt="Tampilan Aplikasi VBATPonsel" class="visual-bukti">
 
   </div>
 </section>
