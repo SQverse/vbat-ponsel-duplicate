@@ -136,22 +136,25 @@ p{margin-bottom:16px}
   display: block;
 }
 
-/* ---- HERO ---- */
+/* =========================================================
+   HERO SEAMLESS BLENDING
+   ========================================================= */
 .hero{
   position:relative;overflow:hidden;text-align:center;color:var(--putih);
   padding:64px 0 56px;
+  /* PERUBAHAN: Memulai gradien dari warna navy pekat murni di titik 0% agar menyatu dengan banner */
   background-image:
-    linear-gradient(178deg, rgba(6,18,41,.92) 0%, rgba(11,37,89,.88) 55%, rgba(29,78,216,.72) 100%),
+    linear-gradient(180deg, var(--navy) 0%, rgba(6,18,41,.92) 20%, rgba(11,37,89,.94) 100%),
     url('assets/bg/bg-new.jpeg');
   background-size:cover;background-position:center;
 }
 .hero::before{
   content:"";position:absolute;inset:0;pointer-events:none;
+  /* PERUBAHAN: Menghilangkan efek glow radial-gradient di atas agar tidak ada garis batas patah, sisa grid saja */
   background-image:
-    radial-gradient(ellipse at 50% 0%, rgba(77,163,255,.22), transparent 55%),
-    linear-gradient(rgba(77,163,255,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(77,163,255,.07) 1px, transparent 1px);
-  background-size:100% 100%, 42px 42px, 42px 42px;
+    linear-gradient(rgba(77,163,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,163,255,.05) 1px, transparent 1px);
+  background-size: 42px 42px, 42px 42px;
 }
 .hero::after{ 
   content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
@@ -511,10 +514,10 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
 <!-- ======================= BANNER UTAMA & SUB BANNER ======================= -->
 <div class="banner-wrapper">
   <!-- Placeholder Banner 1 (1600x1060) -->
-  <img src="assets/bg/banner-1.jpeg" class="banner-atas" alt="Banner Utama 1">
+  <img src="assets/bg/ATAS polos.png" class="banner-atas" alt="Banner Utama 1">
   
   <!-- Placeholder Banner 2 (1292x1218) -->
-  <img src="assets/bg/banner-2.jpeg" class="banner-bawah" alt="Banner Utama 2">
+  <img src="assets/bg/bawah POLOS.png" class="banner-bawah" alt="Banner Utama 2">
 </div>
 
 <!-- ======================= HERO ======================= -->
@@ -753,7 +756,8 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     </div>
     
     <img src="assets/testimoni/ss-grup.jpeg" alt="Tampilan Aplikasi VBATPonsel" class="visual-bukti">
-
+    <img src="assets/testimoni/ss-testimoni-playstore.jpeg" alt="Tampilan Aplikasi VBATPonsel" class="visual-bukti">
+    <img src="assets/testimoni/ss-testimoni-playstore2.jpeg" alt="Tampilan Aplikasi VBATPonsel" class="visual-bukti">
   </div>
 </section>
 
@@ -792,7 +796,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     <span class="eyebrow">Langkah Terakhir</span>
     <h2>Yang Harus Anda Lakukan <span class="aksen">Sekarang</span> 🎯</h2>
     
-    <img src="https://placehold.co/600x400/1D4ED8/FFFFFF?text=Mockup+Halaman+Play+Store" alt="Halaman Download Play Store" class="visual-bukti">
+    <img src="assets/bg/ATAS polos.png" alt="Halaman Download Play Store" class="visual-bukti">
 
     <ol class="langkah">
       <li><strong>Download aplikasi VBATPonsel</strong> di Play Store.</li>
