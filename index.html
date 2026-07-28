@@ -85,7 +85,6 @@ p{margin-bottom:16px}
 /* ---- Latar Background FOTO NYATA + Efek Overlay Supaya Tidak Nabrak ---- */
 .gelap {
   background-color: var(--navy);
-  /* Foto sirkuit elektronik / motherboard */
   background-image: linear-gradient(rgba(6, 18, 41, 0.88), rgba(11, 37, 89, 0.94)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
@@ -95,7 +94,6 @@ p{margin-bottom:16px}
 
 .terang {
   background-color: var(--putih);
-  /* Foto meja teknisi / orang servis HP */
   background-image: linear-gradient(rgba(251, 253, 255, 0.94), rgba(251, 253, 255, 0.96)), url('https://images.unsplash.com/photo-1588508065123-287b28e013da?q=80&w=1920&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
@@ -105,7 +103,6 @@ p{margin-bottom:16px}
 
 .es-bg {
   background-color: var(--es);
-  /* Foto setup teknologi clean / laptop */
   background-image: linear-gradient(rgba(238, 244, 255, 0.92), rgba(238, 244, 255, 0.95)), url('https://images.unsplash.com/photo-1531297172868-942cece06446?q=80&w=1920&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
@@ -158,7 +155,6 @@ p{margin-bottom:16px}
   max-width: 800px;
 }
 
-/* Modifikasi font LPK KHUSUS HANYA UNTUK HERO */
 .hero .eyebrow {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -218,6 +214,65 @@ p{margin-bottom:16px}
 }
 .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
 .badge{font-size:.75rem;font-weight:700;background:rgba(255,255,255,.07);border:1px solid rgba(77,163,255,.35);padding:7px 13px;border-radius:99px;color:#DCE7FA;backdrop-filter:blur(4px)}
+
+/* =========================================================
+   PERBAIKAN HERO UNTUK TAMPILAN HP (FIT SATU LAYAR) 
+   ========================================================= */
+@media(max-width: 600px) {
+  .hero {
+    padding: 30px 0 36px; /* Padding atas bawah dikompres */
+  }
+  .hero .logo {
+    height: 42px; /* Logo sedikit lebih kecil */
+    margin-bottom: 12px;
+  }
+  .hero .eyebrow {
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+    padding: 4px 12px;
+  }
+  .urgensi {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-size: clamp(1.4rem, 6vw, 1.8rem); /* Font heading dikompres agar tidak makan baris */
+  }
+  .fitur-hero {
+    margin: 20px auto 0;
+    padding: 16px 8px; /* Ruang dalam kotak fitur dipersempit */
+    gap: 8px;
+    border-radius: 14px;
+  }
+  .fitur-item {
+    flex: 1 1 30%; /* Memaksa kotak fitur muat 3 sejajar di atas, 2 di bawah */
+    font-size: 0.55rem; /* Font keterangan ikon diperkecil */
+    gap: 6px;
+  }
+  .fitur-icon {
+    width: 40px; /* Ikon diperkecil */
+    height: 40px;
+    border-radius: 10px;
+  }
+  .fitur-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .hero .btn {
+    margin-top: 20px !important;
+    padding: 14px 20px; /* Tombol CTA lebih ringkas */
+    font-size: 0.95rem;
+  }
+  .badges {
+    margin-top: 16px;
+    gap: 6px;
+  }
+  .badge {
+    font-size: 0.65rem; /* Badge bawah kompres */
+    padding: 4px 10px;
+  }
+}
 
 /* ---- MARQUEE SPONSOR ---- */
 .sponsor-bar { 
