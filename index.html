@@ -217,76 +217,98 @@ p{margin-bottom:16px}
 .badge{font-size:.75rem;font-weight:700;background:rgba(255,255,255,.07);border:1px solid rgba(77,163,255,.35);padding:7px 13px;border-radius:99px;color:#DCE7FA;backdrop-filter:blur(4px)}
 
 /* =========================================================
-   KOMPRESI HERO UNTUK TAMPILAN HP (BANNER TETAP FULL) 
+   KOMPRESI EKSTREM HERO UNTUK TAMPILAN HP (DIJAMIN PAS 1 LAYAR) 
    ========================================================= */
 @media(max-width: 600px) {
-  /* Banner dibiarkan utuh & natural tanpa cropping letterbox */
+  /* Banner dibiarkan 100% utuh & natural */
   .banner-utama {
     width: 100%;
     height: auto;
     object-fit: cover;
   }
+  
+  /* Kompresi Hero Section */
   .hero {
-    padding: 16px 0 24px; /* Padding diminimalkan */
+    padding: 8px 0 16px; /* Padding vertikal sangat ditipiskan */
   }
   .hero .logo {
-    height: 28px; /* Logo diperkecil */
-    margin-bottom: 8px;
+    height: 22px; /* Logo diperkecil ekstra */
+    margin-bottom: 4px; /* Jarak bawah logo dirapatkan */
   }
   .hero .eyebrow {
-    font-size: 0.55rem;
-    margin-bottom: 6px;
-    padding: 3px 10px;
+    font-size: 0.5rem;
+    margin-bottom: 4px;
+    padding: 2px 8px;
+    letter-spacing: 0.5px;
+    border-width: 1px;
   }
   .urgensi {
-    font-size: 0.6rem;
-    padding: 4px 10px;
-    margin-bottom: 8px;
+    font-size: 0.55rem;
+    padding: 3px 8px;
+    margin-bottom: 6px;
   }
   .hero h1 {
-    font-size: clamp(1.15rem, 5.5vw, 1.4rem); /* Heading dikompres */
-    line-height: 1.25;
-    margin-bottom: 10px;
+    font-size: clamp(0.95rem, 4.5vw, 1.2rem); /* Font heading dikompres lagi */
+    line-height: 1.15;
+    margin-bottom: 6px;
   }
+  
+  /* Kompresi Ekstrem Kotak 5 Ikon */
   .fitur-hero {
-    margin: 8px auto 0;
-    padding: 8px 4px; /* Ruang dalam kotak ikon sangat tipis */
-    gap: 2px;
-    border-radius: 12px;
-    flex-wrap: nowrap; /* MEMAKSA 5 IKON DALAM 1 BARIS */
+    margin: 4px auto 0;
+    padding: 6px 2px; /* Ruang dalam kotak sangat tipis */
+    gap: 1px;
+    border-radius: 8px;
+    flex-wrap: nowrap; /* Memaksa 5 ikon dalam 1 baris */
   }
   .fitur-item {
-    flex: 1; /* Dibagi rata 5 kolom */
-    font-size: 0.45rem; /* Teks fitur sangat kecil */
-    line-height: 1.1;
-    gap: 4px;
-    letter-spacing: 0;
+    flex: 1; 
+    font-size: 0.4rem; /* Teks fitur super mini */
+    line-height: 1.05;
+    gap: 2px;
+    letter-spacing: -0.2px;
   }
   .fitur-icon {
-    width: 32px; /* Ikon mini */
-    height: 32px;
-    border-radius: 8px;
+    width: 24px; /* Ikon ekstra mini */
+    height: 24px;
+    border-radius: 6px;
+    border-width: 0.5px;
   }
   .fitur-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 12px; /* Gambar SVG dalam ikon diperkecil */
+    height: 12px;
   }
+  
+  /* Kompresi Tombol & Badge Hero */
   .hero .btn {
-    margin-top: 12px !important;
-    padding: 10px 14px; 
-    font-size: 0.9rem;
+    margin-top: 8px !important;
+    padding: 8px 12px; /* Tombol CTA lebih ceper */
+    font-size: 0.85rem;
+    border-radius: 8px;
   }
   .hero p.kecil {
-    font-size: 0.6rem;
-    margin: 4px 0 6px;
+    font-size: 0.55rem;
+    margin: 2px 0 4px;
   }
   .badges {
-    margin-top: 6px;
-    gap: 4px;
+    margin-top: 4px;
+    gap: 3px;
   }
   .badge {
-    font-size: 0.55rem; 
-    padding: 3px 6px;
+    font-size: 0.5rem; 
+    padding: 2px 5px;
+    border-radius: 4px;
+    border-width: 0.5px;
+  }
+
+  /* Kompresi Sticky Footer bawah untuk tambah ruang di layar */
+  .sticky-cta {
+    padding: 8px 10px;
+  }
+  .sticky-cta .btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    border-radius: 10px;
   }
 }
 
@@ -680,7 +702,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
       <h3>📜 Diakui &amp; Siap Cari Nafkah</h3>
       <ul>
         <li><strong>E-Sertifikat resmi</strong> dari LPK terdaftar — bukti kompetensi yang diakui industri.</li>
-        <li><strong>Kaos Official VBATPonsel</strong> — tanda Anda bagian dari komunitas teknisi profesional.</li>
+        <li><strong>Kaos Official VBATPonsel</strong> — tanda Anda bagian dari komunitas profesional.</li>
         <li><strong>Member Card LPK Quantum Telecommunication</strong></li>
       </ul>
     </div>
