@@ -107,25 +107,13 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif; background:var(--navy
 
 /* ---- SECTION BENEFIT KHUSUS ---- */
 .section-benefit {
-  background-color: #F3F7FC; /* Warna biru pastel sangat muda sesuai desain */
-  padding: 60px 20px;        /* Memberikan ruang kosong di atas dan bawah gambar */
+  background-color: #F3F7FC; /* Warna biru pastel sangat muda sesuai desain */       /* Memberikan ruang kosong di atas dan bawah gambar */
   width: 100%;
 }
 
-.wrap-benefit {
-  max-width: 800px;          /* Membatasi lebar maksimal gambar agar tidak raksasa di laptop */
-  margin: 0 auto;            /* Posisi tengah otomatis */
+.wrap-benefit {      /* Membatasi lebar maksimal gambar agar tidak raksasa di laptop */          /* Posisi tengah otomatis */
   display: flex;
-  flex-direction: column;
-  gap: 24px;                 /* Jarak rapi antara banner WA dan gambar 4 pilar */
-}
-
-.img-benefit {
-  width: 100%;
-  height: auto;
-  border-radius: 16px;       /* Membuat sudut gambar sedikit melengkung agar elegan */
-  box-shadow: 0 12px 30px rgba(18,33,61,.08); /* Efek bayangan lembut */
-  display: block;
+  flex-direction: column;               /* Jarak rapi antara banner WA dan gambar 4 pilar */
 }
 
 @media(max-width: 600px) {
@@ -160,9 +148,16 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif; background:var(--navy
 
   <section class="section-benefit">
     <div class="wrap-benefit">
-    <h1>Semua Yang Anda Butuhkan, Dalam 1 Aplikasi</h1>
+    <h1 style="padding: 40px 30px; text-align: center;">Semua Yang Anda Butuhkan, Dalam 1 Aplikasi</h1>
       <!-- 1. Gambar murni Banner WhatsApp asli -->
-      <img src="assets/testimoni/ss-grup.webp" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
+      <img src="assets/testimoni/ss-grup.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
+
+      <img src="assets/testimoni/1.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
+      <img src="assets/testimoni/2.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
+      <img src="assets/testimoni/3.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
+      <img src="assets/testimoni/4.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
+      <img src="assets/testimoni/5.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
+      <img src="assets/testimoni/6.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
       
       <!-- 2. Placeholder untuk gambar 4 Kotak Pilar dari hasil generate AI -->
       <img src="assets/bg/benefit-banner.webp" class="img-benefit" alt="4 Pilar Pembelajaran">
