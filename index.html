@@ -3,39 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VBATPonsel — Jadi Teknisi Ponsel Andal dalam 30 Hari, Dibimbing Sampai Bisa</title>
+<title>VBATPonsel - Jadi Teknisi Ponsel Andal dalam 30 Hari</title>
 <meta name="description" content="Platform video pembelajaran teknisi ponsel No.1 Indonesia. 100+ video kasus nyata, LIVE bedah kasus, mentor berpengalaman sejak 2010, sertifikat resmi LPK Quantum Telecommunication.">
-
-<!-- ===== FACEBOOK PIXEL ===== -->
-<!--
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', 'PIXEL_ID_ANDA');
-fbq('track', 'PageView');
-</script>
--->
-<!-- ===== AKHIR FACEBOOK PIXEL ===== -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --navy:#061229;          
-  --biru:#1D4ED8;          
-  --biru-muda:#4DA3FF;     
-  --putih:#FBFDFF;
-  --emas:#C9A227;          
-  --emas-terang:#E8C15A;   
+:root {
+  --navy: #061229;          
+  --biru: #1D4ED8;          
+  --biru-muda: #4DA3FF;     
+  --putih: #FBFDFF;
+  --emas: #C9A227;          
+  --emas-terang: #E8C15A;   
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth; background: var(--navy);}
-body{font-family:'Plus Jakarta Sans',system-ui,sans-serif; background:var(--navy); padding-bottom:84px}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; background: var(--navy); }
+body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--navy); padding-bottom: 84px; }
 
 /* ---- GAMBAR FULL WIDTH ---- */
 .img-section {
@@ -44,7 +31,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif; background:var(--navy
   height: auto;
 }
 
-/* ---- BUNGKUSAN TOMBOL ---- */
+/* ---- BUNGKUSAN TOMBOL UMUM ---- */
 .action-area {
   width: 100%;
   background-color: var(--navy); 
@@ -57,23 +44,23 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif; background:var(--navy
 
 /* ---- TOMBOL CSS ---- */
 .btn {
-  display:block;
-  text-align:center;
-  text-decoration:none;
-  font-weight:800;
-  padding:18px 28px;
-  border-radius:14px;
-  font-size:1.05rem;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 18px 28px;
+  border-radius: 25px;
+  font-size: 1.05rem;
   width: 100%;
-  max-width: 600px; 
-  transition:transform .15s ease,box-shadow .15s ease;
+  max-width: 550px; 
+  transition: transform .15s ease, box-shadow .15s ease;
 }
-.btn:active { transform:scale(.97); }
+.btn:active { transform: scale(.97); }
 
 .btn-biru {
-  background:linear-gradient(100deg,var(--biru),var(--biru-muda));
-  color:var(--putih);
-  box-shadow:0 10px 24px rgba(29,78,216,.35);
+  background: linear-gradient(100deg, var(--biru), var(--biru-muda));
+  color: var(--putih);
+  box-shadow: 0 10px 24px rgba(29,78,216,.35);
   border: none;
 }
 
@@ -85,40 +72,117 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif; background:var(--navy
 }
 
 .btn-playstore {
-  background:linear-gradient(100deg, #101828, #1D2939);
-  color:var(--putih);
+  background: linear-gradient(100deg, #101828, #1D2939);
+  color: var(--putih);
   border: 1px solid rgba(255,255,255,0.2);
 }
 
 /* ---- STICKY CTA ---- */
-.sticky-cta{
-  position:fixed;
-  bottom:0;left:0;right:0;z-index:99;
-  background:rgba(6,18,41,.9);
-  backdrop-filter:blur(8px);
-  padding:12px 16px;
-  border-top:1px solid rgba(232,193,90,.5)
+.sticky-cta {
+  position: fixed;
+  bottom: 0; left: 0; right: 0; z-index: 99;
+  background: rgba(6,18,41,.9);
+  backdrop-filter: blur(8px);
+  padding: 12px 16px;
+  border-top: 1px solid rgba(232,193,90,.5);
 }
-.sticky-cta .btn{
-  margin:0 auto;
-  padding:14px 20px;
-  font-size:1rem;
+.sticky-cta .btn {
+  margin: 0 auto;
+  padding: 14px 20px;
+  font-size: 1rem;
 }
 
-/* ---- SECTION BENEFIT KHUSUS ---- */
-.section-benefit {
-  background-color: #F3F7FC; /* Warna biru pastel sangat muda sesuai desain */       /* Memberikan ruang kosong di atas dan bawah gambar */
+/* ---- HERO SECTION KHUSUS (TOMBOL MELAYANG) ---- */
+.hero-wrapper {
+  position: relative;
   width: 100%;
 }
-
-.wrap-benefit {      /* Membatasi lebar maksimal gambar agar tidak raksasa di laptop */          /* Posisi tengah otomatis */
+.hero-btn-area {
+  position: absolute;
+  /* UBAH ANGKA INI: Perbesar untuk menaikkan tombol, perkecil untuk menurunkan */
+  bottom: 12%; 
+  left: 0;
+  right: 0;
   display: flex;
-  flex-direction: column;               /* Jarak rapi antara banner WA dan gambar 4 pilar */
+  justify-content: center;
+  padding: 0 5%;
+}
+.hero-btn-area .btn {
+  /* Bayangan gelap agar tombol menonjol dan tidak menyatu dengan background */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.7); 
 }
 
+/* ---- SECTION BENEFIT (DARK MODE) ---- */
+.section-benefit {
+  background-color: var(--navy); 
+  width: 100%;
+}
+.wrap-benefit {      
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.img-benefit {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+}
+
+/* ---- SLIDER TESTIMONI 3 HP (FIX UKURAN RAKSASA) ---- */
+.halaman7-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.halaman7-bg {
+  width: 100%;
+  display: block;
+}
+
+.halaman7-slider-area {
+  position: absolute;
+  top: 25%;   
+  bottom: 10%; 
+  left: 0;
+  right: 0;
+  padding: 0 3%;
+  display: flex;
+  align-items: center; 
+}
+
+.slider-3hp {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  height: 100%; 
+  align-items: center;
+}
+
+/* Custom Scrollbar */
+.slider-3hp::-webkit-scrollbar { height: 5px; }
+.slider-3hp::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
+.slider-3hp::-webkit-scrollbar-thumb { background: var(--biru); border-radius: 10px; }
+
+.hp-item {
+  flex: 0 0 calc(33.333% - 6px); 
+  height: 100%; 
+  width: 100%;
+  object-fit: contain; 
+  scroll-snap-align: start; 
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)); 
+}
+
+/* Responsive Adjustments */
 @media(max-width: 600px) {
   .btn { padding: 14px 20px; font-size: 0.95rem; }
   .action-area { padding: 16px; }
+  .hero-btn-area { bottom: 10%; } /* Sedikit disesuaikan di HP agar lebih proporsional */
 }
 </style>
 </head>
@@ -128,84 +192,85 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif; background:var(--navy
   <img src="assets/bg/ATAS polos.webp" class="img-section" alt="Banner Utama 1">
   <img src="assets/bg/bawah POLOS.webp" class="img-section" alt="Banner Utama 2">
 
-
-  <!-- ======================= SLICE 1: HERO ======================= -->
-  <img src="assets/bg/hero-section-banner.webp" class="img-section" alt="Bagian Atas">
-
-  <!-- Area Tombol Hero -->
-  <div class="action-area">
-    <a class="btn btn-biru" onclick="lacak('Lead','cta_hero')" href="https://wa.me/62818268717?text=Halo%20Admin%20VBATPonsel%2C%20saya%20mau%20GABUNG%20promo%2050%20pendaftar%20pertama.">🚀 Mulai Perjalanan Jadi Teknisi Andal Hari Ini</a>
+  <!-- ======================= SLICE 1: HERO (TOMBOL DI DALAM GAMBAR) ======================= -->
+  <div class="hero-wrapper">
+    <img src="assets/bg/HALAMAN 3.jpg.jpeg" class="img-section" alt="Bagian Atas">
+    <div class="hero-btn-area">
+      <a class="btn btn-biru" onclick="lacak('Lead','cta_hero')" href="https://wa.me/62818268717?text=Halo%20Admin%20VBATPonsel%2C%20saya%20mau%20GABUNG%20promo%2050%20pendaftar%20pertama.">👇 Mulai Perjalanan Jadi Teknisi Andal Hari Ini</a>
+    </div>
   </div>
 
   <!-- ======================= SLICE 2: MASALAH & SOLUSI ======================= -->
-  <!-- Export bagian "Diagnosa Awal", "Solusi", sampai heading "Apa Yang Anda Dapatkan" -->
-  <img src="assets/bg/diagnosa-awal-banner.webp" class="img-section" alt="Masalah dan Solusi">
+  <img src="assets/bg/halaman 4.jpg.jpeg" class="img-section" alt="Masalah dan Solusi">
 
-  <!-- ======================= SLICE 2.5: PERKENALAN (SOLUSI) ======================= -->
-<img src="assets/bg/solusinya-banner.webp" class="img-section" alt="Solusi: Perkenalkan VBATPonsel">
+  <!-- ======================= SLICE 2.5: PERKENALAN ======================= -->
+  <img src="assets/bg/HALAMAN 6.jpg.jpeg" class="img-section" alt="Solusi: Perkenalkan VBATPonsel">
+  <img src="assets/bg/HALAMAN 5.jpg.jpeg" class="img-section" alt="Solusi: Perkenalkan VBATPonsel">
 
-  <!-- ======================= SLICE KHUSUS: BENEFIT ======================= -->
-
+  <!-- ======================= SLICE KHUSUS: BENEFIT & TESTIMONI ======================= -->
   <section class="section-benefit">
-    <div class="wrap-benefit">
-    <h1 style="padding: 40px 30px; text-align: center;">Semua Yang Anda Butuhkan, Dalam 1 Aplikasi</h1>
-      <!-- 1. Gambar murni Banner WhatsApp asli -->
-      <img src="assets/testimoni/ss-grup.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
-
-      <img src="assets/testimoni/1.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
-      <img src="assets/testimoni/2.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
-      <img src="assets/testimoni/3.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
-      <img src="assets/testimoni/4.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
-      <img src="assets/testimoni/5.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
-      <img src="assets/testimoni/6.png" class="img-benefit" alt="Grup Bedah Kasus dan Konsultasi">
+    <div class="halaman7-wrapper">
+      <!-- Background Utama -->
+      <img src="assets/bg/HALAMAN 7.jpg (3).jpeg" class="halaman7-bg" alt="Gabung Group Konsultasi">
       
-      <!-- 2. Placeholder untuk gambar 4 Kotak Pilar dari hasil generate AI -->
-      <img src="assets/bg/benefit-banner.webp" class="img-benefit" alt="4 Pilar Pembelajaran">
+      <!-- Area Slider yang ditumpuk (Overlay) -->
+      <div class="halaman7-slider-area">
+        <div class="slider-3hp">
+          <img src="assets/testimoni/SS G 1.webp" class="hp-item" alt="Testimoni 1">
+          <img src="assets/testimoni/SS G 2.webp" class="hp-item" alt="Testimoni 2">
+          <img src="assets/testimoni/SS G 3.webp" class="hp-item" alt="Testimoni 3">
+          <img src="assets/testimoni/SS G 4.webp" class="hp-item" alt="Testimoni 4">
+          <img src="assets/testimoni/SS G 5.webp" class="hp-item" alt="Testimoni 5">
+          <img src="assets/testimoni/SS G 6.webp" class="hp-item" alt="Testimoni 6">
+          <img src="assets/testimoni/SS G 7.webp" class="hp-item" alt="Testimoni 7">
+          <img src="assets/testimoni/SS G 8.png" class="hp-item" alt="Testimoni 8">
+          <img src="assets/testimoni/SS G 9.png" class="hp-item" alt="Testimoni 9">
+          <img src="assets/testimoni/SS G 10.png" class="hp-item" alt="Testimoni 10">
+          <img src="assets/testimoni/SS G 11.webp" class="hp-item" alt="Testimoni 11">
+          <img src="assets/testimoni/SS G 12.png" class="hp-item" alt="Testimoni 12">
+          <img src="assets/testimoni/SS G 13.png" class="hp-item" alt="Testimoni 13">
+          <img src="assets/testimoni/SS G 14.png" class="hp-item" alt="Testimoni 14">
+          <img src="assets/testimoni/SS G 15.png" class="hp-item" alt="Testimoni 15">
+          <img src="assets/testimoni/SS G 16.png" class="hp-item" alt="Testimoni 16">
+          <img src="assets/testimoni/SS G 17.png" class="hp-item" alt="Testimoni 17">
+          <img src="assets/testimoni/SS G 18.png" class="hp-item" alt="Testimoni 18">
+          <img src="assets/testimoni/SS G 19.png" class="hp-item" alt="Testimoni 19">
+          <img src="assets/testimoni/SS G 20.png" class="hp-item" alt="Testimoni 20">
+        </div>
+      </div>
+    </div>
+    
+    <div class="wrap-benefit">
+      <!-- 4 Kotak Pilar -->
+      <img src="assets/bg/HALAMAN 8.jpg.jpeg" class="img-benefit" alt="4 Pilar Pembelajaran">
 
-      <h2 style="text-align: center;">Mitra Kami:</h2>
-      <img src="assets/bg/logo logo sponsor di LPK Quantum.webp" class="img-section" alt="Solusi: Perkenalkan VBATPonsel">
+      <!-- Mitra / Sponsor -->
+      <h2 style="text-align: center; color: var(--putih); margin-top: 20px;">Mitra Kami:</h2>
+      <img src="assets/bg/logo logo sponsor di LPK Quantum.webp" class="img-section" style="padding: 20px 20px;" alt="Sponsor LPK Quantum">
     </div>
   </section>
 
-  
-  <!-- <img src="assets/bg/bonus-banner.png" class="img-section" alt="Masalah dan Solusi"> -->
-
   <!-- ======================= SLICE 3: BONUS & HARGA ======================= -->
-  <!-- Export dari "Bonus Eksklusif" sampai informasi kotak harga SEBELUM tombol Klaim -->
   <img src="assets/bg/harga-banner.webp" class="img-section" alt="Bonus dan Harga">
-
-  <!-- Area Tombol Harga -->
   <div class="action-area">
     <a class="btn btn-alumni" onclick="lacak('InitiateCheckout','cta_alumni')" href="https://wa.me/62818268717?text=Halo%2C%20saya%20alumni%20LPK%20Quantum%2C%20mau%20klaim%20harga%20alumni%20VBATPonsel">Klaim Harga Alumni LPK Quantum</a>
     <a class="btn btn-biru" onclick="lacak('InitiateCheckout','cta_umum')" href="https://wa.me/62818268717?text=Halo%2C%20saya%20mau%20gabung%20VBATPonsel%20paket%20Pengguna%20Umum">Gabung Harga Umum Sekarang</a>
   </div>
 
-
-  <!-- ======================= SLICE 4: LANGKAH DAFTAR ======================= -->
-
-  <img src="assets/bg/ATAS polos.webp" class="img-section" alt="Langkah Daftar">
+  <!-- ======================= SLICE 4: LANGKAH DAFTAR (DARK MODE) ======================= -->
   <img src="assets/bg/langkah-daftar.webp" class="img-section" alt="Langkah Daftar">
-
-  <!-- Area Tombol PlayStore -->
   <div class="action-area">
     <a class="btn btn-playstore" onclick="lacak('ViewContent','cta_playstore')" href="https://play.google.com/store/apps/details?id=com.vbatponsel.quantum">📲 Download Aplikasi di Play Store</a>
-    <a class="btn btn-playstore" onclick="lacak('ViewContent','cta_playstore')" href="assets/app/VBAT Ponsel.apk">📲 Download Aplikasi Langsung dari Web Ini</a>
+    <a class="btn btn-playstore" onclick="lacak('ViewContent','cta_playstore')" href="assets/app/VBAT Ponsel.apk">📥 Download Aplikasi Langsung dari Web Ini</a>
   </div>
 
-
-  <!-- ======================= SLICE 5: FAQ & FOOTER ======================= -->
-  <img src="assets/bg/cta-akhir-banner.webp" class="img-section" alt="Footer dan FAQ">
-
-  <!-- Area Tombol Gabung Terakhir -->
+  <!-- ======================= SLICE 5: FAQ & FOOTER (DARK MODE) ======================= -->
+  <img src="assets/bg/closing-cta-dark.jpg" class="img-section" alt="Footer dan FAQ">
   <div class="action-area" style="padding-bottom: 60px;">
     <a class="btn btn-biru" onclick="lacak('Lead','cta_bawah')" href="https://wa.me/62818268717?text=Halo%20Admin%20VBATPonsel%2C%20saya%20mau%20GABUNG%20promo%2050%20pendaftar%20pertama.">👇 GABUNG SEKARANG 👇</a>
   </div>
   
-  <!-- ======================= FOOTER ======================= -->
-  <!-- Silakan taruh gambar footer atau teks footer HTML kamu di sini -->
-
-
-  <!-- ======================= STICKY CTA (TETAP ADA) ======================= -->
+  <!-- ======================= STICKY CTA ======================= -->
   <div class="sticky-cta">
     <a class="btn btn-biru" onclick="lacak('Lead','cta_sticky')" href="https://wa.me/62818268717?text=Halo%2C%20saya%20tertarik%20dengan%20VBATPonsel">💬 Tanya Admin via WhatsApp</a>
   </div>
