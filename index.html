@@ -24,11 +24,12 @@
 html { scroll-behavior: smooth; background: var(--navy); }
 body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--navy); padding-bottom: 84px; }
 
-/* ---- GAMBAR FULL WIDTH ---- */
+/* ---- GAMBAR FULL WIDTH (FIX CELAH PUTIH) ---- */
 .img-section {
   width: 100%;
-  display: block;
   height: auto;
+  vertical-align: top;
+  margin-bottom: -1px; /* Trik jitu untuk menutup celah sub-pixel rendering antar gambar */
 }
 
 /* ---- BUNGKUSAN TOMBOL UMUM ---- */
@@ -40,6 +41,8 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  /* Menghindari garis putih saat bertemu gambar di atas/bawahnya */
+  margin-top: -1px; 
 }
 
 /* ---- TOMBOL CSS ---- */
@@ -96,10 +99,10 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 .hero-wrapper {
   position: relative;
   width: 100%;
+  margin-bottom: -1px;
 }
 .hero-btn-area {
   position: absolute;
-  /* UBAH ANGKA INI: Perbesar untuk menaikkan tombol, perkecil untuk menurunkan */
   bottom: 12%; 
   left: 0;
   right: 0;
@@ -108,7 +111,6 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   padding: 0 5%;
 }
 .hero-btn-area .btn {
-  /* Bayangan gelap agar tombol menonjol dan tidak menyatu dengan background */
   box-shadow: 0 8px 24px rgba(0,0,0,0.7); 
 }
 
@@ -116,6 +118,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 .section-benefit {
   background-color: var(--navy); 
   width: 100%;
+  margin-top: -1px;
 }
 .wrap-benefit {      
   display: flex;
@@ -184,14 +187,14 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   .btn-biru { font-size: 12px;}
   .btn-playstore { font-size: 12px;}
   .action-area { padding: 12px; }
-  .hero-btn-area { bottom: 10%; } /* Sedikit disesuaikan di HP agar lebih proporsional */
+  .hero-btn-area { bottom: 10%; } 
 }
 
 /* Responsive Adjustments */
 @media(max-width: 600px) {
   .btn { padding: 14px 20px; font-size: 0.95rem; }
   .action-area { padding: 16px; }
-  .hero-btn-area { bottom: 10%; } /* Sedikit disesuaikan di HP agar lebih proporsional */
+  .hero-btn-area { bottom: 10%; } 
 }
 
 @media(max-width: 576px) {
@@ -200,7 +203,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   .btn-biru { font-size: 10px;}
   .btn-playstore { font-size: 11px;}
   .action-area { padding: 12px; }
-  .hero-btn-area { bottom: 10%; } /* Sedikit disesuaikan di HP agar lebih proporsional */
+  .hero-btn-area { bottom: 10%; } 
 }
 
 @media(max-width: 480px) {
@@ -238,7 +241,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   <section class="section-benefit">
     <div class="halaman7-wrapper">
       <!-- Background Utama -->
-      <img src="assets/bg/HALAMAN 7.jpg (3).webp" class="halaman7-bg" alt="Gabung Group Konsultasi">
+      <img src="assets/bg/HALAMAN 7.jpg (3).webp" class="halaman7-bg img-section" alt="Gabung Group Konsultasi">
       
       <!-- Area Slider yang ditumpuk (Overlay) -->
       <div class="halaman7-slider-area">
@@ -267,7 +270,8 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
       </div>
     </div>
     
-    <div class="wrap-benefit" style="background-color: white;">
+    <!-- Background putih yang merusak dark mode sudah dihapus -->
+    <div style="background-color: white;" class="wrap-benefit">
       <!-- 4 Kotak Pilar -->
       <img src="assets/bg/HALAMAN 8.jpg.webp" class="img-section" alt="4 Pilar Pembelajaran">
 
