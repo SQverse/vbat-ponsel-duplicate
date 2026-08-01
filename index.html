@@ -97,16 +97,15 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   border-top: 1px solid rgba(232,193,90,.5);
 }
 
-/* Penyesuaian agar tombol Sticky mengecil dan ber-icon */
 .sticky-cta .btn {
   margin: 0 auto;
   padding: 10px 24px; 
   font-size: 0.95rem; 
-  max-width: fit-content; /* Membatasi agar lebar tombol hanya selebar teks saja */
+  max-width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Jarak antara Icon SVG dan Teks */
+  gap: 8px; 
 }
 
 /* ---- HERO SECTION KHUSUS (TOMBOL MELAYANG) ---- */
@@ -181,7 +180,6 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   align-items: center;
 }
 
-/* Custom Scrollbar */
 .slider-3hp::-webkit-scrollbar { height: 5px; }
 .slider-3hp::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
 .slider-3hp::-webkit-scrollbar-thumb { background: var(--biru); border-radius: 10px; }
@@ -195,6 +193,39 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)); 
 }
 
+/* ---- HALAMAN 10 KHUSUS (TOMBOL DOWNLOAD GAMBAR) ---- */
+.halaman10-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: -1px;
+}
+.halaman10-btn-area {
+  position: absolute;
+  bottom: 8%; 
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%; /* Menjaga jarak antar tombol agar tidak berdempetan */
+  padding: 0 8%;
+}
+.halaman10-btn-area a {
+  display: block;
+  width: 38%; /* DIKECILKAN: Sebelumnya 48%, sekarang 38% agar lebih rapi */
+  max-width: 240px; /* Batas maksimal ukuran agar tidak jadi raksasa di PC */
+  transition: transform .15s ease;
+}
+.halaman10-btn-area a:active {
+  transform: scale(0.95); 
+}
+.halaman10-btn-area img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4)); 
+}
+
 /* Responsive Adjustments untuk tablet dan HP */
 @media(max-width: 768px) {
   .btn {font-size: 0.95rem; width: 60vw;}
@@ -203,14 +234,16 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   .btn-playstore { font-size: 12px;}
   .action-area { padding: 12px; }
   .hero-btn-area { bottom: 10%; } 
+  .halaman10-btn-area { bottom: 6%; } 
 }
 
 @media(max-width: 600px) {
   .btn { padding: 14px 20px; font-size: 0.95rem; }
   .action-area { padding: 16px; }
   .hero-btn-area { bottom: 10%; } 
+  .halaman10-btn-area { bottom: 6%; } /* Penyesuaian jarak dari bawah untuk layar HP */
+  .halaman10-btn-area a { width: 42%; } /* Sedikit disesuaikan di HP agar tetap enak diklik */
   
-  /* Ukuran Ekstra Kecil untuk Tombol WA saat dibuka di layar HP */
   .sticky-cta .btn {
     padding: 8px 18px; 
     font-size: 0.85rem; 
@@ -307,12 +340,25 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
     <a class="btn btn-biru" onclick="lacak('InitiateCheckout','cta_umum')" href="https://wa.me/62818268717?text=Halo%2C%20saya%20mau%20gabung%20VBATPonsel%20paket%20Pengguna%20Umum">Gabung Harga Umum Sekarang</a>
   </div>
 
-  <!-- ======================= SLICE 4: LANGKAH DAFTAR (DARK MODE) ======================= -->
-  <img src="assets/bg/langkah-daftar.webp" class="img-section" alt="Langkah Daftar">
-  <div class="action-area" style="padding-bottom: 60px;">
-    <a class="btn btn-playstore" onclick="lacak('ViewContent','cta_playstore')" href="https://play.google.com/store/apps/details?id=com.vbatponsel.quantum">📲 Download Aplikasi di Play Store</a>
-    <a class="btn btn-playstore" onclick="lacak('ViewContent','cta_playstore')" href="assets/app/VBAT Ponsel.apk">📥 Download Aplikasi Langsung dari Web Ini</a>
+  <!-- ======================= SLICE 4: LANGKAH DAFTAR (GAMBAR + 2 TOMBOL) ======================= -->
+  <div class="halaman10-wrapper">
+    <img src="assets/bg/HALAMAN 10.jpg.webp" class="img-section" alt="Langkah Daftar">
+    
+    <div class="halaman10-btn-area">
+      <!-- TOMBOL KIRI (PLAY STORE) -->
+      <a onclick="lacak('ViewContent','cta_playstore')" href="https://play.google.com/store/apps/details?id=com.vbatponsel.quantum">
+        <img src="assets/bg/tombol playstore.webp" alt="Download di Play Store">
+      </a>
+
+      <!-- TOMBOL KANAN (WEB DIRECT) -->
+      <a onclick="lacak('ViewContent','cta_playstore')" href="assets/app/VBAT Ponsel.apk">
+        <img src="assets/bg/tombol web.webp" alt="Download Langsung di Web">
+      </a>
+    </div>
   </div>
+
+  <!-- Space kosong ekstra agar konten tidak tertutup penuh oleh Sticky CTA -->
+  <div style="height: 60px; background-color: var(--navy); width: 100%;"></div>
   
   <!-- ======================= STICKY CTA (REVISI TOMBOL WHATSAPP) ======================= -->
   <div class="sticky-cta">
