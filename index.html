@@ -29,7 +29,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   width: 100%;
   height: auto;
   vertical-align: top;
-  margin-bottom: -1px; /* Trik jitu untuk menutup celah sub-pixel rendering antar gambar */
+  margin-bottom: -1px; 
 }
 
 /* ---- BUNGKUSAN TOMBOL UMUM ---- */
@@ -41,7 +41,6 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  /* Menghindari garis putih saat bertemu gambar di atas/bawahnya */
   margin-top: -1px; 
 }
 
@@ -80,6 +79,14 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   border: 1px solid rgba(255,255,255,0.2);
 }
 
+/* WARNA HIJAU UNTUK TOMBOL WA BARU */
+.btn-wa {
+  background: linear-gradient(100deg, #128C7E, #25D366);
+  color: var(--putih);
+  box-shadow: 0 8px 24px rgba(37,211,102,.35);
+  border: none;
+}
+
 /* ---- STICKY CTA ---- */
 .sticky-cta {
   position: fixed;
@@ -89,10 +96,17 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   padding: 12px 16px;
   border-top: 1px solid rgba(232,193,90,.5);
 }
+
+/* Penyesuaian agar tombol Sticky mengecil dan ber-icon */
 .sticky-cta .btn {
   margin: 0 auto;
-  padding: 14px 20px;
-  font-size: 1rem;
+  padding: 10px 24px; 
+  font-size: 0.95rem; 
+  max-width: fit-content; /* Membatasi agar lebar tombol hanya selebar teks saja */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Jarak antara Icon SVG dan Teks */
 }
 
 /* ---- HERO SECTION KHUSUS (TOMBOL MELAYANG) ---- */
@@ -131,7 +145,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   display: block;
 }
 
-/* ---- SLIDER TESTIMONI 3 HP (FIX UKURAN RAKSASA) ---- */
+/* ---- SLIDER TESTIMONI 3 HP ---- */
 .halaman7-wrapper {
   position: relative;
   width: 100%;
@@ -181,6 +195,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)); 
 }
 
+/* Responsive Adjustments untuk tablet dan HP */
 @media(max-width: 768px) {
   .btn {font-size: 0.95rem; width: 60vw;}
   .btn-alumni { font-size: 12px;}
@@ -190,11 +205,17 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   .hero-btn-area { bottom: 10%; } 
 }
 
-/* Responsive Adjustments */
 @media(max-width: 600px) {
   .btn { padding: 14px 20px; font-size: 0.95rem; }
   .action-area { padding: 16px; }
   .hero-btn-area { bottom: 10%; } 
+  
+  /* Ukuran Ekstra Kecil untuk Tombol WA saat dibuka di layar HP */
+  .sticky-cta .btn {
+    padding: 8px 18px; 
+    font-size: 0.85rem; 
+    width: auto;
+  }
 }
 
 @media(max-width: 576px) {
@@ -270,14 +291,12 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
       </div>
     </div>
     
-    <!-- Background putih yang merusak dark mode sudah dihapus -->
     <div style="background-color: white;" class="wrap-benefit">
       <!-- 4 Kotak Pilar -->
       <img src="assets/bg/HALAMAN 8.jpg.webp" class="img-section" alt="4 Pilar Pembelajaran">
 
       <!-- Mitra / Sponsor -->
-      <h2 style="text-align: center; color: var(--hitam); margin-top: 20px;">Mitra Kami:</h2>
-      <img src="assets/bg/logo logo sponsor di LPK Quantum.webp" class="img-section" style="padding: 20px 20px;" alt="Sponsor LPK Quantum">
+      <img src="assets/bg/HALAMAN 9.jpg.webp" class="img-section" alt="Sponsor LPK Quantum">
     </div>
   </section>
 
@@ -290,19 +309,20 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 
   <!-- ======================= SLICE 4: LANGKAH DAFTAR (DARK MODE) ======================= -->
   <img src="assets/bg/langkah-daftar.webp" class="img-section" alt="Langkah Daftar">
-  <div class="action-area">
+  <div class="action-area" style="padding-bottom: 60px;">
     <a class="btn btn-playstore" onclick="lacak('ViewContent','cta_playstore')" href="https://play.google.com/store/apps/details?id=com.vbatponsel.quantum">📲 Download Aplikasi di Play Store</a>
     <a class="btn btn-playstore" onclick="lacak('ViewContent','cta_playstore')" href="assets/app/VBAT Ponsel.apk">📥 Download Aplikasi Langsung dari Web Ini</a>
   </div>
-
-  <!-- ======================= SLICE 5: FAQ & FOOTER (DARK MODE) ======================= -->
-  <div class="action-area" style="padding-bottom: 60px;">
-    <a class="btn btn-biru" onclick="lacak('Lead','cta_bawah')" href="https://wa.me/62818268717?text=Halo%20Admin%20VBATPonsel%2C%20saya%20mau%20GABUNG%20promo%2050%20pendaftar%20pertama.">👇 GABUNG SEKARANG 👇</a>
-  </div>
   
-  <!-- ======================= STICKY CTA ======================= -->
+  <!-- ======================= STICKY CTA (REVISI TOMBOL WHATSAPP) ======================= -->
   <div class="sticky-cta">
-    <a class="btn btn-biru" onclick="lacak('Lead','cta_sticky')" href="https://wa.me/62818268717?text=Halo%2C%20saya%20tertarik%20dengan%20VBATPonsel">💬 Tanya Admin via WhatsApp</a>
+    <a class="btn btn-wa" onclick="lacak('Lead','cta_sticky')" href="https://wa.me/62818268717?text=Halo%2C%20saya%20tertarik%20dengan%20VBATPonsel">
+      <!-- SVG Logo WhatsApp Asli -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.005-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+      </svg>
+      Tanya Admin via WhatsApp
+    </a>
   </div>
 
 <script>
