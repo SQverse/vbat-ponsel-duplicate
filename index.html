@@ -46,7 +46,10 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 
 /* ---- TOMBOL CSS UMUM ---- */
 .btn {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   text-decoration: none;
   font-weight: 800;
@@ -56,6 +59,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   width: 100%;
   max-width: 550px; 
   transition: transform .15s ease, box-shadow .15s ease;
+  line-height: 1.3;
 }
 .btn:active { transform: scale(.97); }
 
@@ -67,7 +71,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   border: none;
 }
 
-/* GAYA HITAM GARIS EMAS (SEKARANG UNTUK HARGA UMUM) */
+/* GAYA HITAM GARIS EMAS (UNTUK KLAIM ALUMNI) */
 .btn-alumni {
   background: #000000;
   color: var(--emas-terang);
@@ -75,7 +79,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   box-shadow: 0 8px 24px rgba(201,162,39,.15);
 }
 
-/* WARNA EMAS MENYALA (UNTUK KLAIM ALUMNI BARU) */
+/* WARNA EMAS MENYALA (UNTUK HARGA UMUM/PROMO) */
 .btn-emas {
   background: linear-gradient(100deg, var(--emas-terang), var(--emas));
   color: #000000;
@@ -89,6 +93,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   color: var(--putih);
   box-shadow: 0 8px 24px rgba(37,211,102,.35);
   border: none;
+  flex-direction: row; /* Khusus WA kembali ke sebaris untuk icon */
 }
 
 /* ---- STICKY CTA ---- */
@@ -106,9 +111,6 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   padding: 10px 24px; 
   font-size: 0.95rem; 
   max-width: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 8px; 
 }
 
@@ -197,28 +199,31 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)); 
 }
 
-/* ---- HARGA SECTION (KIRI-KANAN) ---- */
-.harga-kiri-kanan {
+/* ---- HARGA SECTION (OVERLAY GAMBAR BARU) ---- */
+.harga-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: -1px;
+}
+
+.harga-btn-area {
+  position: absolute;
+  bottom: 3.5%; /* Menyesuaikan ruang kosong di bawah teks */
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
   gap: 16px;
-  width: 100%;
-  padding: 16px 20px 32px 20px;
-  background-color: var(--navy);
-  margin-top: -1px;
+  padding: 0 5%;
 }
-.harga-kiri-kanan .btn {
+
+.harga-btn-area .btn {
   flex: 1; /* Lebar seimbang 50-50 */
   max-width: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 16px 12px;
   font-size: 1.1rem;
-  line-height: 1.3; /* Jarak antar baris teks agar rapi */
 }
 
 /* ---- HALAMAN 10 KHUSUS (TOMBOL DOWNLOAD GAMBAR) ---- */
@@ -257,6 +262,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 /* ---- RESPONSIVE CSS ---- */
 @media(max-width: 768px) {
   .hero-btn-area { bottom: 10%; } 
+  .harga-btn-area { bottom: 3%; }
   .halaman10-btn-area { bottom: 6%; } 
 }
 
@@ -273,19 +279,20 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
     width: auto;
   }
 
-  /* Penyesuaian Tombol Harga Kiri-Kanan di layar HP */
-  .harga-kiri-kanan {
-    padding: 12px 16px 24px 16px;
+  /* Penyesuaian Tombol Harga Overlay di layar HP */
+  .harga-btn-area {
+    bottom: 2.5%; /* Merapat sedikit ke bawah di layar kecil */
     gap: 10px;
+    padding: 0 4%;
   }
-  .harga-kiri-kanan .btn {
-    font-size: 0.95rem; /* Teks tetap besar dan tebal */
-    padding: 14px 8px;
+  .harga-btn-area .btn {
+    font-size: 0.9rem; /* Dikecilkan agar muat */
+    padding: 10px 4px;
   }
 }
 
 @media(max-width: 480px) {
-  .harga-kiri-kanan .btn { font-size: 0.88rem; }
+  .harga-btn-area .btn { font-size: 0.82rem; }
 }
 </style>
 </head>
@@ -352,18 +359,21 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
     </div>
   </section>
 
-  <!-- ======================= SLICE 3: BONUS & HARGA (REVISI KIRI-KANAN) ======================= -->
-  <img src="assets/bg/harga-banner.webp" class="img-section" alt="Bonus dan Harga">
-  <div class="harga-kiri-kanan">
-    <!-- TOMBOL ALUMNI (WARNA EMAS) -->
-    <a class="btn btn-emas" onclick="lacak('InitiateCheckout','cta_alumni')" href="https://wa.me/62818268717?text=Halo%2C%20saya%20alumni%20LPK%20Quantum%2C%20mau%20klaim%20harga%20alumni%20VBATPonsel">
-      Klaim Harga<br>Alumni Quantum
-    </a>
+  <!-- ======================= SLICE 3: BONUS & HARGA (OVERLAY BARU) ======================= -->
+  <div class="harga-wrapper">
+    <img src="assets/bg/halaman 11 kayaknya.jpg_11zon.webp" class="img-section" alt="Harga Spesial">
     
-    <!-- TOMBOL UMUM (WARNA HITAM GARIS EMAS SEPERTI YG SEKARANG) -->
-    <a class="btn btn-alumni" onclick="lacak('InitiateCheckout','cta_umum')" href="https://wa.me/62818268717?text=Halo%2C%20saya%20mau%20gabung%20VBATPonsel%20paket%20Pengguna%20Umum">
-      Gabung Harga<br>Umum Sekarang
-    </a>
+    <div class="harga-btn-area">
+      <!-- TOMBOL ALUMNI (WARNA HITAM) -->
+      <a class="btn btn-alumni" onclick="lacak('InitiateCheckout','cta_alumni')" href="https://wa.me/62818268717?text=Halo%2C%20saya%20alumni%20LPK%20Quantum%2C%20mau%20klaim%20harga%20alumni%20VBATPonsel">
+        Klaim Harga<br>Alumni Quantum
+      </a>
+      
+      <!-- TOMBOL UMUM/PROMO (WARNA EMAS) -->
+      <a class="btn btn-emas" onclick="lacak('InitiateCheckout','cta_umum')" href="https://wa.me/62818268717?text=Halo%2C%20saya%20mau%20gabung%20VBATPonsel%20paket%20Pengguna%20Umum">
+        Ambil Harga<br>Promo
+      </a>
+    </div>
   </div>
 
   <!-- ======================= SLICE 4: LANGKAH DAFTAR (GAMBAR + 2 TOMBOL) ======================= -->
