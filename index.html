@@ -208,7 +208,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 
 .harga-btn-area {
   position: absolute;
-  bottom: 3.5%; /* Menyesuaikan ruang kosong di bawah teks */
+  bottom: 3.5%; 
   left: 0;
   right: 0;
   display: flex;
@@ -267,32 +267,45 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 }
 
 @media(max-width: 600px) {
-  .btn { padding: 14px 20px; font-size: 1rem; }
+  /* Mengecilkan padding dan font tombol secara umum */
+  .btn { padding: 12px 16px; font-size: 0.9rem; line-height: 1.25; }
   .action-area { padding: 16px; }
-  .hero-btn-area { bottom: 10%; } 
+  
+  /* Menambah jarak kiri-kanan agar tombol tidak terlalu lebar */
+  .hero-btn-area { bottom: 10%; padding: 0 10%; } 
+  
   .halaman10-btn-area { bottom: 5%; } 
   .halaman10-btn-area a { width: 42%; }
   
   .sticky-cta .btn {
-    padding: 8px 18px; 
+    padding: 8px 16px; 
     font-size: 0.85rem; 
     width: auto;
   }
 
-  /* Penyesuaian Tombol Harga Overlay di layar HP */
+  /* Penyesuaian EKSTREM Tombol Harga Overlay di layar HP biar gak gemuk */
   .harga-btn-area {
-    bottom: 2.5%; /* Merapat sedikit ke bawah di layar kecil */
-    gap: 10px;
-    padding: 0 4%;
+    bottom: 2%; /* Merapat sedikit ke bawah di layar kecil */
+    gap: 6px; /* Jarak antar tombol dikurangi */
+    padding: 0 4%; /* Memaksimalkan lebar layar yang tersedia */
   }
   .harga-btn-area .btn {
-    font-size: 0.9rem; /* Dikecilkan agar muat */
-    padding: 10px 4px;
+    font-size: 0.75rem; /* Font dikecilkan */
+    padding: 6px 4px; /* PADDING ATAS BAWAH DIPANGKAS HABIS agar tipis */
+    line-height: 1.15; /* Spasi antar baris dirapatkan */
+    border-radius: 15px; /* Lengkungan dikurangi agar pas dengan bentuk yang lebih tipis */
   }
 }
 
 @media(max-width: 480px) {
-  .harga-btn-area .btn { font-size: 0.82rem; }
+  /* Mengecilkan lebih lanjut untuk HP berlayar sangat sempit */
+  .btn { font-size: 0.85rem; padding: 10px 14px; }
+  .hero-btn-area { bottom: 9%; padding: 0 8%; }
+  
+  .harga-btn-area .btn { 
+    font-size: 0.68rem; /* Ukuran font super pas untuk layar HP kecil */
+    padding: 5px 2px; /* Super tipis */
+  }
 }
 </style>
 </head>
