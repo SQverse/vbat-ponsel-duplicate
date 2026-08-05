@@ -107,41 +107,103 @@ h3{font-size:1.16rem;font-weight:600}
 .hero h1 span{color:var(--amber)}
 .hero .lead{margin-top:22px}
 
-/* panel alat ukur — elemen tanda tangan halaman */
-.meter{
-  background:var(--bench-2);border:1px solid var(--line);border-radius:8px;
-  padding:22px;box-shadow:0 26px 60px -30px #000;
+/* ════════════════════════════════════════════════════
+   PANEL ALAT UKUR - DIROMBAK UNTUK GAMBAR PSU ASLI 
+   ════════════════════════════════════════════════════ */
+.meter-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
 }
-.meter-top{
-  display:flex;justify-content:space-between;align-items:center;
-  font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.15em;
-  color:var(--muted);text-transform:uppercase;margin-bottom:16px;
+.meter {
+  width: 100%;
+  max-width: 480px; 
+  aspect-ratio: 1458 / 1555; 
+  
+  /* GAMBAR PSU ASLI DITAMBAHKAN DI SINI */
+  background-image: url('assets/bg/psu.webp'); 
+  
+  background-size: 100% 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  box-shadow: 0 26px 60px -30px #000;
+  
+  /* Penting: Jadikan sebagai container agar teks bisa responsif */
+  position: relative; 
+  container-type: inline-size;
+  container-name: psu;
 }
-.meter-dot{width:8px;height:8px;border-radius:50%;background:var(--probe);display:inline-block;margin-right:7px;vertical-align:middle}
-.screen{
-  background:var(--screen);border-radius:5px;padding:26px 22px 20px;
-  border:1px solid #2C3A22;
+
+/* LAYAR KIRI (CURRENT / ARUS) */
+.screen-current {
+  position: absolute;
+  top: 17%;
+  left: 7%;
+  width: 41%;
+  height: 18%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.screen-label{
-  font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.16em;
-  color:var(--lcd-dim);text-transform:uppercase;
+.readout-current {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  color: #ff2a2a; 
+  text-shadow: 0 0 12px rgba(255, 42, 42, 0.7);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  font-size: clamp(1.8rem, 6vw, 3.5rem); 
 }
-.readout{
-  font-family:"IBM Plex Mono",monospace;font-weight:600;
-  font-size:clamp(3rem,9vw,4.4rem);line-height:1;color:var(--lcd);
-  text-shadow:0 0 26px rgba(198,212,90,.34);margin:8px 0 4px;
-  font-variant-numeric:tabular-nums;
+
+/* LAYAR KANAN (VOLTAGE / TEGANGAN) */
+.screen-voltage {
+  position: absolute;
+  top: 17%;
+  left: 51.5%;
+  width: 41%;
+  height: 18%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.readout small{font-size:.34em;letter-spacing:.05em;margin-left:6px}
-.screen-status{
-  font-family:"IBM Plex Mono",monospace;font-size:.83rem;letter-spacing:.11em;
-  text-transform:uppercase;padding-top:13px;margin-top:13px;
-  border-top:1px dashed #35452A;
+.readout {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  color: #ff2a2a; 
+  text-shadow: 0 0 12px rgba(255, 42, 42, 0.7);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  margin: 0;
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
 }
-.st-dead{color:var(--probe)}
-.st-warn{color:var(--amber)}
-.st-ok{color:var(--lcd)}
-.meter-caption{font-size:.9rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.screen-status {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-top: 5px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+.st-dead { color: #ff2a2a; }
+.st-warn { color: #F5B02A; }
+.st-ok   { color: #C6D45A; }
+
+/* Menyesuaikan ukuran teks layar mengikuti lebar gambar PSU */
+@supports (font-size: 1cqi) {
+  .readout-current, .readout { font-size: 13cqi; }
+  .screen-status { font-size: 3.2cqi; margin-top: 1cqi; }
+}
+
+.meter-caption {
+  font-size: .9rem;
+  color: var(--muted);
+  line-height: 1.5;
+  text-align: center;
+  max-width: 420px;
+}
 
 /* ---------- baris kepercayaan ---------- */
 .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0B141B}
@@ -383,15 +445,22 @@ h3{font-size:1.16rem;font-weight:600}
     </div>
 
     <!-- panel alat ukur: elemen tanda tangan halaman -->
-    <div class="meter" aria-hidden="true">
-      <div class="meter-top">
-        <span><span class="meter-dot"></span>DCV · AUTO</span>
-        <span>VBATPONSEL</span>
-      </div>
-      <div class="screen">
-        <p class="screen-label" id="mLabel">Tegangan baterai</p>
-        <p class="readout"><span id="mValue">0.00</span><small>V</small></p>
-        <p class="screen-status st-dead" id="mStatus">Mati total</p>
+    <div class="meter-wrapper">
+      <div class="meter" aria-hidden="true">
+        
+        <!-- Layar Kiri (Arus/Current) - Sekarang ikut bergerak -->
+        <div class="screen-current">
+          <p class="readout-current" id="mCurrent">0.00</p>
+        </div>
+
+        <!-- Layar Kanan (Tegangan/Voltage) - Angka dinamis JS -->
+        <div class="screen-voltage">
+          <!-- Label disembunyikan pakai CSS karena tulisan "VOLTAGE" sudah ada di foto asli -->
+          <p class="screen-label" id="mLabel" style="display:none;">Tegangan baterai</p>
+          <p class="readout"><span id="mValue">0.00</span></p>
+          <p class="screen-status st-dead" id="mStatus">Mati total</p>
+        </div>
+
       </div>
       <p class="meter-caption">
         Angka inilah yang membedakan teknisi yang <em>menebak</em>
@@ -907,25 +976,31 @@ h3{font-size:1.16rem;font-weight:600}
 <script>
 document.getElementById('thn').textContent = new Date().getFullYear();
 
-/* Panel alat ukur — mengurutkan tiga kondisi yang akan diajarkan cara membacanya. */
+/* Panel alat ukur — mengurutkan tiga kondisi (Voltage & Current) */
 (function(){
   var kurangGerak = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var v = document.getElementById('mValue'),
       s = document.getElementById('mStatus'),
-      l = document.getElementById('mLabel');
+      l = document.getElementById('mLabel'),
+      c = document.getElementById('mCurrent'); /* Memanggil layar CURRENT */
+      
   if(!v) return;
 
+  /* Menambahkan simulasi angka arus (current) di tiap kondisi */
   var kondisi = [
-    {label:'Tegangan baterai', nilai:'0.00', status:'Mati total',        kelas:'st-dead'},
-    {label:'Tegangan baterai', nilai:'3.71', status:'Drop · perlu dicek', kelas:'st-warn'},
-    {label:'Tegangan baterai', nilai:'4.19', status:'Normal',             kelas:'st-ok'}
+    {label:'Tegangan baterai', nilai:'0.00', current:'0.00', status:'Mati total',        kelas:'st-dead'},
+    {label:'Tegangan baterai', nilai:'3.71', current:'0.45', status:'Drop · perlu dicek', kelas:'st-warn'},
+    {label:'Tegangan baterai', nilai:'4.19', current:'1.20', status:'Normal',             kelas:'st-ok'}
   ];
 
   function pasang(k){
-    l.textContent = k.label;
-    v.textContent = k.nilai;
-    s.textContent = k.status;
-    s.className = 'screen-status ' + k.kelas;
+    if(l) l.textContent = k.label;
+    if(v) v.textContent = k.nilai;
+    if(s) {
+      s.textContent = k.status;
+      s.className = 'screen-status ' + k.kelas;
+    }
+    if(c) c.textContent = k.current; /* Mengubah angka di layar CURRENT */
   }
 
   if(kurangGerak){ pasang(kondisi[2]); return; }
