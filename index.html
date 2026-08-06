@@ -108,94 +108,84 @@ h3{font-size:1.16rem;font-weight:600}
 .hero .lead{margin-top:22px}
 
 /* ════════════════════════════════════════════════════
-   PANEL ALAT UKUR - DIROMBAK UNTUK GAMBAR PSU ASLI 
+   PANEL ALAT UKUR - DIROMBAK UNTUK DIGITAL WAYS (VERTIKAL)
    ════════════════════════════════════════════════════ */
 .meter-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
+  margin-top: 40px; 
 }
+
 .meter {
   width: 100%;
-  max-width: 480px; 
-  aspect-ratio: 1458 / 1555; 
+  max-width: 270px; 
+  aspect-ratio: 498 / 927; 
   
-  /* GAMBAR PSU ASLI DITAMBAHKAN DI SINI */
+  /* GAMBAR PSU VERTIKAL */
   background-image: url('assets/bg/psu.webp'); 
   
   background-size: 100% 100%; 
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: 0 26px 60px -30px #000;
   
-  /* Penting: Jadikan sebagai container agar teks bisa responsif */
   position: relative; 
   container-type: inline-size;
   container-name: psu;
 }
 
-/* LAYAR KIRI (CURRENT / ARUS) */
-.screen-current {
+/* Base class untuk ketiga layar digital */
+.screen-row {
   position: absolute;
-  top: 17%;
-  left: 7%;
-  width: 41%;
-  height: 18%; 
+  left: 12%; 
+  width: 53%; 
+  height: 11%; 
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-.readout-current {
-  font-family: "IBM Plex Mono", monospace;
-  font-weight: 600;
-  color: #ff2a2a; 
-  text-shadow: 0 0 12px rgba(255, 42, 42, 0.7);
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-  font-size: clamp(1.8rem, 6vw, 3.5rem); 
+  justify-content: flex-end; 
 }
 
-/* LAYAR KANAN (VOLTAGE / TEGANGAN) */
-.screen-voltage {
-  position: absolute;
-  top: 17%;
-  left: 51.5%;
-  width: 41%;
-  height: 18%; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.readout {
+/* Mengatur koordinat presisi tinggi (Y-Axis) */
+.row-v { top: 8.2%; }   /* Dinaikkan agar pas di tengah frame Voltage */
+.row-a { top: 30%; }    /* Ampere dipertahankan di posisinya */
+.row-w { top: 49%; }    /* Watt dipertahankan di posisinya */
+
+/* Styling angka digital */
+.readout-digital {
   font-family: "IBM Plex Mono", monospace;
-  font-weight: 600;
+  font-weight: 500;
   color: #ff2a2a; 
-  text-shadow: 0 0 12px rgba(255, 42, 42, 0.7);
+  text-shadow: 0 0 10px rgba(255, 42, 42, 0.9);
   font-variant-numeric: tabular-nums;
   line-height: 1;
   margin: 0;
-  font-size: clamp(1.8rem, 6vw, 3.5rem);
+  padding-right: 20%; 
+  font-size: clamp(1.4rem, 5vw, 2.5rem); 
 }
-.screen-status {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: clamp(0.7rem, 2vw, 1rem);
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  margin-top: 5px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-}
-.st-dead { color: #ff2a2a; }
-.st-warn { color: #F5B02A; }
-.st-ok   { color: #C6D45A; }
 
-/* Menyesuaikan ukuran teks layar mengikuti lebar gambar PSU */
+/* Responsive Font Mengikuti Lebar Container PSU */
 @supports (font-size: 1cqi) {
-  .readout-current, .readout { font-size: 13cqi; }
-  .screen-status { font-size: 3.2cqi; margin-top: 1cqi; }
+  .readout-digital { font-size: 16cqi; }
 }
+
+/* Indikator Status di Luar Layar */
+.meter-status-badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-top: 6px;
+  border: 1px solid currentColor;
+}
+.st-dead { color: var(--probe); background: rgba(216,69,47,0.1); }
+.st-warn { color: var(--amber); background: rgba(245,176,42,0.1); }
+.st-ok   { color: var(--lcd); background: rgba(198,212,90,0.1); }
 
 .meter-caption {
   font-size: .9rem;
@@ -203,6 +193,7 @@ h3{font-size:1.16rem;font-weight:600}
   line-height: 1.5;
   text-align: center;
   max-width: 420px;
+  margin-top: 8px;
 }
 
 /* ---------- baris kepercayaan ---------- */
@@ -428,7 +419,7 @@ h3{font-size:1.16rem;font-weight:600}
 
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">LPK Quantum Telecommunication · Sejak 2010</p>
+      <p class="eyebrow">LPK Quantum Telecommunication · Sejak 2008</p>
       <h1>Belajar Servis HP dari Nol Sampai Bisa <span>Buka Konter Sendiri</span></h1>
       <p class="lead">
         Akses 100+ video bedah kasus nyata, LIVE praktik bareng mentor, dan grup
@@ -448,20 +439,26 @@ h3{font-size:1.16rem;font-weight:600}
     <div class="meter-wrapper">
       <div class="meter" aria-hidden="true">
         
-        <!-- Layar Kiri (Arus/Current) - Sekarang ikut bergerak -->
-        <div class="screen-current">
-          <p class="readout-current" id="mCurrent">0.00</p>
+        <!-- Layar 1 (Atas): Tegangan / Voltage (V) -->
+        <div class="screen-row row-v">
+          <p class="readout-digital" id="mValue">0.00</p>
         </div>
 
-        <!-- Layar Kanan (Tegangan/Voltage) - Angka dinamis JS -->
-        <div class="screen-voltage">
-          <!-- Label disembunyikan pakai CSS karena tulisan "VOLTAGE" sudah ada di foto asli -->
-          <p class="screen-label" id="mLabel" style="display:none;">Tegangan baterai</p>
-          <p class="readout"><span id="mValue">0.00</span></p>
-          <p class="screen-status st-dead" id="mStatus">Mati total</p>
+        <!-- Layar 2 (Tengah): Arus / Current (A) -->
+        <div class="screen-row row-a">
+          <p class="readout-digital" id="mCurrent">0.00</p>
+        </div>
+        
+        <!-- Layar 3 (Bawah): Daya / Power (W) -->
+        <div class="screen-row row-w">
+          <p class="readout-digital" id="mPower">0.00</p>
         </div>
 
       </div>
+      
+      <!-- Status Box dipindah ke bawah gambar agar lebih rapi & realistis -->
+      <div class="meter-status-badge st-dead" id="mStatus">Mati total</div>
+      
       <p class="meter-caption">
         Angka inilah yang membedakan teknisi yang <em>menebak</em>
         dari teknisi yang <em>tahu</em>. Di sini Anda diajari membacanya.
@@ -479,8 +476,8 @@ h3{font-size:1.16rem;font-weight:600}
         <p class="trust-lab">Tahun mentor mulai pegang solder</p>
       </div>
       <div class="trust-cell">
-        <p class="trust-num"><span class="todo">[ISI]</span>+</p>
-        <p class="trust-lab">Alumni sudah dilatih</p>
+        <p class="trust-num">6000+</p>
+        <p class="trust-lab">Alumni sudah dilatih + Member</p>
       </div>
       <div class="trust-cell">
         <p class="trust-num">21.000+</p>
@@ -488,7 +485,7 @@ h3{font-size:1.16rem;font-weight:600}
       </div>
       <div class="trust-cell">
         <p class="trust-num">Resmi</p>
-        <p class="trust-lab">LPK terakreditasi · izin <span class="todo">[ISI]</span></p>
+        <p class="trust-lab">LPK terakreditasi</p>
       </div>
     </div>
   </div>
@@ -505,31 +502,23 @@ h3{font-size:1.16rem;font-weight:600}
     <div class="probs">
       <div class="prob">
         <h3>Materinya berserakan</h3>
-        <p>Satu kanal bahas ganti LCD, kanal lain bahas short. Tidak ada urutannya. Anda tahu banyak hal, tapi tidak tahu harus mulai dari mana.</p>
       </div>
       <div class="prob">
         <h3>Tidak ada yang mengajari mengukur</h3>
-        <p>Padahal di situlah letak 80% pekerjaan teknisi — multitester, power supply, membaca skema. Ini yang paling jarang diajarkan gratisan.</p>
       </div>
       <div class="prob">
         <h3>Ketemu kasus aneh, buntu</h3>
-        <p>Tidak ada tempat bertanya. HP pelanggan sudah terlanjur dibongkar dan malam itu Anda tidak bisa tidur.</p>
       </div>
       <div class="prob">
         <h3>Kursus offline mahal dan jauh</h3>
-        <p>Biaya kelas, transport, kos, ditambah harus izin cuti kerja lebih dari seminggu.</p>
       </div>
       <div class="prob">
         <h3>Belajar sendiri berujung rugi</h3>
-        <p>HP orang rusak, IC kebakar, nama baik hilang sebelum usaha sempat jalan.</p>
       </div>
       <div class="prob">
         <h3>Ilmunya cepat basi</h3>
-        <p>Tipe HP berganti tiap tahun. Tutorial tahun lalu sering sudah tidak cocok dengan unit yang masuk hari ini.</p>
       </div>
     </div>
-
-    <p class="pull">Masalahnya bukan Anda tidak mampu. Masalahnya belum ada yang mendampingi Anda secara berurutan — dari nol, sampai berani memegang HP orang.</p>
   </div>
 </section>
 
@@ -550,22 +539,18 @@ h3{font-size:1.16rem;font-weight:600}
       <div class="diff">
         <p class="diff-n">01 · URUTAN</p>
         <h3>Tersusun, berbasis SKKNI</h3>
-        <p>Mengikuti standar kompetensi kerja nasional. Dari dasar listrik dan cara mengukur, sampai kasus mahir seperti jalur, IC, dan software.</p>
       </div>
       <div class="diff">
         <p class="diff-n">02 · SUMBER</p>
         <h3>Kasus dari meja servis asli</h3>
-        <p>Yang Anda tonton adalah HP pelanggan yang benar-benar masuk ke konter kami — lengkap dengan salah langkah dan cara memperbaikinya.</p>
       </div>
       <div class="diff">
         <p class="diff-n">03 · PENDAMPINGAN</p>
         <h3>Ada mentornya</h3>
-        <p>Stuck jam sebelas malam? Tanya di grup. Dijawab orang yang sudah puluhan tahun pegang solder, bukan kolom komentar yang sepi.</p>
       </div>
       <div class="diff">
         <p class="diff-n">04 · WAKTU</p>
         <h3>Belajar sambil tetap kerja</h3>
-        <p>Tonton kapan saja dari HP Anda sendiri. Tidak perlu resign, tidak perlu kos di kota lain.</p>
       </div>
     </div>
   </div>
@@ -629,18 +614,8 @@ h3{font-size:1.16rem;font-weight:600}
       </div>
       <div class="kit">
         <p class="kit-n">06</p>
-        <h3>Kaos official VBATPonsel</h3>
-        <p>Dikirim ke alamat Anda. Dipakai saat melayani pelanggan, konter Anda langsung terlihat profesional.</p>
-      </div>
-      <div class="kit">
-        <p class="kit-n">07</p>
         <h3>E-book pendukung</h3>
         <p>Materi bacaan untuk pegangan di meja kerja saat tangan Anda sedang sibuk praktik.</p>
-      </div>
-      <div class="kit">
-        <p class="kit-n">08</p>
-        <h3>Link firmware &amp; supplier sparepart</h3>
-        <p>Daftar supplier se-Indonesia dan akses firmware. Ini yang biasanya dirahasiakan teknisi senior.</p>
       </div>
     </div>
   </div>
@@ -659,29 +634,23 @@ h3{font-size:1.16rem;font-weight:600}
         <p class="wk-tag">Pekan 1</p>
         <h3>Dasar &amp; alat ukur</h3>
         <p>Dasar listrik, pengenalan komponen, cara memakai multitester dan power supply.</p>
-        <p class="wk-out">Bisa membaca hasil ukur dan tahu komponen mana yang mati.</p>
       </div>
       <div class="week">
         <p class="wk-tag">Pekan 2</p>
         <h3>Kerusakan ringan</h3>
         <p>Bongkar-pasang aman, ganti LCD, konektor cas, baterai, dan tombol.</p>
-        <p class="wk-out">Bisa mengerjakan servis ringan HP sendiri dan HP teman.</p>
       </div>
       <div class="week">
         <p class="wk-tag">Pekan 3</p>
         <h3>Mati total &amp; short</h3>
         <p>Analisa mati total, korsleting, dan penelusuran jalur pada mainboard.</p>
-        <p class="wk-out">Bisa menentukan sebuah HP layak diperbaiki atau tidak.</p>
       </div>
       <div class="week">
         <p class="wk-tag">Pekan 4</p>
         <h3>Software &amp; buka jasa</h3>
         <p>Flashing, penanganan software, dan simulasi menerima pelanggan.</p>
-        <p class="wk-out">Mulai berani membuka jasa servis dan memasang tarif.</p>
       </div>
     </div>
-
-    <p class="weeks-note">Kecepatan tiap orang berbeda. Yang menentukan bukan lamanya belajar, tapi rutin praktiknya — dan materinya bisa Anda ulang sesering yang Anda mau.</p>
   </div>
 </section>
 
@@ -701,14 +670,6 @@ h3{font-size:1.16rem;font-weight:600}
         <li>Anda karyawan yang ingin <strong>usaha sampingan</strong> tanpa meninggalkan pekerjaan.</li>
         <li>Anda alumni kelas offline LPK Quantum yang ingin <strong>materinya tetap bisa diulang</strong>.</li>
       </ul>
-
-      <div class="fit-no">
-        <h3>Jujur, ini tidak cocok kalau:</h3>
-        <ul>
-          <li>Anda mencari cara cepat kaya tanpa mau praktik. Ini keterampilan tangan — harus dilatih.</li>
-          <li>Anda tidak bersedia menyediakan alat dasar, minimal multitester dan power supply.</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
@@ -722,8 +683,8 @@ h3{font-size:1.16rem;font-weight:600}
     </div>
 
     <p class="aggregate">
-      <b><span class="todo">[ISI]</span>+ member aktif</b> dari
-      <b><span class="todo">[ISI]</span> kota</b> di seluruh Indonesia.
+      <b>3000+ member aktif</b> dari
+      <b>93 kota</b> di seluruh Indonesia.
     </p>
 
     <!-- TIM WEB: ganti dengan testimoni asli. Pakai FOTO ORANGNYA,
@@ -769,7 +730,7 @@ h3{font-size:1.16rem;font-weight:600}
       <p class="eyebrow">Investasi</p>
       <h2>Berapa biayanya</h2>
     </div>
-
+<!-- 
     <table class="compare">
       <thead>
         <tr><th scope="col">Perbandingan</th><th scope="col">Kursus offline biasa</th><th scope="col">VBATPonsel</th></tr>
@@ -781,15 +742,15 @@ h3{font-size:1.16rem;font-weight:600}
         <tr><th scope="row">Materi bisa diulang</th><td>Tidak</td><td class="col-us">Sepuasnya</td></tr>
         <tr><th scope="row">Tempat bertanya setelah lulus</th><td>Terbatas</td><td class="col-us">Grup VVIP + LIVE rutin</td></tr>
       </tbody>
-    </table>
+    </table> -->
 
     <div class="plans">
       <div class="plan plan-feat">
         <p class="plan-tag">Paket Umum</p>
         <p class="price">Rp800.000</p>
-        <p class="price-note"><span class="todo">[ISI: sekali bayar akses selamanya / berlaku 12 bulan — WAJIB DIPERJELAS]</span></p>
+        <p class="price-note">Sekali bayar akses selamanya / berlaku 12 bulan</p>
         <ul>
-          <li>Seluruh 8 isi paket di atas</li>
+          <li>Seluruh 6 isi paket di atas</li>
           <li>Grup VVIP + LIVE Bedah Kasus</li>
           <li>E-sertifikat resmi LPK</li>
           <li>Kaos official dikirim ke rumah</li>
@@ -811,33 +772,6 @@ h3{font-size:1.16rem;font-weight:600}
     </div>
 
     <p class="pay-note">Pembayaran via Virtual Account BRI atau QRIS.</p>
-
-    <p class="breakeven">
-      Gambaran sederhana: satu kali servis ganti LCD rata-rata untung
-      <span class="todo">[ISI]</span>. Artinya modal Anda sudah kembali setelah
-      <span class="todo">[ISI]</span> unit servis.
-    </p>
-  </div>
-</section>
-
-<!-- ══════════════════ GARANSI ══════════════════ -->
-<section class="band band-paper on-paper">
-  <div class="wrap warranty">
-    <p class="eyebrow">Jaminan</p>
-    <h2>Risikonya kami yang tanggung</h2>
-    <p>
-      <span class="todo">[PILIH SATU — dan hanya yang benar-benar sanggup dijalankan]</span>
-    </p>
-    <p>
-      <strong>Opsi A.</strong> Coba dulu 7 hari. Kalau menurut Anda materinya tidak
-      sesuai penjelasan di halaman ini, kabari admin dan uang Anda kami kembalikan
-      penuh. Tanpa perlu berdebat.
-    </p>
-    <p>
-      <strong>Opsi B.</strong> Kalau setelah menuntaskan seluruh materi Anda masih
-      belum berani memegang kasus, kami dampingi lagi lewat sesi konsultasi khusus
-      sampai bisa, tanpa biaya tambahan.
-    </p>
   </div>
 </section>
 
@@ -948,13 +882,13 @@ h3{font-size:1.16rem;font-weight:600}
       <div>
         <h4>PT Quantum Telecommunication</h4>
         <p>LPK Quantum Telecommunication — lembaga pelatihan kerja terakreditasi.</p>
-        <p style="margin-top:10px">Alamat: <span class="todo">[ISI]</span></p>
-        <p>Nomor izin / akreditasi: <span class="todo">[ISI]</span></p>
+        <p style="margin-top:10px">Alamat: Jl. Bina Remaja No.4, Srondol Wetan, Kec. Banyumanik, Kota Semarang, Jawa Tengah 50263</p>
       </div>
       <div>
         <h4>Hubungi</h4>
         <a href="https://wa.me/62818268717">WhatsApp 0818-268-717</a>
-        <a href="mailto:">Email: <span class="todo">[ISI]</span></a>
+        <a href="mailto:">Email: quantumtelecommunication38@gmail.com          
+        </a>
         <a href="https://play.google.com/store/apps/details?id=com.vbatponsel.quantum">Aplikasi di Google Play</a>
       </div>
       <div>
@@ -976,31 +910,31 @@ h3{font-size:1.16rem;font-weight:600}
 <script>
 document.getElementById('thn').textContent = new Date().getFullYear();
 
-/* Panel alat ukur — mengurutkan tiga kondisi (Voltage & Current) */
+/* Panel alat ukur — mengurutkan tiga kondisi (Voltage, Current, Power) */
 (function(){
   var kurangGerak = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var v = document.getElementById('mValue'),
-      s = document.getElementById('mStatus'),
-      l = document.getElementById('mLabel'),
-      c = document.getElementById('mCurrent'); /* Memanggil layar CURRENT */
+      c = document.getElementById('mCurrent'),
+      p = document.getElementById('mPower'),
+      s = document.getElementById('mStatus');
       
   if(!v) return;
 
-  /* Menambahkan simulasi angka arus (current) di tiap kondisi */
+  /* Menambahkan daya (Watt) ke dalam simulasi perhitungan */
   var kondisi = [
-    {label:'Tegangan baterai', nilai:'0.00', current:'0.00', status:'Mati total',        kelas:'st-dead'},
-    {label:'Tegangan baterai', nilai:'3.71', current:'0.45', status:'Drop · perlu dicek', kelas:'st-warn'},
-    {label:'Tegangan baterai', nilai:'4.19', current:'1.20', status:'Normal',             kelas:'st-ok'}
+    {nilai:'0.00', current:'0.00', power:'0.00', status:'Mati total',        kelas:'st-dead'},
+    {nilai:'3.71', current:'0.45', power:'1.66', status:'Drop · perlu dicek', kelas:'st-warn'},
+    {nilai:'4.19', current:'1.20', power:'5.02', status:'Normal',             kelas:'st-ok'}
   ];
 
   function pasang(k){
-    if(l) l.textContent = k.label;
     if(v) v.textContent = k.nilai;
+    if(c) c.textContent = k.current;
+    if(p) p.textContent = k.power;
     if(s) {
       s.textContent = k.status;
-      s.className = 'screen-status ' + k.kelas;
+      s.className = 'meter-status-badge ' + k.kelas;
     }
-    if(c) c.textContent = k.current; /* Mengubah angka di layar CURRENT */
   }
 
   if(kurangGerak){ pasang(kondisi[2]); return; }
