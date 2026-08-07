@@ -83,6 +83,8 @@ h3{font-size:1.16rem;font-weight:600}
 .band-paper{background:var(--paper);color:var(--ink)}
 .band-deep{background:var(--bench-2)}
 .band-head{max-width:62ch;margin-bottom:52px}
+.band-head-center{margin:0 auto 52px; text-align:center;}
+.band-head-center .eyebrow{justify-content:center;}
 
 /* ---------- tombol ---------- */
 .btn{
@@ -122,22 +124,17 @@ h3{font-size:1.16rem;font-weight:600}
   width: 100%;
   max-width: 270px; 
   aspect-ratio: 498 / 927; 
-  
-  /* GAMBAR PSU VERTIKAL */
   background-image: url('assets/bg/psu.webp'); 
-  
   background-size: 100% 100%; 
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 12px;
   box-shadow: 0 26px 60px -30px #000;
-  
   position: relative; 
   container-type: inline-size;
   container-name: psu;
 }
 
-/* Base class untuk ketiga layar digital */
 .screen-row {
   position: absolute;
   left: 12%; 
@@ -148,12 +145,10 @@ h3{font-size:1.16rem;font-weight:600}
   justify-content: flex-end; 
 }
 
-/* Mengatur koordinat presisi tinggi (Y-Axis) */
-.row-v { top: 8.2%; }   /* Dinaikkan agar pas di tengah frame Voltage */
-.row-a { top: 30%; }    /* Ampere dipertahankan di posisinya */
-.row-w { top: 49%; }    /* Watt dipertahankan di posisinya */
+.row-v { top: 8.2%; }   
+.row-a { top: 30%; }    
+.row-w { top: 49%; }    
 
-/* Styling angka digital */
 .readout-digital {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
@@ -166,12 +161,10 @@ h3{font-size:1.16rem;font-weight:600}
   font-size: clamp(1.4rem, 5vw, 2.5rem); 
 }
 
-/* Responsive Font Mengikuti Lebar Container PSU */
 @supports (font-size: 1cqi) {
   .readout-digital { font-size: 16cqi; }
 }
 
-/* Indikator Status di Luar Layar */
 .meter-status-badge {
   font-family: "IBM Plex Mono", monospace;
   font-size: .8rem;
@@ -203,22 +196,43 @@ h3{font-size:1.16rem;font-weight:600}
 .trust-num{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:1.75rem;color:var(--amber);line-height:1.1}
 .trust-lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.09em;color:var(--muted);text-transform:uppercase;margin-top:7px}
 
-/* ---------- daftar masalah ---------- */
+/* ---------- daftar masalah (DIROMBAK JADI DESAIN CARD) ---------- */
 .probs{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
-.prob{border-left:3px solid var(--probe);padding-left:20px}
-.prob h3{margin-bottom:7px}
-.prob p{color:#4A5C66;font-size:.98rem}
+.prob{
+  background: #ffffff; 
+  border-left: 4px solid var(--probe); 
+  padding: 24px 24px 24px 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.04); 
+  display: flex;
+  align-items: center;
+  min-height: 84px; 
+}
+.prob h3{margin-bottom:0; font-size:1.1rem; line-height:1.4}
 .pull{
   margin-top:52px;padding:28px 30px;background:var(--paper-2);border-radius:6px;
   font-family:"Chakra Petch",sans-serif;font-size:clamp(1.15rem,2.4vw,1.5rem);
   font-weight:600;line-height:1.4;
 }
 
-/* ---------- perbedaan ---------- */
-.diffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:12px}
-.diff-n{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.14em;color:var(--lcd-dim);margin-bottom:12px}
-.diff h3{margin-bottom:9px}
-.diff p{font-size:.97rem;color:var(--muted-light)}
+/* ---------- perbedaan/solusi (DIROMBAK JADI DESAIN CARD) ---------- */
+.diffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:20px}
+.diff{
+  background: var(--bench-2); 
+  border: 1px solid var(--line);
+  padding: 28px 24px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.diff:hover {
+  border-color: var(--lcd-dim);
+  transform: translateY(-3px);
+}
+.diff-n{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.14em;color:var(--lcd-dim);margin-bottom:8px}
+.diff h3{margin-bottom:0}
 
 /* ---------- video ---------- */
 .video-slot{
@@ -253,11 +267,6 @@ h3{font-size:1.16rem;font-weight:600}
 .wk-tag{font-family:"IBM Plex Mono",monospace;font-size:.73rem;letter-spacing:.13em;color:#5B7A46;text-transform:uppercase}
 .week h3{margin:9px 0 12px}
 .week p{font-size:.94rem;color:#4A5C66}
-.wk-out{
-  margin-top:14px;padding-top:13px;border-top:1px dashed #B6C2BC;
-  font-size:.92rem;font-weight:600;color:var(--ink);
-}
-.weeks-note{margin-top:34px;font-size:.94rem;color:#4A5C66;font-style:italic}
 
 /* ---------- untuk siapa ---------- */
 .fit{display:grid;grid-template-columns:1.25fr .75fr;gap:44px}
@@ -265,28 +274,64 @@ h3{font-size:1.16rem;font-weight:600}
 .fit li{padding:13px 0 13px 34px;position:relative;border-bottom:1px solid var(--line)}
 .fit li::before{position:absolute;left:0;top:12px;font-family:"IBM Plex Mono",monospace;font-weight:600}
 .fit-yes li::before{content:"✓";color:var(--lcd)}
-.fit-no li::before{content:"✕";color:var(--probe)}
-.fit-no{background:var(--bench);border:1px solid var(--line);border-radius:6px;padding:24px 26px}
-.fit-no h3{margin-bottom:6px}
-.fit-no li{border-bottom:none;font-size:.95rem;color:var(--muted-light)}
 
-/* ---------- testimoni ---------- */
+/* ---------- testimoni WhatsApp Slider ---------- */
 .aggregate{
   font-family:"Chakra Petch",sans-serif;font-weight:700;
   font-size:clamp(1.3rem,3vw,2rem);margin-bottom:42px;line-height:1.35;
 }
 .aggregate b{color:#3E6B1F}
-.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
-.quote{background:#fff;border-radius:6px;padding:26px;border:1px solid var(--paper-2)}
-.quote p{font-size:.98rem;color:#33454E;margin-bottom:18px}
-.who{display:flex;align-items:center;gap:13px}
-.avatar{
-  width:44px;height:44px;border-radius:50%;background:var(--paper-2);flex:none;
-  display:grid;place-items:center;font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--muted);
+
+.wa-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 24px;
+  padding-bottom: 24px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  margin: 0 -22px; /* Pull-out to edge on mobile */
+  padding-left: 22px;
+  padding-right: 22px;
 }
-.who-name{font-weight:600;font-size:.95rem}
-.who-city{font-size:.85rem;color:var(--muted)}
-.more-proof{margin-top:30px}
+.wa-slider::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+.wa-slide {
+  flex: 0 0 auto;
+  width: 280px; /* Ukuran ini menjaga agar SS tidak memakan layar penuh ke atas */
+  scroll-snap-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
+  background: var(--paper-2); /* placeholder color */
+  border: 4px solid #fff; /* Efek frame HP */
+}
+.wa-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- sponsor ---------- */
+.sponsors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(30px, 6vw, 60px);
+  margin-top: 20px;
+}
+.sponsor-logo {
+  height: 45px; /* Tinggi proporsional untuk logo brand */
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.5); /* Efek elegan mati warna */
+  transition: all 0.3s ease;
+}
+.sponsor-logo:hover {
+  filter: grayscale(0%) opacity(1); /* Menyala saat di-hover */
+  transform: translateY(-2px);
+}
 
 /* ---------- harga ---------- */
 .compare{width:100%;border-collapse:collapse;margin-bottom:52px;font-size:.96rem}
@@ -309,14 +354,6 @@ h3{font-size:1.16rem;font-weight:600}
 .plan li::before{content:"→";position:absolute;left:0;color:var(--lcd-dim);font-family:"IBM Plex Mono",monospace}
 .plan .btn{justify-content:center;margin-top:auto}
 .pay-note{margin-top:24px;font-size:.92rem;color:var(--muted);text-align:center}
-.breakeven{
-  margin-top:30px;padding:24px 26px;border:1px solid var(--line);border-left:3px solid var(--lcd);
-  border-radius:4px;font-size:1rem;color:#C6D6DE;
-}
-
-/* ---------- garansi ---------- */
-.warranty{max-width:70ch}
-.warranty p{font-size:1.12rem;color:#4A5C66;margin-top:16px}
 
 /* ---------- langkah ---------- */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:s}
@@ -393,6 +430,7 @@ h3{font-size:1.16rem;font-weight:600}
   .compare th,.compare td{padding:12px 9px}
   .sticky-bar{display:block}
   body{padding-bottom:74px}
+  .wa-slide { width: 240px; } /* Sedikit lebih kecil di HP */
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -472,7 +510,7 @@ h3{font-size:1.16rem;font-weight:600}
   <div class="wrap">
     <div class="trust-grid">
       <div class="trust-cell">
-        <p class="trust-num">2010</p>
+        <p class="trust-num">2008</p>
         <p class="trust-lab">Tahun mentor mulai pegang solder</p>
       </div>
       <div class="trust-cell">
@@ -674,7 +712,7 @@ h3{font-size:1.16rem;font-weight:600}
   </div>
 </section>
 
-<!-- ══════════════════ TESTIMONI ══════════════════ -->
+<!-- ══════════════════ TESTIMONI WA SLIDER ══════════════════ -->
 <section class="band band-paper on-paper">
   <div class="wrap">
     <div class="band-head">
@@ -687,62 +725,65 @@ h3{font-size:1.16rem;font-weight:600}
       <b>93 kota</b> di seluruh Indonesia.
     </p>
 
-    <!-- TIM WEB: ganti dengan testimoni asli. Pakai FOTO ORANGNYA,
-         bukan screenshot chat. Utamakan yang menyebut hasil terukur. -->
-    <div class="quotes">
-      <div class="quote">
-        <p>"<span class="todo">[ISI testimoni asli]</span> — utamakan yang menyebut kondisi sebelum, lalu hasil sesudah dalam angka: omzet, jumlah unit per minggu, atau lama waktu sampai balik modal."</p>
-        <div class="who">
-          <div class="avatar">FOTO</div>
-          <div><p class="who-name"><span class="todo">[Nama]</span></p><p class="who-city"><span class="todo">[Kota]</span></p></div>
-        </div>
+    <!-- Slider Testimoni WhatsApp -->
+    <div class="wa-slider">
+      <!-- Slide 1 -->
+      <div class="wa-slide">
+        <img src="assets/testimoni/wa-1.png" alt="Testimoni WhatsApp Member 1" class="todo" style="min-height: 400px;">
       </div>
-      <div class="quote">
-        <p>"<span class="todo">[ISI testimoni asli]</span> — pilih satu dari member yang tadinya nol pengalaman, supaya pembaca pemula merasa terwakili."</p>
-        <div class="who">
-          <div class="avatar">FOTO</div>
-          <div><p class="who-name"><span class="todo">[Nama]</span></p><p class="who-city"><span class="todo">[Kota]</span></p></div>
-        </div>
+      <!-- Slide 2 -->
+      <div class="wa-slide">
+        <img src="assets/testimoni/wa-2.png" alt="Testimoni WhatsApp Member 2" class="todo" style="min-height: 400px;">
       </div>
-      <div class="quote">
-        <p>"<span class="todo">[ISI testimoni asli]</span> — pilih satu dari pemilik konter yang menambah jasa servis, supaya segmen pedagang ikut terwakili."</p>
-        <div class="who">
-          <div class="avatar">FOTO</div>
-          <div><p class="who-name"><span class="todo">[Nama]</span></p><p class="who-city"><span class="todo">[Kota]</span></p></div>
-        </div>
+      <!-- Slide 3 -->
+      <div class="wa-slide">
+        <img src="assets/testimoni/wa-3.png" alt="Testimoni WhatsApp Member 3" class="todo" style="min-height: 400px;">
+      </div>
+      <!-- Slide 4 -->
+      <div class="wa-slide">
+        <img src="assets/testimoni/wa-4.png" alt="Testimoni WhatsApp Member 4" class="todo" style="min-height: 400px;">
+      </div>
+      <!-- Slide 5 -->
+      <div class="wa-slide">
+        <img src="assets/testimoni/wa-5.png" alt="Testimoni WhatsApp Member 5" class="todo" style="min-height: 400px;">
       </div>
     </div>
+    <p class="btn-note" style="text-align:center; color:#4A5C66; margin-top: 14px;">
+      &larr; Geser untuk melihat lebih banyak &rarr;
+    </p>
 
-    <div class="more-proof">
-      <a class="btn btn-ghost" href="#" data-cta="galeri-testimoni">Lihat 20 testimoni lainnya</a>
-      <p class="btn-note" style="color:#4A5C66">
-        TIM WEB: tautkan ke galeri berisi screenshot WhatsApp yang sudah ada, dan
-        sisipkan minimal 2 testimoni video 30–60 detik di bagian atas galeri itu.
+  </div>
+</section>
+
+<!-- ══════════════════ SPONSOR ALAT ══════════════════ -->
+<section class="band">
+  <div class="wrap">
+    <div class="band-head band-head-center">
+      <p class="eyebrow">Dukungan Industri</p>
+      <h2>Alat Praktik Standar Profesional</h2>
+      <p class="lead" style="margin-top: 16px;">
+        Kami merekomendasikan brand-brand penyedia alat servis terkemuka untuk memastikan Anda siap bersaing dengan standar industri.
       </p>
+    </div>
+    
+    <div class="sponsors">
+      <!-- Ganti src dengan path file logo transparan (.png) milik sponsor -->
+      <img src="assets/sponsor/logo-1.png" alt="Sponsor Brand 1" class="sponsor-logo todo">
+      <img src="assets/sponsor/logo-2.png" alt="Sponsor Brand 2" class="sponsor-logo todo">
+      <img src="assets/sponsor/logo-3.png" alt="Sponsor Brand 3" class="sponsor-logo todo">
+      <img src="assets/sponsor/logo-4.png" alt="Sponsor Brand 4" class="sponsor-logo todo">
+      <img src="assets/sponsor/logo-5.png" alt="Sponsor Brand 5" class="sponsor-logo todo">
     </div>
   </div>
 </section>
 
 <!-- ══════════════════ HARGA ══════════════════ -->
-<section class="band" id="harga">
+<section class="band band-deep" id="harga">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Investasi</p>
       <h2>Berapa biayanya</h2>
     </div>
-<!-- 
-    <table class="compare">
-      <thead>
-        <tr><th scope="col">Perbandingan</th><th scope="col">Kursus offline biasa</th><th scope="col">VBATPonsel</th></tr>
-      </thead>
-      <tbody>
-        <tr><th scope="row">Biaya kelas</th><td><span class="todo">[ISI]</span></td><td class="col-us">Rp800.000</td></tr>
-        <tr><th scope="row">Transport &amp; kos</th><td><span class="todo">[ISI]</span></td><td class="col-us">Rp0</td></tr>
-        <tr><th scope="row">Harus cuti kerja</th><td>Ya, <span class="todo">[ISI]</span> hari</td><td class="col-us">Tidak</td></tr>
-        <tr><th scope="row">Materi bisa diulang</th><td>Tidak</td><td class="col-us">Sepuasnya</td></tr>
-        <tr><th scope="row">Tempat bertanya setelah lulus</th><td>Terbatas</td><td class="col-us">Grup VVIP + LIVE rutin</td></tr>
-      </tbody>
-    </table> -->
 
     <div class="plans">
       <div class="plan plan-feat">
