@@ -196,7 +196,7 @@ h3{font-size:1.16rem;font-weight:600}
 .trust-num{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:1.75rem;color:var(--amber);line-height:1.1}
 .trust-lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.09em;color:var(--muted);text-transform:uppercase;margin-top:7px}
 
-/* ---------- daftar masalah (DIROMBAK JADI DESAIN CARD) ---------- */
+/* ---------- daftar masalah (DIROMBAK: WATERMARK ANGKA) ---------- */
 .probs{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
 .prob{
   background: #ffffff; 
@@ -206,43 +206,112 @@ h3{font-size:1.16rem;font-weight:600}
   box-shadow: 0 6px 15px rgba(0,0,0,0.04); 
   display: flex;
   align-items: center;
-  min-height: 84px; 
+  min-height: 100px; 
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
-.prob h3{margin-bottom:0; font-size:1.1rem; line-height:1.4}
+.prob h3{
+  margin-bottom:0; 
+  font-size:1.15rem; 
+  line-height:1.4;
+  position: relative;
+  z-index: 2;
+}
+.prob-bg-num {
+  position: absolute;
+  right: 14px;
+  bottom: -20px;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--paper-2);
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
+  line-height: 1;
+}
+
 .pull{
   margin-top:52px;padding:28px 30px;background:var(--paper-2);border-radius:6px;
   font-family:"Chakra Petch",sans-serif;font-size:clamp(1.15rem,2.4vw,1.5rem);
   font-weight:600;line-height:1.4;
 }
 
-/* ---------- perbedaan/solusi (DIROMBAK JADI DESAIN CARD) ---------- */
+/* ---------- perbedaan/solusi (IMAGE CARDS DENGAN GRADIENT OVERLAY) ---------- */
 .diffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:20px}
 .diff{
-  background: var(--bench-2); 
+  position: relative;
   border: 1px solid var(--line);
-  padding: 28px 24px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  overflow: hidden; 
   transition: transform 0.2s ease, border-color 0.2s ease;
+  min-height: 260px; /* Tinggi proporsional agar gambar terisi penuh */
 }
 .diff:hover {
   border-color: var(--lcd-dim);
   transform: translateY(-3px);
 }
-.diff-n{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.14em;color:var(--lcd-dim);margin-bottom:8px}
-.diff h3{margin-bottom:0}
+.diff-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--bench-3);
+  z-index: 0;
+}
+/* Efek Gradient Gelap dari bawah */
+.diff::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14,26,35, 0.95) 10%, rgba(14,26,35, 0.3) 60%, transparent 100%);
+  z-index: 1;
+}
+.diff-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Memaksa teks turun ke dasar gradient */
+  flex-grow: 1;
+}
+.diff-n{
+  font-family:"IBM Plex Mono",monospace;font-size:.75rem;
+  letter-spacing:.14em;
+  color:var(--amber); /* Warna cerah agar menonjol di latar gelap */
+  margin-bottom:8px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+.diff h3{
+  margin-bottom:0; 
+  color:#ffffff; 
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
 
 /* ---------- video ---------- */
-.video-slot{
-  aspect-ratio:16/9;background:var(--bench-3);border:1px dashed var(--line);border-radius:8px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
-  text-align:center;padding:26px;color:var(--muted);
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+  border: 1px solid var(--line);
+  background: var(--bench-3);
 }
-.video-slot .play{
-  width:64px;height:64px;border-radius:50%;background:var(--amber);color:#151002;
-  display:grid;place-items:center;font-size:1.4rem;
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* ---------- isi paket ---------- */
@@ -299,13 +368,13 @@ h3{font-size:1.16rem;font-weight:600}
 }
 .wa-slide {
   flex: 0 0 auto;
-  width: 280px; /* Ukuran ini menjaga agar SS tidak memakan layar penuh ke atas */
+  width: 280px; 
   scroll-snap-align: center;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
-  background: var(--paper-2); /* placeholder color */
-  border: 4px solid #fff; /* Efek frame HP */
+  background: var(--paper-2); 
+  border: 4px solid #fff; 
 }
 .wa-slide img {
   width: 100%;
@@ -313,24 +382,78 @@ h3{font-size:1.16rem;font-weight:600}
   display: block;
 }
 
-/* ---------- sponsor ---------- */
-.sponsors {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(30px, 6vw, 60px);
-  margin-top: 20px;
+/* ---------- showcase produk ---------- */
+.showcase{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:24px;
+  margin-top:30px;
 }
-.sponsor-logo {
-  height: 45px; /* Tinggi proporsional untuk logo brand */
-  object-fit: contain;
-  filter: grayscale(100%) opacity(0.5); /* Efek elegan mati warna */
-  transition: all 0.3s ease;
+.product-card{
+  background:var(--bench);
+  border:1px solid var(--line);
+  border-radius:8px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .2s ease,border-color .2s ease;
 }
-.sponsor-logo:hover {
-  filter: grayscale(0%) opacity(1); /* Menyala saat di-hover */
-  transform: translateY(-2px);
+.product-card:hover{
+  border-color:var(--amber);
+  transform:translateY(-3px);
+}
+.product-img-wrap{
+  width:100%;
+  aspect-ratio:1/1; /* Mengunci rasio untuk gambar 900x900 agar otomatis presisi */
+  background:var(--bench-2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid var(--line);
+  padding:24px;
+}
+.product-img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+.product-info{
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  flex-grow:1;
+}
+.product-brand{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.7rem;
+  color:var(--lcd-dim);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.product-title{
+  margin-bottom:8px;
+  line-height:1.3;
+}
+.product-desc{
+  font-size:.92rem;
+  color:var(--muted-light);
+  margin-bottom:20px;
+  line-height:1.5;
+}
+.btn-shopee{
+  border-color:#EE4D2D; /* Warna orange khas marketplace */
+  color:#EE4D2D;
+  width:100%;
+  justify-content:center;
+  padding:12px 20px;
+  margin-top:auto;
+}
+.btn-shopee:hover{
+  background:#EE4D2D;
+  color:#fff;
+  border-color:#EE4D2D;
+  box-shadow:0 8px 26px -8px rgba(238,77,45,.6);
 }
 
 /* ---------- harga ---------- */
@@ -430,7 +553,7 @@ h3{font-size:1.16rem;font-weight:600}
   .compare th,.compare td{padding:12px 9px}
   .sticky-bar{display:block}
   body{padding-bottom:74px}
-  .wa-slide { width: 240px; } /* Sedikit lebih kecil di HP */
+  .wa-slide { width: 240px; } 
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -540,27 +663,33 @@ h3{font-size:1.16rem;font-weight:600}
     <div class="probs">
       <div class="prob">
         <h3>Materinya berserakan</h3>
+        <div class="prob-bg-num">1</div>
       </div>
       <div class="prob">
         <h3>Tidak ada yang mengajari mengukur</h3>
+        <div class="prob-bg-num">2</div>
       </div>
       <div class="prob">
         <h3>Ketemu kasus aneh, buntu</h3>
+        <div class="prob-bg-num">3</div>
       </div>
       <div class="prob">
         <h3>Kursus offline mahal dan jauh</h3>
+        <div class="prob-bg-num">4</div>
       </div>
       <div class="prob">
         <h3>Belajar sendiri berujung rugi</h3>
+        <div class="prob-bg-num">5</div>
       </div>
       <div class="prob">
         <h3>Ilmunya cepat basi</h3>
+        <div class="prob-bg-num">6</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════ SOLUSI ══════════════════ -->
+<!-- ══════════════════ SOLUSI (IMAGE CARDS DENGAN GRADIENT OVERLAY) ══════════════════ -->
 <section class="band">
   <div class="wrap">
     <div class="band-head">
@@ -575,20 +704,36 @@ h3{font-size:1.16rem;font-weight:600}
 
     <div class="diffs">
       <div class="diff">
-        <p class="diff-n">01 · URUTAN</p>
-        <h3>Tersusun, berbasis SKKNI</h3>
+        <!-- Tambahkan path gambar solusi di atribut src -->
+        <img src="assets/section/suasana2.webp" alt="Materi Tersusun" class="diff-img todo">
+        <div class="diff-content">
+          <p class="diff-n">01 · URUTAN</p>
+          <h3>Tersusun, berbasis SKKNI</h3>
+        </div>
       </div>
       <div class="diff">
-        <p class="diff-n">02 · SUMBER</p>
-        <h3>Kasus dari meja servis asli</h3>
+        <!-- Tambahkan path gambar solusi di atribut src -->
+        <img src="assets/section/mikroskop.webp" alt="Kasus Meja Servis" class="diff-img todo">
+        <div class="diff-content">
+          <p class="diff-n">02 · SUMBER</p>
+          <h3>Kasus dari meja servis asli</h3>
+        </div>
       </div>
       <div class="diff">
-        <p class="diff-n">03 · PENDAMPINGAN</p>
-        <h3>Ada mentornya</h3>
+        <!-- Tambahkan path gambar solusi di atribut src -->
+        <img src="assets/section/mentor.webp" alt="Pendampingan Mentor" class="diff-img todo">
+        <div class="diff-content">
+          <p class="diff-n">03 · PENDAMPINGAN</p>
+          <h3>Ada mentornya</h3>
+        </div>
       </div>
       <div class="diff">
-        <p class="diff-n">04 · WAKTU</p>
-        <h3>Belajar sambil tetap kerja</h3>
+        <!-- Tambahkan path gambar solusi di atribut src -->
+        <img src="assets/section/suasana3.webp" alt="Belajar Sambil Kerja" class="diff-img todo">
+        <div class="diff-content">
+          <p class="diff-n">04 · WAKTU</p>
+          <h3>Belajar sambil tetap kerja</h3>
+        </div>
       </div>
     </div>
   </div>
@@ -606,12 +751,9 @@ h3{font-size:1.16rem;font-weight:600}
       </p>
     </div>
 
-    <!-- TIM WEB: ganti seluruh blok ini dengan <iframe> YouTube.
-         Pilih kasus yang paling sering ditemui, durasi 5-8 menit. -->
-    <div class="video-slot">
-      <div class="play">▶</div>
-      <p><span class="todo">[SLOT VIDEO PREVIEW]</span></p>
-      <p style="font-size:.9rem;max-width:44ch">Sarannya: "HP mati total setelah kena air — urutan pengecekan yang benar."</p>
+    <!-- Container IFRAME Baru yang Responsif -->
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/ubU92wvJBr0?si=vqc1nq0xBDTTNsCZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -755,24 +897,60 @@ h3{font-size:1.16rem;font-weight:600}
   </div>
 </section>
 
-<!-- ══════════════════ SPONSOR ALAT ══════════════════ -->
+<!-- ══════════════════ SHOWCASE PRODUK DIGITAL WAYS ══════════════════ -->
 <section class="band">
   <div class="wrap">
     <div class="band-head band-head-center">
       <p class="eyebrow">Dukungan Industri</p>
       <h2>Alat Praktik Standar Profesional</h2>
       <p class="lead" style="margin-top: 16px;">
-        Kami merekomendasikan brand-brand penyedia alat servis terkemuka untuk memastikan Anda siap bersaing dengan standar industri.
+        Kami merekomendasikan jajaran produk andalan dari Digital Ways. Standar industri dengan akurasi presisi tinggi untuk menunjang meja kerja Anda.
       </p>
     </div>
     
-    <div class="sponsors">
-      <!-- Ganti src dengan path file logo transparan (.png) milik sponsor -->
-      <img src="assets/sponsor/logo-1.png" alt="Sponsor Brand 1" class="sponsor-logo todo">
-      <img src="assets/sponsor/logo-2.png" alt="Sponsor Brand 2" class="sponsor-logo todo">
-      <img src="assets/sponsor/logo-3.png" alt="Sponsor Brand 3" class="sponsor-logo todo">
-      <img src="assets/sponsor/logo-4.png" alt="Sponsor Brand 4" class="sponsor-logo todo">
-      <img src="assets/sponsor/logo-5.png" alt="Sponsor Brand 5" class="sponsor-logo todo">
+    <div class="showcase">
+      <!-- Produk 1 -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <!-- Gambar dimensi 900x900 -->
+          <img src="assets/alat sponsor/psu-putih-digitalways-shopee.webp" alt="Power Supply Digital Ways" class="product-img todo">
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Digital Ways</p>
+          <h3 class="product-title">Power Supply DWPS1505W DC 15V 5A</h3>
+          <p class="product-desc">Power supply presisi tinggi dengan layar digital 3 baris. Sangat cocok untuk injek tegangan dan analisa short.</p>
+          <a href="https://shopee.co.id/DIGITALWAYS-Power-Supply-DWPS1505W-DC-15V-5A-i.1041242403.27511486781?extraParams=%7B%22display_model_id%22%3A197811650804%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee todo">Beli di Shopee</a>
+        </div>
+      </div>
+      
+
+      <!-- Produk 3 -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <!-- Gambar dimensi 900x900 -->
+          <img src="assets/alat sponsor/soldier-putih-digitalways-shopee.webp" alt="Solder Station Digital Ways" class="product-img todo">
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Digital Ways</p>
+          <h3 class="product-title">Compact Solder Station DW-210C</h3>
+          <p class="product-desc">Suhu sangat stabil dan cepat panas. Dilengkapi mata solder khusus untuk pengerjaan micro-soldering IC.</p>
+          <a href="https://shopee.co.id/DIGITALWAYS-Compact-Solder-Station-DW-210C-i.1041242403.50453102211?extraParams=%7B%22display_model_id%22%3A350299756575%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee todo">Beli di Shopee</a>
+        </div>
+      </div>
+
+      <!-- Produk 4 -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <!-- Gambar dimensi 900x900 -->
+          <img src="assets/alat sponsor/mikroskop-putih-digitalways-shopee.webp" alt="Mikroskop Digital Ways" class="product-img todo">
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Digital Ways</p>
+          <h3 class="product-title">Microscope Trinocular DW-TC-X</h3>
+          <p class="product-desc">Lensa jernih dengan dudukan kokoh. Wajib dimiliki teknisi pro untuk membaca jalur mesin yang super kecil.</p>
+          <a href="https://shopee.co.id/DIGITALWAYS-Microscope-Trinocular-DW-TC-X-i.1041242403.25736000745?extraParams=%7B%22display_model_id%22%3A197804149799%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee todo">Beli di Shopee</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
