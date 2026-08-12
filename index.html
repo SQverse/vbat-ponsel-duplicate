@@ -197,34 +197,34 @@ h3{font-size:1.16rem;font-weight:600}
 .trust-num{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:1.75rem;color:var(--amber);line-height:1.1}
 .trust-lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.09em;color:var(--muted);text-transform:uppercase;margin-top:7px}
 
-/* ---------- daftar masalah (DIROMBAK: WATERMARK ANGKA) ---------- */
-.probs{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
+/* ---------- daftar masalah (DIROMBAK: PENDEK & RAMPING) ---------- */
+.probs{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
 .prob{
   background: #ffffff; 
   border-left: 4px solid var(--probe); 
-  padding: 24px 24px 24px 20px;
-  border-radius: 8px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.04); 
+  padding: 12px 16px; 
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04); 
   display: flex;
   align-items: center;
-  min-height: 100px; 
+  min-height: 60px; 
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 .prob h3{
   margin-bottom:0; 
-  font-size:1.15rem; 
-  line-height:1.4;
+  font-size:1.05rem; 
+  line-height:1.3;
   position: relative;
   z-index: 2;
 }
 .prob-bg-num {
   position: absolute;
-  right: 14px;
-  bottom: -20px;
+  right: 12px;
+  bottom: -15px;
   font-family: "Chakra Petch", sans-serif;
-  font-size: 6rem;
+  font-size: 3.5rem; 
   font-weight: 700;
   color: var(--paper-2);
   opacity: 0.4;
@@ -249,7 +249,7 @@ h3{font-size:1.16rem;font-weight:600}
   flex-direction: column;
   overflow: hidden; 
   transition: transform 0.2s ease, border-color 0.2s ease;
-  min-height: 260px; /* Tinggi proporsional agar gambar terisi penuh */
+  min-height: 260px; 
 }
 .diff:hover {
   border-color: var(--lcd-dim);
@@ -265,7 +265,6 @@ h3{font-size:1.16rem;font-weight:600}
   background: var(--bench-3);
   z-index: 0;
 }
-/* Efek Gradient Gelap dari bawah */
 .diff::before {
   content: "";
   position: absolute;
@@ -279,13 +278,13 @@ h3{font-size:1.16rem;font-weight:600}
   padding: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Memaksa teks turun ke dasar gradient */
+  justify-content: flex-end; 
   flex-grow: 1;
 }
 .diff-n{
   font-family:"IBM Plex Mono",monospace;font-size:.75rem;
   letter-spacing:.14em;
-  color:var(--amber); /* Warna cerah agar menonjol di latar gelap */
+  color:var(--amber); 
   margin-bottom:8px;
   text-shadow: 0 1px 2px rgba(0,0,0,0.8);
 }
@@ -315,16 +314,20 @@ h3{font-size:1.16rem;font-weight:600}
   border: 0;
 }
 
-/* ---------- isi paket ---------- */
-.kits{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:20px}
+/* ---------- isi paket (DIROMBAK: PENDEK TANPA NOMOR URUT) ---------- */
+.kits{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:16px}
 .kit{
-  background:var(--bench);border:1px solid var(--line);border-radius:6px;padding:26px 24px;
+  background:var(--bench);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:12px 16px; 
   transition:border-color .16s ease,transform .16s ease;
+  display: flex;
+  align-items: center;
+  min-height: 60px; 
 }
 .kit:hover{border-color:var(--lcd-dim);transform:translateY(-3px)}
-.kit-n{font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--amber);letter-spacing:.1em;margin-bottom:13px}
-.kit h3{margin-bottom:9px}
-.kit p{font-size:.95rem;color:var(--muted-light)}
+.kit h3{margin-bottom:0; font-size: 1.05rem; line-height: 1.3;}
 
 /* ---------- peta 30 hari ---------- */
 .weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:14px}
@@ -345,7 +348,7 @@ h3{font-size:1.16rem;font-weight:600}
 .fit li::before{position:absolute;left:0;top:12px;font-family:"IBM Plex Mono",monospace;font-weight:600}
 .fit-yes li::before{content:"✓";color:var(--lcd)}
 
-/* ---------- testimoni Play Store Slider ---------- */
+/* ---------- testimoni Play Store Slider (DIROMBAK: RATA TINGGI, ANTI POTONG) ---------- */
 .aggregate{
   font-family:"Chakra Petch",sans-serif;font-weight:700;
   font-size:clamp(1.3rem,3vw,2rem);margin-bottom:42px;line-height:1.35;
@@ -359,133 +362,105 @@ h3{font-size:1.16rem;font-weight:600}
   gap: 24px;
   padding-bottom: 24px;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  margin: 0 -22px; /* Pull-out to edge on mobile */
+  scrollbar-width: none; 
+  margin: 0 -22px; 
   padding-left: 22px;
   padding-right: 22px;
-  align-items: flex-start; /* Kunci agar foto tidak dipaksa meregang sama tinggi */
+  align-items: stretch; /* Memaksa kotak kartu sama tinggi rata */
 }
 .wa-slider::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none; 
 }
 .wa-slide {
   flex: 0 0 auto;
   width: 280px; 
-  height: auto; /* Mengikuti panjang komentar otomatis */
+  height: auto; 
   scroll-snap-align: center;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
-  background: var(--paper-2); 
+  background: #ffffff; /* Latar putih mengisi sisa ruang jika komentar pendek */
   border: 4px solid #fff; 
+  display: flex;
+  flex-direction: column;
 }
 .wa-slide img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: contain; /* Memastikan gambar full tidak ada yang terpotong */
+  object-position: top; /* Rata atas */
 }
 
-/* ---------- banner sponsor utama ---------- */
+/* ---------- banner sponsor utama (BACKGROUND PUTIH FULL WIDTH 100%) ---------- */
+.band-white-bg {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 60px 0;
+  color: var(--ink); 
+}
+.band-white-bg .eyebrow {
+  color: #5B7A46; 
+}
+.band-white-bg .eyebrow::before {
+  background: #5B7A46;
+}
 .sponsor-banner-wrap {
   width: 100%;
-  border-radius: 10px;
   overflow: hidden;
-  background: var(--bench-2);
-  margin-top: 30px;
-  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
 }
 .sponsor-banner-img {
   width: 100%;
   height: auto;
+  max-width: 1140px; 
   aspect-ratio: 4717 / 324;
   object-fit: contain;
   display: block;
 }
 
-/* ---------- showcase produk ---------- */
-.showcase{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:24px;
-  margin-top:30px;
+/* ---------- showcase produk slider (MURNI GAMBAR BESAR TANPA TEKS) ---------- */
+.product-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 24px;
+  padding-bottom: 30px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; 
+  margin: 20px -22px 0; 
+  padding-left: 22px;
+  padding-right: 22px;
+  align-items: center; 
 }
-.product-card{
-  background:var(--bench);
-  border:1px solid var(--line);
-  border-radius:8px;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  transition:transform .2s ease,border-color .2s ease;
+.product-slider::-webkit-scrollbar {
+  display: none; 
 }
-.product-card:hover{
-  border-color:var(--amber);
-  transform:translateY(-3px);
+.product-card-img-only {
+  flex: 0 0 auto;
+  width: 350px; /* Dibuat besar sesuai instruksi */
+  aspect-ratio: 1/1; 
+  scroll-snap-align: center;
+  background: #ffffff; 
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease, border-color .2s ease;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
 }
-.product-img-wrap{
-  width:100%;
-  aspect-ratio:1/1; 
-  background:var(--bench-2);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-bottom:1px solid var(--line);
-  padding:24px;
+.product-card-img-only:hover {
+  border-color: var(--amber);
+  transform: translateY(-3px);
 }
-.product-img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
-}
-.product-info{
-  padding:24px;
-  display:flex;
-  flex-direction:column;
-  flex-grow:1;
-}
-.product-brand{
-  font-family:"IBM Plex Mono",monospace;
-  font-size:.7rem;
-  color:var(--lcd-dim);
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  margin-bottom:6px;
-}
-.product-title{
-  margin-bottom:8px;
-  line-height:1.3;
-}
-.product-price {
-  font-family: "Chakra Petch", sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--amber);
-  margin-bottom: 12px;
-}
-.product-price-muted {
-  font-size: 0.95rem;
-  color: var(--muted-light);
-  font-weight: 400;
-}
-.product-desc{
-  font-size:.92rem;
-  color:var(--muted-light);
-  margin-bottom:20px;
-  line-height:1.5;
-}
-.btn-shopee{
-  border-color:#EE4D2D; 
-  color:#EE4D2D;
-  width:100%;
-  justify-content:center;
-  padding:12px 20px;
-  margin-top:auto;
-}
-.btn-shopee:hover{
-  background:#EE4D2D;
-  color:#fff;
-  border-color:#EE4D2D;
-  box-shadow:0 8px 26px -8px rgba(238,77,45,.6);
+.product-card-img-only img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  padding: 16px; 
 }
 
 /* ---------- harga ---------- */
@@ -586,6 +561,7 @@ h3{font-size:1.16rem;font-weight:600}
   .sticky-bar{display:block}
   body{padding-bottom:74px}
   .wa-slide { width: 240px; } 
+  .product-card-img-only { width: 280px; } /* sedikit lebih kecil untuk menyesuaikan layar HP */
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -800,27 +776,21 @@ h3{font-size:1.16rem;font-weight:600}
 
     <div class="kits">
       <div class="kit">
-        <p class="kit-n">01</p>
         <h3>Video pembelajaran bertingkat</h3>
       </div>
       <div class="kit">
-        <p class="kit-n">02</p>
         <h3>Grup WhatsApp VVIP Bedah Kasus</h3>
       </div>
       <div class="kit">
-        <p class="kit-n">03</p>
         <h3>LIVE Bedah Kasus rutin</h3>
       </div>
       <div class="kit">
-        <p class="kit-n">04</p>
         <h3>Konsultasi mentor</h3>
       </div>
       <div class="kit">
-        <p class="kit-n">05</p>
         <h3>Tes pemahaman + e-sertifikat</h3>
       </div>
       <div class="kit">
-        <p class="kit-n">06</p>
         <h3>E-book pendukung</h3>
       </div>
     </div>
@@ -889,29 +859,23 @@ h3{font-size:1.16rem;font-weight:600}
       <b>93 kota</b> di seluruh Indonesia.
     </p>
 
-    <!-- Slider Testimoni adaptif terhadap tinggi gambar -->
+    <!-- Slider Testimoni adaptif tapi sama tinggi -->
     <div class="wa-slider">
-      <!-- Slide 1 -->
       <div class="wa-slide">
         <img src="assets/testimoni/testi1.webp" alt="Ulasan Play Store 1">
       </div>
-      <!-- Slide 2 -->
       <div class="wa-slide">
         <img src="assets/testimoni/testi2.webp" alt="Ulasan Play Store 2">
       </div>
-      <!-- Slide 3 -->
       <div class="wa-slide">
         <img src="assets/testimoni/testi3.webp" alt="Ulasan Play Store 3">
       </div>
-      <!-- Slide 4 -->
       <div class="wa-slide">
         <img src="assets/testimoni/testi4.webp" alt="Ulasan Play Store 4">
       </div>
-      <!-- Slide 5 -->
       <div class="wa-slide">
         <img src="assets/testimoni/testi5.webp" alt="Ulasan Play Store 5">
       </div>
-      <!-- Slide 6 -->
       <div class="wa-slide">
         <img src="assets/testimoni/testi6.webp" alt="Ulasan Play Store 6">
       </div>
@@ -923,19 +887,19 @@ h3{font-size:1.16rem;font-weight:600}
   </div>
 </section>
 
-<!-- ══════════════════ BANNER SPONSOR UTAMA (4717x324) ══════════════════ -->
-<section class="band" style="padding-bottom: 0;">
+<!-- ══════════════════ BANNER SPONSOR UTAMA (BACKGROUND PUTIH FULL WIDTH) ══════════════════ -->
+<section class="band-white-bg">
   <div class="wrap">
     <div class="band-head band-head-center" style="margin-bottom: 24px;">
-      <p class="eyebrow">Mitra Kami:</p>
+      <p class="eyebrow">Mitra Kami</p>
     </div>
     <div class="sponsor-banner-wrap">
-      <img src="assets/bg/sponsor.webp" alt="Sponsor Utama LPK Quantum">
+      <img src="assets/bg/sponsor.webp" alt="Sponsor Utama LPK Quantum" class="sponsor-banner-img">
     </div>
   </div>
 </section>
 
-<!-- ══════════════════ SHOWCASE PRODUK DIGITAL WAYS ══════════════════ -->
+<!-- ══════════════════ SHOWCASE PRODUK DIGITAL WAYS (MURNI GAMBAR BESAR) ══════════════════ -->
 <section class="band">
   <div class="wrap">
     <div class="band-head band-head-center">
@@ -946,163 +910,70 @@ h3{font-size:1.16rem;font-weight:600}
       </p>
     </div>
     
-    <div class="showcase">
+    <!-- Slider untuk Alat Praktik Berupa Murni Gambar Saja -->
+    <div class="product-slider">
 
       <!-- Produk Baru 1 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/alat sponsor/Pyro Hot Air Station DW-2008.webp" alt="Pyro Hot Air Station DW-2008" class="product-img">
-        </div>
-        <div class="product-info">
-          <p class="product-brand">Digital Ways</p>
-          <h3 class="product-title">Pyro Hot Air Station DW-2008</h3>
-          <p class="product-price">Rp1.621.000</p>
-          <p class="product-desc">Hot Air Station yang dirancang untuk keperluan rework, desoldering, dan soldering komponen SMD. Memiliki kontrol digital suhu dan aliran udara, 3 tombol channel, dan mendukung timah "Lead Free".</p>
-          <a href="https://shopee.co.id/DIGITALWAYS-Pyro-Hot-Air-Station-DW-2008-i.1041242403.50703107063?extraParams=%7B%22display_model_id%22%3A385299756344%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee">Beli di Shopee</a>
-        </div>
+      <div class="product-card-img-only">
+        <img src="assets/alat sponsor/Pyro Hot Air Station DW-2008.webp" alt="Pyro Hot Air Station DW-2008">
       </div>
 
       <!-- Produk Baru 2 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/alat sponsor/Power Supply DWPS3010D 30V 10A.webp" alt="Power Supply DWPS3010D 30V 10A" class="product-img">
-        </div>
-        <div class="product-info">
-          <p class="product-brand">Digital Ways</p>
-          <h3 class="product-title">Power Supply DWPS3010D 30V 10A</h3>
-          <p class="product-price">Rp1.579.500</p>
-          <p class="product-desc">Catu daya stabil DC 30V 10A dengan tiga jendela empat digit. Memiliki sirkuit perlindungan hubung singkat OCP sempurna dan fungsi pengisian cepat USB-A/Type-C.</p>
-          <a href="https://shopee.co.id/DIGITALWAYS-Power-Supply-DWPS3010D-30V-10A-i.1041242403.24035640999?extraParams=%7B%22display_model_id%22%3A251525844890%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee">Beli di Shopee</a>
-        </div>
+      <div class="product-card-img-only">
+        <img src="assets/alat sponsor/Power Supply DWPS3010D 30V 10A.webp" alt="Power Supply DWPS3010D 30V 10A">
       </div>
 
       <!-- Produk Baru 3 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/alat sponsor/Tornado Cooling Fan UV.webp" alt="Tornado Cooling Fan UV" class="product-img">
-        </div>
-        <div class="product-info">
-          <p class="product-brand">Digital Ways</p>
-          <h3 class="product-title">Tornado Cooling Fan UV</h3>
-          <p class="product-price">Rp386.000</p>
-          <p class="product-desc">Kipas pendingin profesional dengan hembusan kuat untuk mendinginkan area kerja. Dilengkapi fitur lampu UV untuk memberikan pencahayaan tambahan pada komponen kecil.</p>
-          <a href="https://shopee.co.id/DIGITALWAYS-Tornado-Cooling-Fan-UV-i.1041242403.47303128106?extraParams=%7B%22display_model_id%22%3A440300176565%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee">Beli di Shopee</a>
-        </div>
+      <div class="product-card-img-only">
+        <img src="assets/alat sponsor/Tornado Cooling Fan UV.webp" alt="Tornado Cooling Fan UV">
       </div>
 
       <!-- Produk Baru 4 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/alat sponsor/Sparta Screwdriver Set 118 In 1.webp" alt="Sparta Screwdriver Set 118 In 1" class="product-img">
-        </div>
-        <div class="product-info">
-          <p class="product-brand">Digital Ways</p>
-          <h3 class="product-title">Sparta Screwdriver Set 118 In 1</h3>
-          <p class="product-price">Rp555.100</p>
-          <p class="product-desc">Set obeng 118 in 1 lengkap dengan desain kokoh dan presisi tinggi. Siap diandalkan untuk berbagai kebutuhan teknisi repair elektronik hingga penggunaan umum.</p>
-          <a href="https://shopee.co.id/DIGITALWAYS-Sparta-Screwdriver-Set-118-In-1-i.1041242403.57709948858?extraParams=%7B%22display_model_id%22%3A365878643658%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee">Beli di Shopee</a>
-        </div>
+      <div class="product-card-img-only">
+        <img src="assets/alat sponsor/Sparta Screwdriver Set 118 In 1.webp" alt="Sparta Screwdriver Set 118 In 1">
       </div>
 
       <!-- Produk Baru 5 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/alat sponsor/Macgyver Screwdriver Macbook Set.webp" alt="Macgyver Screwdriver Macbook Set" class="product-img">
-        </div>
-        <div class="product-info">
-          <p class="product-brand">Digital Ways</p>
-          <h3 class="product-title">Macgyver Screwdriver Macbook Set</h3>
-          <p class="product-price">Rp858.150</p>
-          <p class="product-desc">Set obeng presisi profesional dengan material berkualitas tinggi. Dirancang khusus untuk pembongkaran MacBook, laptop premium, dan perangkat elektronik presisi tinggi.</p>
-          <a href="https://shopee.co.id/DIGITALWAYS-Macgyver-Screwdriver-Macbook-Set-i.1041242403.45456504076?extraParams=%7B%22display_model_id%22%3A370583546372%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee">Beli di Shopee</a>
-        </div>
+      <div class="product-card-img-only">
+        <img src="assets/alat sponsor/Macgyver Screwdriver Macbook Set.webp" alt="Macgyver Screwdriver Macbook Set">
       </div>
 
       <!-- Produk Baru 6 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/alat sponsor/Magma Pro Solder Station DW-210MP.webp" alt="Magma Pro Solder Station DW-210MP" class="product-img">
-        </div>
-        <div class="product-info">
-          <p class="product-brand">Digital Ways</p>
-          <h3 class="product-title">Magma Pro Solder Station DW-210MP</h3>
-          <p class="product-price">Rp3.448.800</p>
-          <p class="product-desc">Solder station digital profesional dengan kontrol suhu akurat dan pemanasan cepat. Dilengkapi dudukan terintegrasi, sangat andal untuk micro-soldering komponen SMD halus.</p>
-          <a href="https://shopee.co.id/DIGITALWAYS-Magma-Pro-Solder-Station-DW-210MP-i.1041242403.47403131725?extraParams=%7B%22display_model_id%22%3A292256458255%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee">Beli di Shopee</a>
-        </div>
+      <div class="product-card-img-only">
+        <img src="assets/alat sponsor/Magma Pro Solder Station DW-210MP.webp" alt="Magma Pro Solder Station DW-210MP">
       </div>
 
       <!-- Produk Lama 1 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/alat sponsor/mikroskop-putih-digitalways-shopee.webp" alt="Mikroskop Digital Ways" class="product-img">
-        </div>
-        <div class="product-info">
-          <p class="product-brand">Digital Ways</p>
-          <h3 class="product-title">Microscope Trinocular DW-TC-X</h3>
-          <p class="product-price">Rp4.555.500</p>
-          <p class="product-desc">Lensa jernih dengan dudukan kokoh. Wajib dimiliki teknisi pro untuk membaca jalur mesin yang super kecil.</p>
-          <a href="https://shopee.co.id/DIGITALWAYS-Microscope-Trinocular-DW-TC-X-i.1041242403.25736000745?extraParams=%7B%22display_model_id%22%3A197804149799%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee">Beli di Shopee</a>
-        </div>
+      <div class="product-card-img-only">
+        <img src="assets/alat sponsor/mikroskop-putih-digitalways-shopee.webp" alt="Microscope Trinocular DW-TC-X">
       </div>
 
       <!-- Produk Lama 2 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/alat sponsor/DIGITALWAYS Microscope Trinokuler DW-TC-Y Black.webp" alt="Mikroskop Digital Ways" class="product-img">
-        </div>
-        <div class="product-info">
-          <p class="product-brand">Digital Ways</p>
-          <h3 class="product-title">Microscope Trinokuler DW-TC-Y Black</h3>
-          <p class="product-price">Rp10.057.500</p>
-          <p class="product-desc">Lensa jernih dengan dudukan kokoh. Wajib dimiliki teknisi pro untuk membaca jalur mesin yang super kecil.</p>
-          <a href="https://shopee.co.id/DIGITALWAYS-Microscope-Trinokuler-DW-TC-Y-Black-i.1041242403.24286120024?extraParams=%7B%22display_model_id%22%3A246607346863%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee">Beli di Shopee</a>
-        </div>
+      <div class="product-card-img-only">
+        <img src="assets/alat sponsor/DIGITALWAYS Microscope Trinokuler DW-TC-Y Black.webp" alt="Microscope Trinokuler DW-TC-Y Black">
       </div>
 
       <!-- Produk Lama 3 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/alat sponsor/Microscope Binokuler DW-BC-X Black.webp" alt="Mikroskop Digital Ways" class="product-img">
-        </div>
-        <div class="product-info">
-          <p class="product-brand">Digital Ways</p>
-          <h3 class="product-title">Microscope Binokuler DW-BC-X Black</h3>
-          <p class="product-price">Rp4.182.500</p>
-          <p class="product-desc">Lensa jernih dengan dudukan kokoh. Wajib dimiliki teknisi pro untuk membaca jalur mesin yang super kecil.</p>
-          <a href="https://shopee.co.id/DIGITALWAYS-Microscope-Binokuler-DW-BC-X-Black-i.1041242403.26561477246?extraParams=%7B%22display_model_id%22%3A241607331989%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee">Beli di Shopee</a>
-        </div>
+      <div class="product-card-img-only">
+        <img src="assets/alat sponsor/Microscope Binokuler DW-BC-X Black.webp" alt="Microscope Binokuler DW-BC-X Black">
       </div>
 
       <!-- Produk Lama 4 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/alat sponsor/psu-putih-digitalways-shopee.webp" alt="Power Supply Digital Ways" class="product-img">
-        </div>
-        <div class="product-info">
-          <p class="product-brand">Digital Ways</p>
-          <h3 class="product-title">Power Supply DWPS1505W DC 15V 5A</h3>
-          <p class="product-price">Rp1.047.500</p>
-          <p class="product-desc">Power supply presisi tinggi dengan layar digital 3 baris. Sangat cocok untuk injek tegangan dan analisa short.</p>
-          <a href="https://shopee.co.id/DIGITALWAYS-Power-Supply-DWPS1505W-DC-15V-5A-i.1041242403.27511486781?extraParams=%7B%22display_model_id%22%3A197811650804%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee">Beli di Shopee</a>
-        </div>
+      <div class="product-card-img-only">
+        <img src="assets/alat sponsor/psu-putih-digitalways-shopee.webp" alt="Power Supply DWPS1505W DC 15V 5A">
       </div>
       
       <!-- Produk Lama 5 -->
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="assets/alat sponsor/soldier-putih-digitalways-shopee.webp" alt="Solder Station Digital Ways" class="product-img">
-        </div>
-        <div class="product-info">
-          <p class="product-brand">Digital Ways</p>
-          <h3 class="product-title">Compact Solder Station DW-210C</h3>
-          <p class="product-price">Rp1.716.000</p>
-          <p class="product-desc">Suhu sangat stabil dan cepat panas. Dilengkapi mata solder khusus untuk pengerjaan micro-soldering IC.</p>
-          <a href="https://shopee.co.id/DIGITALWAYS-Compact-Solder-Station-DW-210C-i.1041242403.50453102211?extraParams=%7B%22display_model_id%22%3A350299756575%2C%22model_selection_logic%22%3A3%7D" target="_blank" class="btn btn-ghost btn-shopee">Beli di Shopee</a>
-        </div>
+      <div class="product-card-img-only">
+        <img src="assets/alat sponsor/soldier-putih-digitalways-shopee.webp" alt="Compact Solder Station DW-210C">
       </div>
       
     </div>
+    
+    <p class="btn-note" style="text-align:center; color:#4A5C66; margin-top: 14px;">
+      &larr; Geser untuk melihat koleksi lainnya &rarr;
+    </p>
+
   </div>
 </section>
 
