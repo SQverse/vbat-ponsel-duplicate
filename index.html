@@ -88,9 +88,10 @@ h3{font-size:1.16rem;font-weight:600}
 
 /* ---------- tombol ---------- */
 .btn{
-  display:inline-flex;align-items:center;gap:11px;
+  display:inline-flex;align-items:center;
+  margin: 0 5px;
   font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:1.04rem;
-  padding:17px 30px;border-radius:3px;text-decoration:none;
+  padding:17px 30px;border-radius:4px;text-decoration:none;
   border:2px solid transparent;transition:transform .14s ease,box-shadow .14s ease,background .14s ease;
   text-align: center;
 }
@@ -98,6 +99,8 @@ h3{font-size:1.16rem;font-weight:600}
 .btn-main:hover{background:#FFC24D;transform:translateY(-2px);box-shadow:0 8px 26px -8px rgba(245,176,42,.7)}
 .btn-ghost{border-color:var(--line);color:#C6D6DE;background:transparent}
 .btn-ghost:hover{border-color:var(--lcd);color:var(--lcd)}
+.btn-ghost-alumni{border-color:var(--line);color:#151002;background:var(--amber)}
+.btn-ghost-alumni:hover{background:#FFC24D;transform:translateY(-2px);box-shadow:0 8px 26px -8px rgba(245,176,42,.7)}
 .on-paper .btn-ghost{border-color:#B6C2BC;color:#3A4B54}
 .on-paper .btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
 .btn-note{font-size:.87rem;color:var(--muted);margin-top:14px}
@@ -265,6 +268,7 @@ h3{font-size:1.16rem;font-weight:600}
   background: var(--bench-3);
   z-index: 0;
 }
+/* Efek Gradient Gelap dari bawah */
 .diff::before {
   content: "";
   position: absolute;
@@ -380,16 +384,17 @@ h3{font-size:1.16rem;font-weight:600}
   overflow: hidden;
   box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
   background: #ffffff; /* Latar putih mengisi sisa ruang jika komentar pendek */
-  border: 4px solid #fff; 
+  border: 1px solid var(--paper-2); 
   display: flex;
   flex-direction: column;
+  justify-content: flex-start; /* Memaksa gambar nempel di atas */
 }
 .wa-slide img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: contain; /* Memastikan gambar full tidak ada yang terpotong */
-  object-position: top; /* Rata atas */
+  object-fit: contain; /* Memastikan gambar tidak terpotong */
+  object-position: top;
 }
 
 /* ---------- banner sponsor utama (BACKGROUND PUTIH FULL WIDTH 100%) ---------- */
@@ -439,7 +444,7 @@ h3{font-size:1.16rem;font-weight:600}
 }
 .product-card-img-only {
   flex: 0 0 auto;
-  width: 350px; /* Dibuat besar sesuai instruksi */
+  width: 350px; 
   aspect-ratio: 1/1; 
   scroll-snap-align: center;
   background: #ffffff; 
@@ -541,6 +546,57 @@ h3{font-size:1.16rem;font-weight:600}
 .sticky-bar .btn{width:100%;justify-content:center;padding:15px 20px}
 
 /* ---------- responsif ---------- */
+@media(max-width:620px){
+  body{font-size:16px}
+  .band{padding:64px 0}
+  .hero{padding:34px 0 56px}
+  
+  /* Pengecilan tombol di layar HP secara keseluruhan */
+  .btn {
+    padding: 12px 18px;
+    font-size: 0.92rem;
+  }
+  
+  /* Hero Buttons dibuat sebaris menyamping khusus di HP */
+  .hero .cta-row {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  .hero .btn {
+    flex: 1;
+    padding: 12px 6px;
+    font-size: 0.85rem;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+  }
+  
+  /* Section Cara Daftar (3 Button) di-center dan dikecilkan khusus di HP */
+  .register-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .register-cta .btn {
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
+  }
+
+  .plans{grid-template-columns:1fr}
+  .weeks{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .compare{font-size:.88rem}
+  .compare th,.compare td{padding:12px 9px}
+  .sticky-bar{display:block}
+  .sticky-bar .btn {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+  body{padding-bottom:74px}
+  .wa-slide { width: 240px; } 
+  .product-card-img-only { width: 280px; } /* sedikit lebih kecil untuk menyesuaikan layar HP */
+}
 @media(max-width:960px){
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .trust-grid{grid-template-columns:1fr 1fr}
@@ -548,20 +604,6 @@ h3{font-size:1.16rem;font-weight:600}
   .fit{grid-template-columns:1fr;gap:30px}
   .steps{grid-template-columns:1fr;gap:22px}
   .foot-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:620px){
-  body{font-size:16px}
-  .band{padding:64px 0}
-  .hero{padding:34px 0 56px}
-  .plans{grid-template-columns:1fr}
-  .weeks{grid-template-columns:1fr}
-  .foot-grid{grid-template-columns:1fr}
-  .compare{font-size:.88rem}
-  .compare th,.compare td{padding:12px 9px}
-  .sticky-bar{display:block}
-  body{padding-bottom:74px}
-  .wa-slide { width: 240px; } 
-  .product-card-img-only { width: 280px; } /* sedikit lebih kecil untuk menyesuaikan layar HP */
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -712,7 +754,6 @@ h3{font-size:1.16rem;font-weight:600}
 
     <div class="diffs">
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/suasana2.webp" alt="Materi Tersusun" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">01 · URUTAN</p>
@@ -720,7 +761,6 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/mikroskop.webp" alt="Kasus Meja Servis" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">02 · SUMBER</p>
@@ -728,7 +768,6 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/mentor.webp" alt="Pendampingan Mentor" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">03 · PENDAMPINGAN</p>
@@ -736,7 +775,6 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/suasana3.webp" alt="Belajar Sambil Kerja" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">04 · WAKTU</p>
@@ -1008,7 +1046,7 @@ h3{font-size:1.16rem;font-weight:600}
           <li>Materi kelas Anda bisa diulang</li>
           <li>Sebutkan angkatan dan tahun kelas saat chat</li>
         </ul>
-        <a class="btn btn-ghost" href="https://wa.me/62818268717?text=Halo%2C%20saya%20alumni%20LPK%20Quantum%2C%20mau%20klaim%20harga%20alumni%20VBATPonsel" data-cta="paket-alumni">Klaim Harga Alumni</a>
+        <a class="btn btn-ghost-alumni" href="https://wa.me/62818268717?text=Halo%2C%20saya%20alumni%20LPK%20Quantum%2C%20mau%20klaim%20harga%20alumni%20VBATPonsel" data-cta="paket-alumni">Klaim Harga Alumni</a>
       </div>
     </div>
 
@@ -1039,7 +1077,8 @@ h3{font-size:1.16rem;font-weight:600}
       </div>
     </div>
 
-    <div class="cta-row">
+    <!-- Tombol Cara Daftar (3 Button) Dibikin center -->
+    <div class="cta-row register-cta">
       <a class="btn btn-main" href="https://wa.me/62818268717?text=Halo%2C%20saya%20mau%20mulai%20daftar%20VBATPonsel" data-cta="langkah">Mulai — Chat Admin</a>
       <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.vbatponsel.quantum" data-cta="playstore">Unduh di Google Play</a>
       <!-- Tombol baru untuk unduh langsung dari Web -->
