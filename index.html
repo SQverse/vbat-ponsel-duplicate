@@ -41,13 +41,18 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+  overflow-x: hidden;
+}
 body{
   background:var(--bench);
   color:#DCE6EC;
   font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   font-size:17px;
   line-height:1.65;
+  width: 100%;
   overflow-x:hidden;
 }
 img{max-width:100%;display:block}
@@ -200,8 +205,8 @@ h3{font-size:1.16rem;font-weight:600}
 .trust-num{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:1.75rem;color:var(--amber);line-height:1.1}
 .trust-lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.09em;color:var(--muted);text-transform:uppercase;margin-top:7px}
 
-/* ---------- daftar masalah (DIROMBAK: PENDEK & RAMPING) ---------- */
-.probs{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+/* ---------- daftar masalah (DIROMBAK: PENDEK & RAMPING - ANTI OVERFLOW) ---------- */
+.probs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(290px, 100%),1fr));gap:16px}
 .prob{
   background: #ffffff; 
   border-left: 4px solid var(--probe); 
@@ -242,8 +247,8 @@ h3{font-size:1.16rem;font-weight:600}
   font-weight:600;line-height:1.4;
 }
 
-/* ---------- perbedaan/solusi (IMAGE CARDS DENGAN GRADIENT OVERLAY) ---------- */
-.diffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:20px}
+/* ---------- perbedaan/solusi (IMAGE CARDS DENGAN GRADIENT OVERLAY - ANTI OVERFLOW) ---------- */
+.diffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px, 100%),1fr));gap:24px;margin-top:20px}
 .diff{
   position: relative;
   border: 1px solid var(--line);
@@ -318,8 +323,8 @@ h3{font-size:1.16rem;font-weight:600}
   border: 0;
 }
 
-/* ---------- isi paket (DIROMBAK: PENDEK TANPA NOMOR URUT) ---------- */
-.kits{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:16px}
+/* ---------- isi paket (DIROMBAK: PENDEK TANPA NOMOR URUT - ANTI OVERFLOW) ---------- */
+.kits{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(275px, 100%),1fr));gap:16px}
 .kit{
   background:var(--bench);
   border:1px solid var(--line);
@@ -415,11 +420,12 @@ h3{font-size:1.16rem;font-weight:600}
   overflow: hidden;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+  max-width: var(--wrap);
 }
 .sponsor-banner-img {
   width: 100%;
   height: auto;
-  max-width: 1140px; 
   aspect-ratio: 4717 / 324;
   object-fit: contain;
   display: block;
@@ -557,18 +563,20 @@ h3{font-size:1.16rem;font-weight:600}
     font-size: 0.92rem;
   }
   
-  /* Hero Buttons dibuat sebaris menyamping khusus di HP */
+  /* Hero Buttons dibuat sebaris menyamping khusus di HP dan teks diizinkan wrap agar tidak overflow */
   .hero .cta-row {
     flex-wrap: nowrap;
     gap: 8px;
+    width: 100%;
   }
   .hero .btn {
-    flex: 1;
+    flex: 1; /* Perbaikan Overflow: flex: 1 akan menyesuaikan ruang yang ada tanpa menabrak margin */
     padding: 12px 6px;
     font-size: 0.85rem;
     justify-content: center;
     text-align: center;
     line-height: 1.2;
+    white-space: normal; /* Kunci anti overflow teks tombol */
   }
   
   /* Section Cara Daftar (3 Button) di-center dan dikecilkan khusus di HP */
@@ -594,9 +602,12 @@ h3{font-size:1.16rem;font-weight:600}
     font-size: 0.95rem;
   }
   body{padding-bottom:74px}
-  .wa-slide { width: 240px; } 
-  .product-card-img-only { width: 280px; } /* sedikit lebih kecil untuk menyesuaikan layar HP */
+  
+  /* Mengatur lebar responsif slider di HP agar tidak overflow */
+  .wa-slide { width: 75vw; max-width: 280px; } 
+  .product-card-img-only { width: 80vw; max-width: 280px; } 
 }
+
 @media(max-width:960px){
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .trust-grid{grid-template-columns:1fr 1fr}
@@ -754,6 +765,7 @@ h3{font-size:1.16rem;font-weight:600}
 
     <div class="diffs">
       <div class="diff">
+        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/suasana2.webp" alt="Materi Tersusun" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">01 · URUTAN</p>
@@ -761,6 +773,7 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
+        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/mikroskop.webp" alt="Kasus Meja Servis" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">02 · SUMBER</p>
@@ -768,6 +781,7 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
+        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/mentor.webp" alt="Pendampingan Mentor" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">03 · PENDAMPINGAN</p>
@@ -775,6 +789,7 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
+        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/suasana3.webp" alt="Belajar Sambil Kerja" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">04 · WAKTU</p>
