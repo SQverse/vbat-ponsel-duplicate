@@ -357,7 +357,7 @@ h3{font-size:1.16rem;font-weight:600}
 .fit li::before{position:absolute;left:0;top:12px;font-family:"IBM Plex Mono",monospace;font-weight:600}
 .fit-yes li::before{content:"✓";color:var(--lcd)}
 
-/* ---------- testimoni Play Store Slider (DIROMBAK: RATA TINGGI, ANTI POTONG) ---------- */
+/* ---------- testimoni Play Store Slider (DIROMBAK: RATA TINGGI, ANTI POTONG, CUSTOM SCROLLBAR) ---------- */
 .aggregate{
   font-family:"Chakra Petch",sans-serif;font-weight:700;
   font-size:clamp(1.3rem,3vw,2rem);margin-bottom:42px;line-height:1.35;
@@ -371,15 +371,30 @@ h3{font-size:1.16rem;font-weight:600}
   gap: 24px;
   padding-bottom: 24px;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; 
   margin: 0 -22px; 
   padding-left: 22px;
   padding-right: 22px;
   align-items: stretch; /* Memaksa kotak kartu sama tinggi rata */
+  
+  /* Scrollbar khusus agar bisa di-scroll pakai mouse di PC/Desktop */
+  scrollbar-width: thin; 
+  scrollbar-color: var(--line) var(--bench-3);
 }
 .wa-slider::-webkit-scrollbar {
-  display: none; 
+  height: 8px; /* Menampilkan kembali scrollbar tipis */
 }
+.wa-slider::-webkit-scrollbar-track {
+  background: var(--bench-3);
+  border-radius: 8px;
+}
+.wa-slider::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 8px;
+}
+.wa-slider::-webkit-scrollbar-thumb:hover {
+  background: var(--amber);
+}
+
 .wa-slide {
   flex: 0 0 auto;
   width: 280px; 
@@ -389,7 +404,7 @@ h3{font-size:1.16rem;font-weight:600}
   overflow: hidden;
   box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
   background: #ffffff; /* Latar putih mengisi sisa ruang jika komentar pendek */
-  border: 1px solid var(--paper-2); 
+  border: 4px solid #fff; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Memaksa gambar nempel di atas */
@@ -405,8 +420,13 @@ h3{font-size:1.16rem;font-weight:600}
 /* ---------- banner sponsor utama (BACKGROUND PUTIH FULL WIDTH 100%) ---------- */
 .band-white-bg {
   background-color: #ffffff;
-  width: 100%;
-  padding: 60px 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 60px 22px;
   color: var(--ink); 
 }
 .band-white-bg .eyebrow {
@@ -431,7 +451,7 @@ h3{font-size:1.16rem;font-weight:600}
   display: block;
 }
 
-/* ---------- showcase produk slider (MURNI GAMBAR BESAR TANPA TEKS) ---------- */
+/* ---------- showcase produk slider (MURNI GAMBAR BESAR TANPA TEKS + CUSTOM SCROLLBAR) ---------- */
 .product-slider {
   display: flex;
   overflow-x: auto;
@@ -439,15 +459,30 @@ h3{font-size:1.16rem;font-weight:600}
   gap: 24px;
   padding-bottom: 30px;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; 
   margin: 20px -22px 0; 
   padding-left: 22px;
   padding-right: 22px;
   align-items: center; 
+  
+  /* Scrollbar khusus agar bisa di-scroll pakai mouse di PC/Desktop */
+  scrollbar-width: thin; 
+  scrollbar-color: var(--line) var(--bench-3);
 }
 .product-slider::-webkit-scrollbar {
-  display: none; 
+  height: 8px; /* Menampilkan kembali scrollbar tipis */
 }
+.product-slider::-webkit-scrollbar-track {
+  background: var(--bench-3);
+  border-radius: 8px;
+}
+.product-slider::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 8px;
+}
+.product-slider::-webkit-scrollbar-thumb:hover {
+  background: var(--amber);
+}
+
 .product-card-img-only {
   flex: 0 0 auto;
   width: 350px; 
@@ -782,7 +817,7 @@ h3{font-size:1.16rem;font-weight:600}
       </div>
       <div class="diff">
         <!-- Tambahkan path gambar solusi di atribut src -->
-        <img src="assets/section/suasana3.webp" alt="Pendampingan Mentor" class="diff-img">
+        <img src="assets/section/mentor.webp" alt="Pendampingan Mentor" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">03 · PENDAMPINGAN</p>
           <h3>Ada mentornya</h3>
@@ -790,7 +825,7 @@ h3{font-size:1.16rem;font-weight:600}
       </div>
       <div class="diff">
         <!-- Tambahkan path gambar solusi di atribut src -->
-        <img src="assets/section/mentor.webp" alt="Belajar Sambil Kerja" class="diff-img">
+        <img src="assets/section/suasana3.webp" alt="Belajar Sambil Kerja" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">04 · WAKTU</p>
           <h3>Belajar sambil tetap kerja</h3>
