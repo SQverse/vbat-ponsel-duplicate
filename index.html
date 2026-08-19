@@ -118,6 +118,21 @@ h3{font-size:1.16rem;font-weight:600}
 .hero h1 span{color:var(--amber)}
 .hero .lead{margin-top:22px}
 
+.trust-badge-hero {
+  font-size: 0.85rem;
+  color: var(--muted-light);
+  margin-top: 20px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.trust-badge-hero span {
+  color: var(--amber);
+}
+
+.scroll-indicator {
+  display: none; 
+}
+
 /* ════════════════════════════════════════════════════
    PANEL ALAT UKUR - DIROMBAK UNTUK DIGITAL WAYS (VERTIKAL)
    ════════════════════════════════════════════════════ */
@@ -127,6 +142,22 @@ h3{font-size:1.16rem;font-weight:600}
   gap: 12px;
   align-items: center;
   margin-top: 40px; 
+  position: relative;
+}
+
+/* Efek Glow di Belakang PSU */
+.meter-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(245,176,42,0.15) 0%, transparent 65%);
+  filter: blur(25px);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .meter {
@@ -142,6 +173,7 @@ h3{font-size:1.16rem;font-weight:600}
   position: relative; 
   container-type: inline-size;
   container-name: psu;
+  z-index: 1; /* Berada di atas glow */
 }
 
 .screen-row {
@@ -184,6 +216,8 @@ h3{font-size:1.16rem;font-weight:600}
   font-weight: 600;
   margin-top: 6px;
   border: 1px solid currentColor;
+  position: relative;
+  z-index: 1;
 }
 .st-dead { color: var(--probe); background: rgba(216,69,47,0.1); }
 .st-warn { color: var(--amber); background: rgba(245,176,42,0.1); }
@@ -196,6 +230,8 @@ h3{font-size:1.16rem;font-weight:600}
   text-align: center;
   max-width: 420px;
   margin-top: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------- baris kepercayaan ---------- */
@@ -357,7 +393,7 @@ h3{font-size:1.16rem;font-weight:600}
 .fit li::before{position:absolute;left:0;top:12px;font-family:"IBM Plex Mono",monospace;font-weight:600}
 .fit-yes li::before{content:"✓";color:var(--lcd)}
 
-/* ---------- testimoni Play Store Slider (DIROMBAK: RATA TINGGI, ANTI POTONG, CUSTOM SCROLLBAR) ---------- */
+/* ---------- testimoni Play Store Slider (DIROMBAK: RATA TINGGI, ANTI POTONG) ---------- */
 .aggregate{
   font-family:"Chakra Petch",sans-serif;font-weight:700;
   font-size:clamp(1.3rem,3vw,2rem);margin-bottom:42px;line-height:1.35;
@@ -371,14 +407,12 @@ h3{font-size:1.16rem;font-weight:600}
   gap: 24px;
   padding-bottom: 24px;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin; 
+  scrollbar-color: var(--line) var(--bench-3);
   margin: 0 -22px; 
   padding-left: 22px;
   padding-right: 22px;
   align-items: stretch; /* Memaksa kotak kartu sama tinggi rata */
-  
-  /* Scrollbar khusus agar bisa di-scroll pakai mouse di PC/Desktop */
-  scrollbar-width: thin; 
-  scrollbar-color: var(--line) var(--bench-3);
 }
 .wa-slider::-webkit-scrollbar {
   height: 8px; /* Menampilkan kembali scrollbar tipis */
@@ -446,12 +480,13 @@ h3{font-size:1.16rem;font-weight:600}
 .sponsor-banner-img {
   width: 100%;
   height: auto;
+  max-width: 1140px; 
   aspect-ratio: 4717 / 324;
   object-fit: contain;
   display: block;
 }
 
-/* ---------- showcase produk slider (MURNI GAMBAR BESAR TANPA TEKS + CUSTOM SCROLLBAR) ---------- */
+/* ---------- showcase produk slider (MURNI GAMBAR BESAR TANPA TEKS) ---------- */
 .product-slider {
   display: flex;
   overflow-x: auto;
@@ -459,14 +494,12 @@ h3{font-size:1.16rem;font-weight:600}
   gap: 24px;
   padding-bottom: 30px;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin; 
+  scrollbar-color: var(--line) var(--bench-3);
   margin: 20px -22px 0; 
   padding-left: 22px;
   padding-right: 22px;
   align-items: center; 
-  
-  /* Scrollbar khusus agar bisa di-scroll pakai mouse di PC/Desktop */
-  scrollbar-width: thin; 
-  scrollbar-color: var(--line) var(--bench-3);
 }
 .product-slider::-webkit-scrollbar {
   height: 8px; /* Menampilkan kembali scrollbar tipis */
@@ -592,8 +625,14 @@ h3{font-size:1.16rem;font-weight:600}
   .band{padding:64px 0}
   
   /* --- REVISI HERO SECTION KHUSUS HP --- */
-  .hero{padding:24px 0 40px} 
-  .hero-grid{gap: 28px} 
+  .hero{
+    padding: 0;
+    min-height: 100svh; /* Layar Penuh dari ujung ke ujung */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } 
+  .hero-grid{gap: 20px} 
   .hero-grid > div { 
     text-align: center; 
     display: flex;
@@ -604,10 +643,41 @@ h3{font-size:1.16rem;font-weight:600}
   .hero h1 { font-size: 1.8rem; line-height: 1.25; } 
   .hero .lead { font-size: 0.95rem; margin-top: 14px; margin-bottom: 0; } 
   .hero .cta-row { margin-top: 24px; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%; }
-  .hero .btn-note { text-align: center; margin-top: 14px; }
+  .trust-badge-hero { text-align: center; margin-top: 14px; }
   
-  .meter-wrapper { margin-top: 10px; gap: 8px;} 
+  .meter-wrapper { margin-top: 0; gap: 8px;} 
   .meter { max-width: 220px; } 
+
+  /* Scroll Indicator Bouncing Animasi */
+  .scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    animation: fadeIn 2s ease-in-out infinite alternate;
+    z-index: 10;
+  }
+  .scroll-indicator .arrow {
+    font-size: 1.2rem;
+    animation: bounce 1.5s infinite;
+  }
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
   
   /* Pengecilan tombol di layar HP secara keseluruhan */
   .btn {
@@ -623,7 +693,7 @@ h3{font-size:1.16rem;font-weight:600}
     justify-content: center;
     text-align: center;
     line-height: 1.2;
-    white-space: normal; /* Kunci anti overflow teks tombol */
+    white-space: normal; 
   }
   
   /* Section Cara Daftar (3 Button) di-center dan dikecilkan khusus di HP */
@@ -701,7 +771,7 @@ h3{font-size:1.16rem;font-weight:600}
         </a>
         <a class="btn btn-ghost" href="#cicipi">Tonton materinya dulu</a>
       </div>
-      <p class="btn-note">Dibalas admin asli, bukan bot. Tanya-tanya dulu juga boleh.</p>
+      <p class="trust-badge-hero"><span>⭐⭐⭐⭐⭐</span> 4.9/5 Rating dari 6000+ Alumni</p>
     </div>
 
     <!-- panel alat ukur: elemen tanda tangan halaman -->
@@ -733,6 +803,11 @@ h3{font-size:1.16rem;font-weight:600}
         dari teknisi yang <em>tahu</em>. Di sini Anda diajari membacanya.
       </p>
     </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll untuk detail</span>
+    <div class="arrow">↓</div>
   </div>
 </header>
 
@@ -812,7 +887,6 @@ h3{font-size:1.16rem;font-weight:600}
 
     <div class="diffs">
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/suasana2.webp" alt="Materi Tersusun" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">01 · URUTAN</p>
@@ -820,7 +894,6 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/mikroskop.webp" alt="Kasus Meja Servis" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">02 · SUMBER</p>
@@ -828,7 +901,6 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/mentor.webp" alt="Pendampingan Mentor" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">03 · PENDAMPINGAN</p>
@@ -836,7 +908,6 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/suasana3.webp" alt="Belajar Sambil Kerja" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">04 · WAKTU</p>
@@ -859,7 +930,6 @@ h3{font-size:1.16rem;font-weight:600}
       </p>
     </div>
 
-    <!-- Container IFRAME Baru yang Responsif -->
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/ubU92wvJBr0?si=vqc1nq0xBDTTNsCZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
@@ -987,7 +1057,7 @@ h3{font-size:1.16rem;font-weight:600}
   </div>
 </section>
 
-<!-- ══════════════════ BANNER SPONSOR UTAMA (BACKGROUND PUTIH FULL WIDTH) ══════════════════ -->
+<!-- ══════════════════ BANNER SPONSOR UTAMA ══════════════════ -->
 <section class="band-white-bg">
   <div class="wrap">
     <div class="band-head band-head-center" style="margin-bottom: 24px;">
@@ -999,7 +1069,7 @@ h3{font-size:1.16rem;font-weight:600}
   </div>
 </section>
 
-<!-- ══════════════════ SHOWCASE PRODUK DIGITAL WAYS (MURNI GAMBAR BESAR) ══════════════════ -->
+<!-- ══════════════════ SHOWCASE PRODUK DIGITAL WAYS ══════════════════ -->
 <section class="band">
   <div class="wrap">
     <div class="band-head band-head-center">
@@ -1013,57 +1083,46 @@ h3{font-size:1.16rem;font-weight:600}
     <!-- Slider untuk Alat Praktik Berupa Murni Gambar Saja -->
     <div class="product-slider">
 
-      <!-- Produk Baru 1 -->
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Pyro Hot Air Station DW-2008.webp" alt="Pyro Hot Air Station DW-2008">
       </div>
 
-      <!-- Produk Baru 2 -->
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Power Supply DWPS3010D 30V 10A.webp" alt="Power Supply DWPS3010D 30V 10A">
       </div>
 
-      <!-- Produk Baru 3 -->
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Tornado Cooling Fan UV.webp" alt="Tornado Cooling Fan UV">
       </div>
 
-      <!-- Produk Baru 4 -->
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Sparta Screwdriver Set 118 In 1.webp" alt="Sparta Screwdriver Set 118 In 1">
       </div>
 
-      <!-- Produk Baru 5 -->
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Macgyver Screwdriver Macbook Set.webp" alt="Macgyver Screwdriver Macbook Set">
       </div>
 
-      <!-- Produk Baru 6 -->
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Magma Pro Solder Station DW-210MP.webp" alt="Magma Pro Solder Station DW-210MP">
       </div>
 
-      <!-- Produk Lama 1 -->
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/mikroskop-putih-digitalways-shopee.webp" alt="Microscope Trinocular DW-TC-X">
       </div>
 
-      <!-- Produk Lama 2 -->
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/DIGITALWAYS Microscope Trinokuler DW-TC-Y Black.webp" alt="Microscope Trinokuler DW-TC-Y Black">
       </div>
 
-      <!-- Produk Lama 3 -->
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Microscope Binokuler DW-BC-X Black.webp" alt="Microscope Binokuler DW-BC-X Black">
       </div>
 
-      <!-- Produk Lama 4 -->
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/psu-putih-digitalways-shopee.webp" alt="Power Supply DWPS1505W DC 15V 5A">
       </div>
       
-      <!-- Produk Lama 5 -->
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/soldier-putih-digitalways-shopee.webp" alt="Compact Solder Station DW-210C">
       </div>
