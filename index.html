@@ -393,7 +393,7 @@ h3{font-size:1.16rem;font-weight:600}
 .fit li::before{position:absolute;left:0;top:12px;font-family:"IBM Plex Mono",monospace;font-weight:600}
 .fit-yes li::before{content:"✓";color:var(--lcd)}
 
-/* ---------- testimoni Play Store Slider (DIROMBAK: RATA TINGGI, ANTI POTONG) ---------- */
+/* ---------- testimoni Play Store Slider (DIROMBAK: RATA TINGGI, ANTI POTONG, CUSTOM SCROLLBAR) ---------- */
 .aggregate{
   font-family:"Chakra Petch",sans-serif;font-weight:700;
   font-size:clamp(1.3rem,3vw,2rem);margin-bottom:42px;line-height:1.35;
@@ -486,7 +486,7 @@ h3{font-size:1.16rem;font-weight:600}
   display: block;
 }
 
-/* ---------- showcase produk slider (MURNI GAMBAR BESAR TANPA TEKS) ---------- */
+/* ---------- showcase produk slider (MURNI GAMBAR BESAR TANPA TEKS + CUSTOM SCROLLBAR) ---------- */
 .product-slider {
   display: flex;
   overflow-x: auto;
@@ -626,18 +626,25 @@ h3{font-size:1.16rem;font-weight:600}
   
   /* --- REVISI HERO SECTION KHUSUS HP --- */
   .hero{
-    padding: 0;
-    min-height: 100svh; /* Layar Penuh dari ujung ke ujung */
+    padding: 64px 0 0 0; /* Margin atas dikembalikan */
+    min-height: auto; 
+    display: block; 
+  } 
+  .hero-grid{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 0; 
   } 
-  .hero-grid{gap: 20px} 
-  .hero-grid > div { 
+  
+  /* Teks Hero (Layar 1) */
+  .hero-grid > div:first-child { 
     text-align: center; 
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    min-height: calc(100svh - 64px); /* Mengisi sisa 1 layar penuh */
+    padding-bottom: 60px;
   } 
   .hero .eyebrow { justify-content: center; margin-bottom: 12px; }
   .hero h1 { font-size: 1.8rem; line-height: 1.25; } 
@@ -645,8 +652,15 @@ h3{font-size:1.16rem;font-weight:600}
   .hero .cta-row { margin-top: 24px; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%; }
   .trust-badge-hero { text-align: center; margin-top: 14px; }
   
-  .meter-wrapper { margin-top: 0; gap: 8px;} 
-  .meter { max-width: 220px; } 
+  /* PSU (Layar 2) */
+  .meter-wrapper { 
+    margin-top: 0; 
+    gap: 8px;
+    min-height: 100svh; /* Mengisi 1 layar penuh selanjutnya */
+    justify-content: center;
+    padding-bottom: 60px;
+  } 
+  .meter { max-width: 260px; } 
 
   /* Scroll Indicator Bouncing Animasi */
   .scroll-indicator {
@@ -654,7 +668,8 @@ h3{font-size:1.16rem;font-weight:600}
     flex-direction: column;
     align-items: center;
     position: absolute;
-    bottom: 15px;
+    top: calc(100svh - 70px); /* Posisikan di bawah layar 1 */
+    bottom: auto;
     left: 50%;
     transform: translateX(-50%);
     color: var(--muted);
@@ -887,6 +902,7 @@ h3{font-size:1.16rem;font-weight:600}
 
     <div class="diffs">
       <div class="diff">
+        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/suasana2.webp" alt="Materi Tersusun" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">01 · URUTAN</p>
@@ -894,6 +910,7 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
+        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/mikroskop.webp" alt="Kasus Meja Servis" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">02 · SUMBER</p>
@@ -901,6 +918,7 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
+        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/mentor.webp" alt="Pendampingan Mentor" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">03 · PENDAMPINGAN</p>
@@ -908,6 +926,7 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
+        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/suasana3.webp" alt="Belajar Sambil Kerja" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">04 · WAKTU</p>
@@ -930,6 +949,7 @@ h3{font-size:1.16rem;font-weight:600}
       </p>
     </div>
 
+    <!-- Container IFRAME Baru yang Responsif -->
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/ubU92wvJBr0?si=vqc1nq0xBDTTNsCZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
@@ -1057,7 +1077,7 @@ h3{font-size:1.16rem;font-weight:600}
   </div>
 </section>
 
-<!-- ══════════════════ BANNER SPONSOR UTAMA ══════════════════ -->
+<!-- ══════════════════ BANNER SPONSOR UTAMA (BACKGROUND PUTIH FULL WIDTH) ══════════════════ -->
 <section class="band-white-bg">
   <div class="wrap">
     <div class="band-head band-head-center" style="margin-bottom: 24px;">
@@ -1069,7 +1089,7 @@ h3{font-size:1.16rem;font-weight:600}
   </div>
 </section>
 
-<!-- ══════════════════ SHOWCASE PRODUK DIGITAL WAYS ══════════════════ -->
+<!-- ══════════════════ SHOWCASE PRODUK DIGITAL WAYS (MURNI GAMBAR BESAR) ══════════════════ -->
 <section class="band">
   <div class="wrap">
     <div class="band-head band-head-center">
@@ -1386,4 +1406,4 @@ document.querySelectorAll('[data-cta]').forEach(function(el){
 });
 </script>
 </body>
-</html> 
+</html>
