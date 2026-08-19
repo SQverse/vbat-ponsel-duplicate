@@ -590,7 +590,24 @@ h3{font-size:1.16rem;font-weight:600}
 @media(max-width:620px){
   body{font-size:16px}
   .band{padding:64px 0}
-  .hero{padding:34px 0 56px}
+  
+  /* --- REVISI HERO SECTION KHUSUS HP --- */
+  .hero{padding:24px 0 40px} 
+  .hero-grid{gap: 28px} 
+  .hero-grid > div { 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } 
+  .hero .eyebrow { justify-content: center; margin-bottom: 12px; }
+  .hero h1 { font-size: 1.8rem; line-height: 1.25; } 
+  .hero .lead { font-size: 0.95rem; margin-top: 14px; margin-bottom: 0; } 
+  .hero .cta-row { margin-top: 24px; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%; }
+  .hero .btn-note { text-align: center; margin-top: 14px; }
+  
+  .meter-wrapper { margin-top: 10px; gap: 8px;} 
+  .meter { max-width: 220px; } 
   
   /* Pengecilan tombol di layar HP secara keseluruhan */
   .btn {
@@ -599,13 +616,8 @@ h3{font-size:1.16rem;font-weight:600}
   }
   
   /* Hero Buttons dibuat sebaris menyamping khusus di HP dan teks diizinkan wrap agar tidak overflow */
-  .hero .cta-row {
-    flex-wrap: nowrap;
-    gap: 8px;
-    width: 100%;
-  }
   .hero .btn {
-    flex: 1; /* Perbaikan Overflow: flex: 1 akan menyesuaikan ruang yang ada tanpa menabrak margin */
+    flex: 1; 
     padding: 12px 6px;
     font-size: 0.85rem;
     justify-content: center;
@@ -817,7 +829,7 @@ h3{font-size:1.16rem;font-weight:600}
       </div>
       <div class="diff">
         <!-- Tambahkan path gambar solusi di atribut src -->
-        <img src="assets/section/suasana3.webp" alt="Pendampingan Mentor" class="diff-img">
+        <img src="assets/section/mentor.webp" alt="Pendampingan Mentor" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">03 · PENDAMPINGAN</p>
           <h3>Ada mentornya</h3>
@@ -825,7 +837,7 @@ h3{font-size:1.16rem;font-weight:600}
       </div>
       <div class="diff">
         <!-- Tambahkan path gambar solusi di atribut src -->
-        <img src="assets/section/mentor.webp" alt="Belajar Sambil Kerja" class="diff-img">
+        <img src="assets/section/suasana3.webp" alt="Belajar Sambil Kerja" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">04 · WAKTU</p>
           <h3>Belajar sambil tetap kerja</h3>
