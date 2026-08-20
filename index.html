@@ -87,7 +87,9 @@ h3{font-size:1.16rem;font-weight:600}
 .band{padding:88px 0}
 .band-paper{background:var(--paper);color:var(--ink)}
 .band-deep{background:var(--bench-2)}
-.band-head{max-width:62ch;margin-bottom:52px}
+/* PERBAIKAN: Semua judul section dibuat rata tengah secara otomatis */
+.band-head{max-width:62ch; margin:0 auto 52px; text-align:center;}
+.band-head .eyebrow{justify-content:center;}
 .band-head-center{margin:0 auto 52px; text-align:center;}
 .band-head-center .eyebrow{justify-content:center;}
 
@@ -241,7 +243,7 @@ h3{font-size:1.16rem;font-weight:600}
 .trust-num{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:1.75rem;color:var(--amber);line-height:1.1}
 .trust-lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.09em;color:var(--muted);text-transform:uppercase;margin-top:7px}
 
-/* ---------- daftar masalah (DIROMBAK: PENDEK & RAMPING - ANTI OVERFLOW) ---------- */
+/* ---------- daftar masalah ---------- */
 .probs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(290px, 100%),1fr));gap:16px}
 .prob{
   background: #ffffff; 
@@ -283,7 +285,7 @@ h3{font-size:1.16rem;font-weight:600}
   font-weight:600;line-height:1.4;
 }
 
-/* ---------- perbedaan/solusi (IMAGE CARDS DENGAN GRADIENT OVERLAY - ANTI OVERFLOW) ---------- */
+/* ---------- perbedaan/solusi ---------- */
 .diffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px, 100%),1fr));gap:24px;margin-top:20px}
 .diff{
   position: relative;
@@ -359,7 +361,7 @@ h3{font-size:1.16rem;font-weight:600}
   border: 0;
 }
 
-/* ---------- isi paket (DIROMBAK: PENDEK TANPA NOMOR URUT - ANTI OVERFLOW) ---------- */
+/* ---------- isi paket ---------- */
 .kits{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(275px, 100%),1fr));gap:16px}
 .kit{
   background:var(--bench);
@@ -393,7 +395,7 @@ h3{font-size:1.16rem;font-weight:600}
 .fit li::before{position:absolute;left:0;top:12px;font-family:"IBM Plex Mono",monospace;font-weight:600}
 .fit-yes li::before{content:"✓";color:var(--lcd)}
 
-/* ---------- testimoni Play Store Slider (DIROMBAK: RATA TINGGI, ANTI POTONG, CUSTOM SCROLLBAR) ---------- */
+/* ---------- testimoni Play Store Slider ---------- */
 .aggregate{
   font-family:"Chakra Petch",sans-serif;font-weight:700;
   font-size:clamp(1.3rem,3vw,2rem);margin-bottom:42px;line-height:1.35;
@@ -412,10 +414,10 @@ h3{font-size:1.16rem;font-weight:600}
   margin: 0 -22px; 
   padding-left: 22px;
   padding-right: 22px;
-  align-items: stretch; /* Memaksa kotak kartu sama tinggi rata */
+  align-items: stretch;
 }
 .wa-slider::-webkit-scrollbar {
-  height: 8px; /* Menampilkan kembali scrollbar tipis */
+  height: 8px; 
 }
 .wa-slider::-webkit-scrollbar-track {
   background: var(--bench-3);
@@ -437,21 +439,21 @@ h3{font-size:1.16rem;font-weight:600}
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
-  background: #ffffff; /* Latar putih mengisi sisa ruang jika komentar pendek */
+  background: #ffffff; 
   border: 4px solid #fff; 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Memaksa gambar nempel di atas */
+  justify-content: flex-start;
 }
 .wa-slide img {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain; /* Memastikan gambar tidak terpotong */
+  object-fit: contain; 
   object-position: top;
 }
 
-/* ---------- banner sponsor utama (BACKGROUND PUTIH FULL WIDTH 100%) ---------- */
+/* ---------- banner sponsor utama ---------- */
 .band-white-bg {
   background-color: #ffffff;
   width: 100vw;
@@ -486,7 +488,7 @@ h3{font-size:1.16rem;font-weight:600}
   display: block;
 }
 
-/* ---------- showcase produk slider (MURNI GAMBAR BESAR TANPA TEKS + CUSTOM SCROLLBAR) ---------- */
+/* ---------- showcase produk slider ---------- */
 .product-slider {
   display: flex;
   overflow-x: auto;
@@ -502,7 +504,7 @@ h3{font-size:1.16rem;font-weight:600}
   align-items: center; 
 }
 .product-slider::-webkit-scrollbar {
-  height: 8px; /* Menampilkan kembali scrollbar tipis */
+  height: 8px; 
 }
 .product-slider::-webkit-scrollbar-track {
   background: var(--bench-3);
@@ -597,12 +599,12 @@ h3{font-size:1.16rem;font-weight:600}
 .closer .cta-row{justify-content:center}
 
 /* ---------- footer ---------- */
-.foot{background:#0A1218;border-top:1px solid var(--line);padding:52px 0 40px;font-size:.92rem;color:var(--muted)}
+.foot{background:#0A1218;border-top:1px solid var(--line);padding:52px 0 40px;font-size:.92rem;color:var(--muted); text-align: center;}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px;margin-bottom:34px}
-.foot h4{font-family:"Chakra Petch",sans-serif;font-size:.95rem;color:#C6D6DE;margin-bottom:14px;letter-spacing:.04em}
-.foot a{color:var(--muted);text-decoration:none;display:block;padding:4px 0}
+.foot h4{font-family:"Chakra Petch",sans-serif;font-size:1.1rem;color:#C6D6DE;margin-bottom:16px;letter-spacing:.04em}
+.foot a{color:var(--muted);text-decoration:none;display:block;padding:6px 0; word-break: break-word; overflow-wrap: break-word; transition: color .2s;}
 .foot a:hover{color:var(--lcd)}
-.foot-base{border-top:1px solid var(--line);padding-top:22px;font-size:.85rem}
+.foot-base{border-top:1px solid var(--line);padding-top:22px;font-size:.85rem; text-align: center;}
 
 /* ---------- penanda data yang harus diisi ---------- */
 .todo{
@@ -621,12 +623,11 @@ h3{font-size:1.16rem;font-weight:600}
 
 /* ---------- responsif ---------- */
 @media(max-width:620px){
-  body{font-size:16px}
+  body{font-size:16px; padding-bottom: 90px;}
   .band{padding:64px 0}
   
-  /* --- REVISI HERO SECTION KHUSUS HP --- */
   .hero{
-    padding: 64px 0 0 0; /* Margin atas dikembalikan */
+    padding: 64px 0 0 0; 
     min-height: auto; 
     display: block; 
   } 
@@ -636,14 +637,13 @@ h3{font-size:1.16rem;font-weight:600}
     gap: 0; 
   } 
   
-  /* Teks Hero (Layar 1) */
   .hero-grid > div:first-child { 
     text-align: center; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: calc(100svh - 64px); /* Mengisi sisa 1 layar penuh */
+    min-height: calc(100svh - 64px); 
     padding-bottom: 60px;
   } 
   .hero .eyebrow { justify-content: center; margin-bottom: 12px; }
@@ -652,23 +652,21 @@ h3{font-size:1.16rem;font-weight:600}
   .hero .cta-row { margin-top: 24px; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%; }
   .trust-badge-hero { text-align: center; margin-top: 14px; }
   
-  /* PSU (Layar 2) */
   .meter-wrapper { 
     margin-top: 0; 
     gap: 8px;
-    min-height: 100svh; /* Mengisi 1 layar penuh selanjutnya */
+    min-height: 100svh; 
     justify-content: center;
     padding-bottom: 60px;
   } 
   .meter { max-width: 260px; } 
 
-  /* Scroll Indicator Bouncing Animasi */
   .scroll-indicator {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: calc(100svh - 70px); /* Posisikan di bawah layar 1 */
+    top: calc(100svh - 70px); 
     bottom: auto;
     left: 50%;
     transform: translateX(-50%);
@@ -694,13 +692,11 @@ h3{font-size:1.16rem;font-weight:600}
     100% { opacity: 1; }
   }
   
-  /* Pengecilan tombol di layar HP secara keseluruhan */
   .btn {
     padding: 12px 18px;
     font-size: 0.92rem;
   }
   
-  /* Hero Buttons dibuat sebaris menyamping khusus di HP dan teks diizinkan wrap agar tidak overflow */
   .hero .btn {
     flex: 1; 
     padding: 12px 6px;
@@ -711,7 +707,6 @@ h3{font-size:1.16rem;font-weight:600}
     white-space: normal; 
   }
   
-  /* Section Cara Daftar (3 Button) di-center dan dikecilkan khusus di HP */
   .register-cta {
     flex-direction: column;
     align-items: center;
@@ -725,7 +720,10 @@ h3{font-size:1.16rem;font-weight:600}
 
   .plans{grid-template-columns:1fr}
   .weeks{grid-template-columns:1fr}
-  .foot-grid{grid-template-columns:1fr}
+  
+  .foot-grid{grid-template-columns:1fr; gap:24px;}
+  .foot{padding-bottom: 100px;}
+  
   .compare{font-size:.88rem}
   .compare th,.compare td{padding:12px 9px}
   .sticky-bar{display:block}
@@ -733,20 +731,18 @@ h3{font-size:1.16rem;font-weight:600}
     padding: 12px 20px;
     font-size: 0.95rem;
   }
-  body{padding-bottom:74px}
   
-  /* Mengatur lebar responsif slider di HP agar tidak overflow */
   .wa-slide { width: 75vw; max-width: 280px; } 
   .product-card-img-only { width: 80vw; max-width: 280px; } 
 }
 
-@media(max-width:960px){
+@media(max-width:960px) and (min-width: 621px){
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .trust-grid{grid-template-columns:1fr 1fr}
   .weeks{grid-template-columns:1fr 1fr;gap:26px 22px}
   .fit{grid-template-columns:1fr;gap:30px}
   .steps{grid-template-columns:1fr;gap:22px}
-  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr; gap: 30px;}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -789,28 +785,23 @@ h3{font-size:1.16rem;font-weight:600}
       <p class="trust-badge-hero"><span>⭐⭐⭐⭐⭐</span> 5/5 Rating dari 6000+ Alumni</p>
     </div>
 
-    <!-- panel alat ukur: elemen tanda tangan halaman -->
     <div class="meter-wrapper">
       <div class="meter" aria-hidden="true">
         
-        <!-- Layar 1 (Atas): Tegangan / Voltage (V) -->
         <div class="screen-row row-v">
           <p class="readout-digital" id="mValue">0.000</p>
         </div>
 
-        <!-- Layar 2 (Tengah): Arus / Current (A) -->
         <div class="screen-row row-a">
           <p class="readout-digital" id="mCurrent">0.000</p>
         </div>
         
-        <!-- Layar 3 (Bawah): Daya / Power (W) -->
         <div class="screen-row row-w">
           <p class="readout-digital" id="mPower">0.000</p>
         </div>
 
       </div>
       
-      <!-- Status Box dipindah ke bawah gambar agar lebih rapi & realistis -->
       <div class="meter-status-badge st-dead" id="mStatus">Mati total</div>
       
       <p class="meter-caption">
@@ -887,7 +878,7 @@ h3{font-size:1.16rem;font-weight:600}
   </div>
 </section>
 
-<!-- ══════════════════ SOLUSI (IMAGE CARDS DENGAN GRADIENT OVERLAY) ══════════════════ -->
+<!-- ══════════════════ SOLUSI ══════════════════ -->
 <section class="band">
   <div class="wrap">
     <div class="band-head">
@@ -902,7 +893,6 @@ h3{font-size:1.16rem;font-weight:600}
 
     <div class="diffs">
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/suasana2.webp" alt="Materi Tersusun" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">01 · URUTAN</p>
@@ -910,7 +900,6 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/mikroskop.webp" alt="Kasus Meja Servis" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">02 · SUMBER</p>
@@ -918,7 +907,6 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/suasana3.webp" alt="Pendampingan Mentor" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">03 · PENDAMPINGAN</p>
@@ -926,7 +914,6 @@ h3{font-size:1.16rem;font-weight:600}
         </div>
       </div>
       <div class="diff">
-        <!-- Tambahkan path gambar solusi di atribut src -->
         <img src="assets/section/mentor.webp" alt="Belajar Sambil Kerja" class="diff-img">
         <div class="diff-content">
           <p class="diff-n">04 · WAKTU</p>
@@ -949,7 +936,6 @@ h3{font-size:1.16rem;font-weight:600}
       </p>
     </div>
 
-    <!-- Container IFRAME Baru yang Responsif -->
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/ubU92wvJBr0?si=vqc1nq0xBDTTNsCZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
@@ -1044,12 +1030,11 @@ h3{font-size:1.16rem;font-weight:600}
       <h2>Apa kata mereka yang sudah mengunduh?</h2>
     </div>
 
-    <p class="aggregate">
+    <p class="aggregate" style="text-align: center;">
       <b>3000+ member aktif</b> dari
       <b>93 kota</b> di seluruh Indonesia.
     </p>
 
-    <!-- Slider Testimoni adaptif tapi sama tinggi -->
     <div class="wa-slider">
       <div class="wa-slide">
         <img src="assets/testimoni/testi1.webp" alt="Ulasan Play Store 1">
@@ -1077,10 +1062,10 @@ h3{font-size:1.16rem;font-weight:600}
   </div>
 </section>
 
-<!-- ══════════════════ BANNER SPONSOR UTAMA (BACKGROUND PUTIH FULL WIDTH) ══════════════════ -->
+<!-- ══════════════════ BANNER SPONSOR UTAMA ══════════════════ -->
 <section class="band-white-bg">
   <div class="wrap">
-    <div class="band-head band-head-center" style="margin-bottom: 24px;">
+    <div class="band-head" style="margin-bottom: 24px;">
       <p class="eyebrow">Mitra Kami</p>
     </div>
     <div class="sponsor-banner-wrap">
@@ -1089,10 +1074,10 @@ h3{font-size:1.16rem;font-weight:600}
   </div>
 </section>
 
-<!-- ══════════════════ SHOWCASE PRODUK DIGITAL WAYS (MURNI GAMBAR BESAR) ══════════════════ -->
+<!-- ══════════════════ SHOWCASE PRODUK DIGITAL WAYS ══════════════════ -->
 <section class="band">
   <div class="wrap">
-    <div class="band-head band-head-center">
+    <div class="band-head">
       <p class="eyebrow">Dukungan Industri</p>
       <h2>Alat Praktik Standar Profesional</h2>
       <p class="lead" style="margin-top: 16px;">
@@ -1100,79 +1085,60 @@ h3{font-size:1.16rem;font-weight:600}
       </p>
     </div>
     
-    <!-- Slider untuk Alat Praktik Berupa Murni Gambar Saja -->
     <div class="product-slider">
-
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Pyro Hot Air Station DW-2008.webp" alt="Pyro Hot Air Station DW-2008">
       </div>
-
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Power Supply DWPS3010D 30V 10A.webp" alt="Power Supply DWPS3010D 30V 10A">
       </div>
-
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Tornado Cooling Fan UV.webp" alt="Tornado Cooling Fan UV">
       </div>
-
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Sparta Screwdriver Set 118 In 1.webp" alt="Sparta Screwdriver Set 118 In 1">
       </div>
-
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Macgyver Screwdriver Macbook Set.webp" alt="Macgyver Screwdriver Macbook Set">
       </div>
-
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Magma Pro Solder Station DW-210MP.webp" alt="Magma Pro Solder Station DW-210MP">
       </div>
-
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/mikroskop-putih-digitalways-shopee.webp" alt="Microscope Trinocular DW-TC-X">
       </div>
-
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/DIGITALWAYS Microscope Trinokuler DW-TC-Y Black.webp" alt="Microscope Trinokuler DW-TC-Y Black">
       </div>
-
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/Microscope Binokuler DW-BC-X Black.webp" alt="Microscope Binokuler DW-BC-X Black">
       </div>
-
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/psu-putih-digitalways-shopee.webp" alt="Power Supply DWPS1505W DC 15V 5A">
       </div>
-      
       <div class="product-card-img-only">
         <img src="assets/alat sponsor/soldier-putih-digitalways-shopee.webp" alt="Compact Solder Station DW-210C">
       </div>
-
       <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Macco Iron Pad.webp" alt="Compact Solder Station DW-210C">
+        <img src="assets/alat sponsor/Macco Iron Pad.webp" alt="Macco Iron Pad">
       </div>
-
       <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Ragum R1 360.webp" alt="Compact Solder Station DW-210C">
+        <img src="assets/alat sponsor/Ragum R1 360.webp" alt="Ragum R1 360">
       </div>
-
       <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Solder Wick 2.5MM 2M.webp" alt="Compact Solder Station DW-210C">
+        <img src="assets/alat sponsor/Solder Wick 2.5MM 2M.webp" alt="Solder Wick 2.5MM 2M">
       </div>
-
       <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Vanadium Mini CUtpliers.webp" alt="Compact Solder Station DW-210C">
+        <img src="assets/alat sponsor/Vanadium Mini CUtpliers.webp" alt="Vanadium Mini CUtpliers">
       </div>
-      
       <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Pinset Lurus Metal TZ-1.webp" alt="Compact Solder Station DW-210C">
+        <img src="assets/alat sponsor/Pinset Lurus Metal TZ-1.webp" alt="Pinset Lurus Metal TZ-1">
       </div>
-
       <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Pinset Bengkok Metal TZ-2.webp" alt="Compact Solder Station DW-210C">
+        <img src="assets/alat sponsor/Pinset Bengkok Metal TZ-2.webp" alt="Pinset Bengkok Metal TZ-2">
       </div>
-
       <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Pinset Bengkok Metal TZ-4.webp" alt="Compact Solder Station DW-210C">
+        <img src="assets/alat sponsor/Pinset Bengkok Metal TZ-4.webp" alt="Pinset Bengkok Metal TZ-4">
       </div>
     </div>
 
@@ -1245,11 +1211,9 @@ h3{font-size:1.16rem;font-weight:600}
       </div>
     </div>
 
-    <!-- Tombol Cara Daftar (3 Button) Dibikin center -->
     <div class="cta-row register-cta">
       <a class="btn btn-main" href="https://wa.me/62818268717?text=Halo%2C%20saya%20mau%20mulai%20daftar%20VBATPonsel" data-cta="langkah">Mulai — Chat Admin</a>
       <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.vbatponsel.quantum" data-cta="playstore">Unduh di Google Play</a>
-      <!-- Tombol baru untuk unduh langsung dari Web -->
       <a class="btn btn-ghost" href="assets/apps/VBAT Ponsel (1).apk" data-cta="web-download">Unduh dari Web</a>
     </div>
   </div>
@@ -1311,13 +1275,15 @@ h3{font-size:1.16rem;font-weight:600}
 <!-- ══════════════════ PENUTUP ══════════════════ -->
 <section class="closer">
   <div class="wrap">
-    <p class="eyebrow" style="justify-content:center">Keputusan</p>
-    <h2>Setahun lagi, Anda masih bertanya-tanya atau sudah punya konter sendiri?</h2>
-    <p class="lead" style="text-align:center">
-      Selama orang memakai HP, akan selalu ada HP yang rusak. Keahlian ini tidak
-      hilang dimakan zaman. Yang membedakan cuma satu: apakah Anda mulai hari ini
-      atau menundanya lagi.
-    </p>
+    <div class="band-head">
+      <p class="eyebrow" style="justify-content:center">Keputusan</p>
+      <h2>Setahun lagi, Anda masih bertanya-tanya atau sudah punya konter sendiri?</h2>
+      <p class="lead" style="text-align:center">
+        Selama orang memakai HP, akan selalu ada HP yang rusak. Keahlian ini tidak
+        hilang dimakan zaman. Yang membedakan cuma satu: apakah Anda mulai hari ini
+        atau menundanya lagi.
+      </p>
+    </div>
     <div class="cta-row">
       <a class="btn btn-main" href="https://wa.me/62818268717?text=Halo%2C%20saya%20mau%20mulai%20belajar%20di%20VBATPonsel" data-cta="penutup">Saya Mau Mulai — Chat Admin</a>
     </div>
@@ -1331,14 +1297,13 @@ h3{font-size:1.16rem;font-weight:600}
     <div class="foot-grid">
       <div>
         <h4>PT Quantum Telecommunication</h4>
-        <p>LPK Quantum Telecommunication — lembaga pelatihan kerja terakreditasi.</p>
-        <p style="margin-top:10px">Alamat: Jl. Bina Remaja No.4, Srondol Wetan, Kec. Banyumanik, Kota Semarang, Jawa Tengah 50263</p>
+        <p style="margin-bottom:8px">LPK Quantum Telecommunication — lembaga pelatihan kerja terakreditasi.</p>
+        <p>Alamat: Jl. Bina Remaja No.4, Srondol Wetan, Kec. Banyumanik, Kota Semarang, Jawa Tengah 50263</p>
       </div>
       <div>
         <h4>Hubungi</h4>
-        <a href="https://wa.me/62818268717">WhatsApp 0818-268-717</a>
-        <a href="mailto:">Email: quantumtelecommunication38@gmail.com          
-        </a>
+        <a href="https://wa.me/62818268717">WhatsApp: 0818-268-717</a>
+        <a href="mailto:quantumtelecommunication38@gmail.com">Email: quantumtelecommunication38@gmail.com</a>
         <a href="https://play.google.com/store/apps/details?id=com.vbatponsel.quantum">Aplikasi di Google Play</a>
       </div>
       <div>
@@ -1360,7 +1325,7 @@ h3{font-size:1.16rem;font-weight:600}
 <script>
 document.getElementById('thn').textContent = new Date().getFullYear();
 
-/* Panel alat ukur — mengurutkan tiga kondisi (Voltage, Current, Power) dengan 3 Desimal */
+/* Panel alat ukur */
 (function(){
   var kurangGerak = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var v = document.getElementById('mValue'),
@@ -1396,12 +1361,9 @@ document.getElementById('thn').textContent = new Date().getFullYear();
   }, 3000);
 })();
 
-/* TIM WEB: setiap tombol punya data-cta sendiri.
-   Sambungkan ke Meta Pixel / GA4 di sini supaya ketahuan
-   tombol mana yang paling menghasilkan pendaftar. */
 document.querySelectorAll('[data-cta]').forEach(function(el){
   el.addEventListener('click', function(){
-    // contoh: gtag('event','klik_cta',{lokasi: el.dataset.cta});
+    // gtag('event','klik_cta',{lokasi: el.dataset.cta});
   });
 });
 </script>
