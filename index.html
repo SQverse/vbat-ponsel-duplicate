@@ -87,7 +87,8 @@ h3{font-size:1.16rem;font-weight:600}
 .band{padding:88px 0}
 .band-paper{background:var(--paper);color:var(--ink)}
 .band-deep{background:var(--bench-2)}
-/* PERBAIKAN: Semua judul section dibuat rata tengah secara otomatis */
+
+/* Judul section rata tengah otomatis */
 .band-head{max-width:62ch; margin:0 auto 52px; text-align:center;}
 .band-head .eyebrow{justify-content:center;}
 .band-head-center{margin:0 auto 52px; text-align:center;}
@@ -136,7 +137,7 @@ h3{font-size:1.16rem;font-weight:600}
 }
 
 /* ════════════════════════════════════════════════════
-   PANEL ALAT UKUR - DIROMBAK UNTUK DIGITAL WAYS (VERTIKAL)
+   PANEL ALAT UKUR - DIROMBAK UNTUK DIGITAL WAYS
    ════════════════════════════════════════════════════ */
 .meter-wrapper {
   display: flex;
@@ -147,7 +148,6 @@ h3{font-size:1.16rem;font-weight:600}
   position: relative;
 }
 
-/* Efek Glow di Belakang PSU */
 .meter-wrapper::before {
   content: "";
   position: absolute;
@@ -175,7 +175,7 @@ h3{font-size:1.16rem;font-weight:600}
   position: relative; 
   container-type: inline-size;
   container-name: psu;
-  z-index: 1; /* Berada di atas glow */
+  z-index: 1;
 }
 
 .screen-row {
@@ -239,9 +239,9 @@ h3{font-size:1.16rem;font-weight:600}
 /* ---------- baris kepercayaan ---------- */
 .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0B141B}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
-.trust-cell{background:#0B141B;padding:26px 20px}
+.trust-cell{background:#0B141B;padding:26px 20px; word-wrap: break-word;}
 .trust-num{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:1.75rem;color:var(--amber);line-height:1.1}
-.trust-lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.09em;color:var(--muted);text-transform:uppercase;margin-top:7px}
+.trust-lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.09em;color:var(--muted);text-transform:uppercase;margin-top:7px;}
 
 /* ---------- daftar masalah ---------- */
 .probs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(290px, 100%),1fr));gap:16px}
@@ -264,6 +264,7 @@ h3{font-size:1.16rem;font-weight:600}
   line-height:1.3;
   position: relative;
   z-index: 2;
+  text-align: left; /* Kembalikan ke kiri agar teksnya rapi */
 }
 .prob-bg-num {
   position: absolute;
@@ -311,7 +312,6 @@ h3{font-size:1.16rem;font-weight:600}
   background: var(--bench-3);
   z-index: 0;
 }
-/* Efek Gradient Gelap dari bawah */
 .diff::before {
   content: "";
   position: absolute;
@@ -339,6 +339,7 @@ h3{font-size:1.16rem;font-weight:600}
   margin-bottom:0; 
   color:#ffffff; 
   text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  text-align: left;
 }
 
 /* ---------- video ---------- */
@@ -374,7 +375,7 @@ h3{font-size:1.16rem;font-weight:600}
   min-height: 60px; 
 }
 .kit:hover{border-color:var(--lcd-dim);transform:translateY(-3px)}
-.kit h3{margin-bottom:0; font-size: 1.05rem; line-height: 1.3;}
+.kit h3{margin-bottom:0; font-size: 1.05rem; line-height: 1.3; text-align: left;}
 
 /* ---------- peta 30 hari ---------- */
 .weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:14px}
@@ -391,7 +392,7 @@ h3{font-size:1.16rem;font-weight:600}
 /* ---------- untuk siapa ---------- */
 .fit{display:grid;grid-template-columns:1.25fr .75fr;gap:44px}
 .fit ul{list-style:none}
-.fit li{padding:13px 0 13px 34px;position:relative;border-bottom:1px solid var(--line)}
+.fit li{padding:13px 0 13px 34px;position:relative;border-bottom:1px solid var(--line); text-align: left;} /* Jaga teks list tetap kiri agar rapi */
 .fit li::before{position:absolute;left:0;top:12px;font-family:"IBM Plex Mono",monospace;font-weight:600}
 .fit-yes li::before{content:"✓";color:var(--lcd)}
 
@@ -554,7 +555,7 @@ h3{font-size:1.16rem;font-weight:600}
 .compare tbody th{font-weight:500;color:var(--muted-light)}
 .col-us{color:var(--lcd);font-weight:600}
 .plans{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.plan{background:var(--bench);border:1px solid var(--line);border-radius:8px;padding:32px 28px;display:flex;flex-direction:column}
+.plan{background:var(--bench);border:1px solid var(--line);border-radius:8px;padding:32px 28px;display:flex;flex-direction:column; text-align: left;}
 .plan-feat{border-color:var(--amber)}
 .plan-tag{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
 .plan-feat .plan-tag{color:var(--amber)}
@@ -568,7 +569,7 @@ h3{font-size:1.16rem;font-weight:600}
 
 /* ---------- langkah ---------- */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:s}
-.step{counter-increment:s;padding-top:26px;border-top:2px solid var(--amber)}
+.step{counter-increment:s;padding-top:26px;border-top:2px solid var(--amber); text-align: left;} /* Jaga teks tetap kiri agar rapi */
 .step::before{
   content:counter(s,decimal-leading-zero);
   font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--amber);
@@ -578,8 +579,8 @@ h3{font-size:1.16rem;font-weight:600}
 .step p{font-size:.96rem;color:var(--muted-light)}
 
 /* ---------- FAQ ---------- */
-.faq{max-width:840px}
-.faq details{border-bottom:1px solid var(--paper-2);padding:4px 0}
+.faq{max-width:840px; margin: 0 auto;}
+.faq details{border-bottom:1px solid var(--paper-2);padding:4px 0; text-align: left;}
 .faq summary{
   cursor:pointer;list-style:none;padding:19px 40px 19px 0;position:relative;
   font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:1.08rem;
@@ -621,10 +622,26 @@ h3{font-size:1.16rem;font-weight:600}
 }
 .sticky-bar .btn{width:100%;justify-content:center;padding:15px 20px}
 
-/* ---------- responsif ---------- */
+/* ==========================================
+   ATURAN RESPONSIF (MEDIA QUERIES) YANG BENAR
+   ========================================== */
+
+/* TABLET (DI BAWAH 960px) */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .trust-grid{grid-template-columns:1fr 1fr} /* Tablet: 2 kolom */
+  .weeks{grid-template-columns:1fr 1fr;gap:26px 22px}
+  .fit{grid-template-columns:1fr;gap:30px} /* Tablet: List turun ke bawah */
+  .steps{grid-template-columns:1fr;gap:22px} /* Tablet: Step turun ke bawah */
+  .foot-grid{grid-template-columns:1fr 1fr; gap: 30px;}
+}
+
+/* MOBILE / HP (DI BAWAH 620px) */
 @media(max-width:620px){
-  body{font-size:16px; padding-bottom: 90px;}
+  /* Hapus padding-bottom raksasa, pakai secukupnya untuk sticky bar */
+  body{font-size:16px; padding-bottom: 74px;}
   .band{padding:64px 0}
+  .foot{padding-bottom: 40px;} /* Mereset jarak bawah footer supaya ga bolong putih ke atas */
   
   .hero{
     padding: 64px 0 0 0; 
@@ -718,14 +735,17 @@ h3{font-size:1.16rem;font-weight:600}
     justify-content: center;
   }
 
+  /* Override menjadi 1 kolom untuk layout yang lebih kecil */
   .plans{grid-template-columns:1fr}
   .weeks{grid-template-columns:1fr}
-  
   .foot-grid{grid-template-columns:1fr; gap:24px;}
-  .foot{padding-bottom: 100px;}
   
+  /* trust-grid, fit, dan steps secara otomatis mewarisi (inherit) pengaturan 
+     dari media query 960px di atas, sehingga layoutnya aman dan tidak hancur lagi! */
+
   .compare{font-size:.88rem}
   .compare th,.compare td{padding:12px 9px}
+  
   .sticky-bar{display:block}
   .sticky-bar .btn {
     padding: 12px 20px;
@@ -736,14 +756,6 @@ h3{font-size:1.16rem;font-weight:600}
   .product-card-img-only { width: 80vw; max-width: 280px; } 
 }
 
-@media(max-width:960px) and (min-width: 621px){
-  .hero-grid{grid-template-columns:1fr;gap:40px}
-  .trust-grid{grid-template-columns:1fr 1fr}
-  .weeks{grid-template-columns:1fr 1fr;gap:26px 22px}
-  .fit{grid-template-columns:1fr;gap:30px}
-  .steps{grid-template-columns:1fr;gap:22px}
-  .foot-grid{grid-template-columns:1fr 1fr; gap: 30px;}
-}
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
