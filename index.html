@@ -61,6 +61,17 @@ a{color:inherit}
 
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
 
+/* ---------- ANIMASI FADE-IN SAAT SCROLL ---------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ---------- tipografi ---------- */
 h1,h2,h3{font-family:"Chakra Petch",system-ui,sans-serif;font-weight:700;line-height:1.12;letter-spacing:-0.01em}
 h1{font-size:clamp(2.1rem,5.6vw,3.85rem)}
@@ -137,7 +148,7 @@ h3{font-size:1.16rem;font-weight:600}
 }
 
 /* ════════════════════════════════════════════════════
-   PANEL ALAT UKUR - DIROMBAK UNTUK DIGITAL WAYS
+   PANEL ALAT UKUR
    ════════════════════════════════════════════════════ */
 .meter-wrapper {
   display: flex;
@@ -264,7 +275,7 @@ h3{font-size:1.16rem;font-weight:600}
   line-height:1.3;
   position: relative;
   z-index: 2;
-  text-align: left; /* Kembalikan ke kiri agar teksnya rapi */
+  text-align: left; 
 }
 .prob-bg-num {
   position: absolute;
@@ -389,7 +400,6 @@ h3{font-size:1.16rem;font-weight:600}
 .week h3{margin:9px 0 12px}
 .week p{font-size:.94rem;color:#4A5C66}
 
-/* CSS Khusus Placeholder Foto Pekan */
 .week-img {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -404,9 +414,30 @@ h3{font-size:1.16rem;font-weight:600}
 /* ---------- untuk siapa ---------- */
 .fit{display:grid;grid-template-columns:1.25fr .75fr;gap:44px}
 .fit ul{list-style:none}
-.fit li{padding:13px 0 13px 34px;position:relative;border-bottom:1px solid var(--line); text-align: left;} /* Jaga teks list tetap kiri agar rapi */
+.fit li{padding:13px 0 13px 34px;position:relative;border-bottom:1px solid var(--line); text-align: left;} 
 .fit li::before{position:absolute;left:0;top:12px;font-family:"IBM Plex Mono",monospace;font-weight:600}
 .fit-yes li::before{content:"✓";color:var(--lcd)}
+
+/* ---------- WRAPPER & MASK SLIDER (EFEK BAYANGAN GESER) ---------- */
+.slider-wrapper {
+  position: relative;
+}
+.slider-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 30px; 
+  right: -22px;
+  width: 60px;
+  pointer-events: none;
+  z-index: 2;
+}
+.on-paper .slider-wrapper::after {
+  background: linear-gradient(to right, rgba(231,235,233,0), var(--paper));
+}
+.slider-wrapper-bench::after {
+  background: linear-gradient(to right, rgba(14,26,35,0), var(--bench));
+}
 
 /* ---------- testimoni Play Store Slider ---------- */
 .aggregate{
@@ -568,7 +599,31 @@ h3{font-size:1.16rem;font-weight:600}
 .col-us{color:var(--lcd);font-weight:600}
 .plans{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .plan{background:var(--bench);border:1px solid var(--line);border-radius:8px;padding:32px 28px;display:flex;flex-direction:column; text-align: left;}
-.plan-feat{border-color:var(--amber)}
+
+/* EFEK HIGHLIGHT PAKET UMUM & BADGE */
+.plan-feat{
+  border-color:var(--amber);
+  position: relative;
+  transform: scale(1.03);
+  box-shadow: 0 16px 40px -10px rgba(245,176,42,0.25);
+  z-index: 2;
+}
+.populer-badge {
+  position: absolute;
+  top: -15px;
+  right: 28px;
+  background: var(--amber);
+  color: #151002;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(245,176,42,0.4);
+}
+
 .plan-tag{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
 .plan-feat .plan-tag{color:var(--amber)}
 .price{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:2.7rem;margin:12px 0 4px;line-height:1}
@@ -581,7 +636,7 @@ h3{font-size:1.16rem;font-weight:600}
 
 /* ---------- langkah ---------- */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:s}
-.step{counter-increment:s;padding-top:26px;border-top:2px solid var(--amber); text-align: left;} /* Jaga teks tetap kiri agar rapi */
+.step{counter-increment:s;padding-top:26px;border-top:2px solid var(--amber); text-align: left;} 
 .step::before{
   content:counter(s,decimal-leading-zero);
   font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--amber);
@@ -605,6 +660,15 @@ h3{font-size:1.16rem;font-weight:600}
 .faq details[open] summary::after{content:"–"}
 .faq details p{padding:0 0 22px;color:#42545E;font-size:.99rem;max-width:70ch}
 
+/* EFEK ANIMASI SWEEP PADA FAQ */
+details[open] summary ~ * {
+  animation: faq-sweep 0.4s ease-out;
+}
+@keyframes faq-sweep {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 /* ---------- penutup ---------- */
 .closer{text-align:center;padding:96px 0}
 .closer h2{max-width:20ch;margin:0 auto 22px}
@@ -619,13 +683,6 @@ h3{font-size:1.16rem;font-weight:600}
 .foot a:hover{color:var(--lcd)}
 .foot-base{border-top:1px solid var(--line);padding-top:22px;font-size:.85rem; text-align: center;}
 
-/* ---------- penanda data yang harus diisi ---------- */
-.todo{
-  background:rgba(216,69,47,.16);color:#FF8B76;border-bottom:1px dashed #D8452F;
-  padding:1px 5px;border-radius:2px;font-family:"IBM Plex Mono",monospace;font-size:.85em;
-}
-.on-paper .todo{background:rgba(216,69,47,.11);color:#A82D19}
-
 /* ---------- bilah lengket di HP ---------- */
 .sticky-bar{
   position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
@@ -635,45 +692,29 @@ h3{font-size:1.16rem;font-weight:600}
 .sticky-bar .btn{width:100%;justify-content:center;padding:15px 20px}
 
 /* ==========================================
-   ATURAN RESPONSIF (MEDIA QUERIES) YANG BENAR
+   ATURAN RESPONSIF (MEDIA QUERIES)
    ========================================== */
-
-/* TABLET (DI BAWAH 960px) */
 @media(max-width:960px){
   .hero-grid{grid-template-columns:1fr;gap:40px}
-  .trust-grid{grid-template-columns:1fr 1fr} /* Tablet: 2 kolom */
+  .trust-grid{grid-template-columns:1fr 1fr} 
   .weeks{grid-template-columns:1fr 1fr;gap:26px 22px}
-  .fit{grid-template-columns:1fr;gap:30px} /* Tablet: List turun ke bawah */
-  .steps{grid-template-columns:1fr;gap:22px} /* Tablet: Step turun ke bawah */
+  .fit{grid-template-columns:1fr;gap:30px} 
+  .steps{grid-template-columns:1fr;gap:22px} 
   .foot-grid{grid-template-columns:1fr 1fr; gap: 30px;}
 }
 
-/* MOBILE / HP (DI BAWAH 620px) */
 @media(max-width:620px){
-  /* Hapus padding-bottom raksasa, pakai secukupnya untuk sticky bar */
   body{font-size:16px; padding-bottom: 74px;}
   .band{padding:64px 0}
-  .foot{padding-bottom: 40px;} /* Mereset jarak bawah footer supaya ga bolong putih ke atas */
+  .foot{padding-bottom: 40px;} 
   
-  .hero{
-    padding: 64px 0 0 0; 
-    min-height: auto; 
-    display: block; 
-  } 
-  .hero-grid{
-    display: flex;
-    flex-direction: column;
-    gap: 0; 
-  } 
+  .hero{ padding: 64px 0 0 0; min-height: auto; display: block; } 
+  .hero-grid{ display: flex; flex-direction: column; gap: 0; } 
   
   .hero-grid > div:first-child { 
-    text-align: center; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100svh - 64px); 
-    padding-bottom: 60px;
+    text-align: center; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    min-height: calc(100svh - 64px); padding-bottom: 60px;
   } 
   .hero .eyebrow { justify-content: center; margin-bottom: 12px; }
   .hero h1 { font-size: 1.8rem; line-height: 1.25; } 
@@ -682,95 +723,57 @@ h3{font-size:1.16rem;font-weight:600}
   .trust-badge-hero { text-align: center; margin-top: 14px; }
   
   .meter-wrapper { 
-    margin-top: 0; 
-    gap: 8px;
-    min-height: 100svh; 
-    justify-content: center;
-    padding-bottom: 60px;
+    margin-top: 0; gap: 8px; min-height: 100svh; 
+    justify-content: center; padding-bottom: 60px;
   } 
   .meter { max-width: 260px; } 
 
   .scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: calc(100svh - 70px); 
-    bottom: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--muted);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    opacity: 0.8;
-    animation: fadeIn 2s ease-in-out infinite alternate;
-    z-index: 10;
+    display: flex; flex-direction: column; align-items: center;
+    position: absolute; top: calc(100svh - 70px); bottom: auto; left: 50%;
+    transform: translateX(-50%); color: var(--muted); font-size: 0.75rem;
+    text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8;
+    animation: fadeIn 2s ease-in-out infinite alternate; z-index: 10;
   }
-  .scroll-indicator .arrow {
-    font-size: 1.2rem;
-    animation: bounce 1.5s infinite;
-  }
+  .scroll-indicator .arrow { font-size: 1.2rem; animation: bounce 1.5s infinite; }
+  
   @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
     40% { transform: translateY(-8px); }
     60% { transform: translateY(-4px); }
   }
-  @keyframes fadeIn {
-    0% { opacity: 0.4; }
-    100% { opacity: 1; }
-  }
+  @keyframes fadeIn { 0% { opacity: 0.4; } 100% { opacity: 1; } }
   
-  .btn {
-    padding: 12px 18px;
-    font-size: 0.92rem;
-  }
+  .btn { padding: 12px 18px; font-size: 0.92rem; }
+  .hero .btn { flex: 1; padding: 12px 6px; font-size: 0.85rem; justify-content: center; text-align: center; line-height: 1.2; white-space: normal; }
   
-  .hero .btn {
-    flex: 1; 
-    padding: 12px 6px;
-    font-size: 0.85rem;
-    justify-content: center;
-    text-align: center;
-    line-height: 1.2;
-    white-space: normal; 
-  }
-  
-  .register-cta {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-  .register-cta .btn {
-    width: 100%;
-    max-width: 260px;
-    justify-content: center;
-  }
+  .register-cta { flex-direction: column; align-items: center; gap: 12px; }
+  .register-cta .btn { width: 100%; max-width: 260px; justify-content: center; }
 
-  /* Override menjadi 1 kolom untuk layout yang lebih kecil */
   .plans{grid-template-columns:1fr}
+  /* Hapus scale besar di HP agar kotak Harga tidak off-screen */
+  .plan-feat { transform: scale(1); }
+  
   .weeks{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr; gap:24px;}
   
-  /* trust-grid, fit, dan steps secara otomatis mewarisi (inherit) pengaturan 
-     dari media query 960px di atas, sehingga layoutnya aman dan tidak hancur lagi! */
-
   .compare{font-size:.88rem}
   .compare th,.compare td{padding:12px 9px}
   
   .sticky-bar{display:block}
-  .sticky-bar .btn {
-    padding: 12px 20px;
-    font-size: 0.95rem;
-  }
+  .sticky-bar .btn { padding: 12px 20px; font-size: 0.95rem; }
   
   .wa-slide { width: 75vw; max-width: 280px; } 
   .product-card-img-only { width: 80vw; max-width: 280px; } 
+  
+  /* Sesuaikan lebar bayangan scroll hint di HP */
+  .slider-wrapper::after { width: 40px; right: -22px; }
 }
 
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
+  .fade-in { opacity: 1; transform: none; transition: none; }
 }
 </style>
 </head>
@@ -792,7 +795,7 @@ h3{font-size:1.16rem;font-weight:600}
   </svg>
 
   <div class="wrap hero-grid">
-    <div>
+    <div class="fade-in">
       <p class="eyebrow">LPK Quantum Telecommunication · Sejak 2008</p>
       <h1>Belajar Servis HP dari Nol Sampai Bisa <span>Buka Konter Sendiri</span></h1>
       <p class="lead">
@@ -809,7 +812,7 @@ h3{font-size:1.16rem;font-weight:600}
       <p class="trust-badge-hero"><span>⭐⭐⭐⭐⭐</span> 5/5 Rating dari 6000+ Alumni</p>
     </div>
 
-    <div class="meter-wrapper">
+    <div class="meter-wrapper fade-in">
       <div class="meter" aria-hidden="true">
         
         <div class="screen-row row-v">
@@ -842,7 +845,7 @@ h3{font-size:1.16rem;font-weight:600}
 </header>
 
 <!-- ══════════════════ BARIS KEPERCAYAAN ══════════════════ -->
-<section class="trust">
+<section class="trust fade-in">
   <div class="wrap">
     <div class="trust-grid">
       <div class="trust-cell">
@@ -866,7 +869,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ MASALAH ══════════════════ -->
-<section class="band band-paper on-paper">
+<section class="band band-paper on-paper fade-in">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Kondisi awal</p>
@@ -903,7 +906,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ SOLUSI ══════════════════ -->
-<section class="band">
+<section class="band fade-in">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Solusi</p>
@@ -949,7 +952,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ CICIPI DULU ══════════════════ -->
-<section class="band band-deep" id="cicipi">
+<section class="band band-deep fade-in" id="cicipi">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Bukti, bukan klaim</p>
@@ -967,7 +970,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ ISI PAKET ══════════════════ -->
-<section class="band">
+<section class="band fade-in">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Isi paket</p>
@@ -998,7 +1001,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ PETA 30 HARI & PLACEHOLDER ══════════════════ -->
-<section class="band band-paper on-paper">
+<section class="band band-paper on-paper fade-in">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Peta belajar</p>
@@ -1006,28 +1009,24 @@ h3{font-size:1.16rem;font-weight:600}
     </div>
 
     <div class="weeks">
-      <!-- PEKAN 1 -->
       <div class="week">
         <p class="wk-tag">Pekan 1</p>
         <h3>Dasar &amp; alat ukur</h3>
         <img src="assets/section/peta-belajar/pekan1.webp" alt="Placeholder Pekan 1" class="week-img">
       </div>
       
-      <!-- PEKAN 2 -->
       <div class="week">
         <p class="wk-tag">Pekan 2</p>
         <h3>Kerusakan ringan</h3>
         <img src="assets/section/peta-belajar/pekan2.webp" alt="Placeholder Pekan 2" class="week-img">
       </div>
       
-      <!-- PEKAN 3 -->
       <div class="week">
         <p class="wk-tag">Pekan 3</p>
         <h3>Mati total &amp; short</h3>
         <img src="assets/section/peta-belajar/pekan3.webp" alt="Placeholder Pekan 3" class="week-img">
       </div>
       
-      <!-- PEKAN 4 -->
       <div class="week">
         <p class="wk-tag">Pekan 4</p>
         <h3>Software &amp; buka jasa</h3>
@@ -1038,7 +1037,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ UNTUK SIAPA ══════════════════ -->
-<section class="band">
+<section class="band fade-in">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Kecocokan</p>
@@ -1058,7 +1057,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ TESTIMONI PLAY STORE SLIDER ══════════════════ -->
-<section class="band band-paper on-paper">
+<section class="band band-paper on-paper fade-in">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Ulasan Play Store</p>
@@ -1070,26 +1069,29 @@ h3{font-size:1.16rem;font-weight:600}
       <b>93 kota</b> di seluruh Indonesia.
     </p>
 
-    <div class="wa-slider">
-      <div class="wa-slide">
-        <img src="assets/testimoni/testi1.webp" alt="Ulasan Play Store 1">
-      </div>
-      <div class="wa-slide">
-        <img src="assets/testimoni/testi2.webp" alt="Ulasan Play Store 2">
-      </div>
-      <div class="wa-slide">
-        <img src="assets/testimoni/testi3.webp" alt="Ulasan Play Store 3">
-      </div>
-      <div class="wa-slide">
-        <img src="assets/testimoni/testi4.webp" alt="Ulasan Play Store 4">
-      </div>
-      <div class="wa-slide">
-        <img src="assets/testimoni/testi5.webp" alt="Ulasan Play Store 5">
-      </div>
-      <div class="wa-slide">
-        <img src="assets/testimoni/testi6.webp" alt="Ulasan Play Store 6">
+    <div class="slider-wrapper">
+      <div class="wa-slider">
+        <div class="wa-slide">
+          <img src="assets/testimoni/testi1.webp" alt="Ulasan Play Store 1">
+        </div>
+        <div class="wa-slide">
+          <img src="assets/testimoni/testi2.webp" alt="Ulasan Play Store 2">
+        </div>
+        <div class="wa-slide">
+          <img src="assets/testimoni/testi3.webp" alt="Ulasan Play Store 3">
+        </div>
+        <div class="wa-slide">
+          <img src="assets/testimoni/testi4.webp" alt="Ulasan Play Store 4">
+        </div>
+        <div class="wa-slide">
+          <img src="assets/testimoni/testi5.webp" alt="Ulasan Play Store 5">
+        </div>
+        <div class="wa-slide">
+          <img src="assets/testimoni/testi6.webp" alt="Ulasan Play Store 6">
+        </div>
       </div>
     </div>
+    
     <p class="btn-note" style="text-align:center; color:#4A5C66; margin-top: 14px;">
       &larr; Geser untuk melihat lebih banyak &rarr;
     </p>
@@ -1098,7 +1100,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ BANNER SPONSOR UTAMA ══════════════════ -->
-<section class="band-white-bg">
+<section class="band-white-bg fade-in">
   <div class="wrap">
     <div class="band-head" style="margin-bottom: 24px;">
       <p class="eyebrow">Mitra Kami</p>
@@ -1110,7 +1112,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ SHOWCASE PRODUK DIGITAL WAYS ══════════════════ -->
-<section class="band">
+<section class="band fade-in">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Dukungan Industri</p>
@@ -1120,69 +1122,71 @@ h3{font-size:1.16rem;font-weight:600}
       </p>
     </div>
     
-    <div class="product-slider">
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Digital Ways Combact Screwdriver Set 152 IN 1.webp" alt="Pyro Hot Air Station DW-2008">
-      </div>
+    <div class="slider-wrapper slider-wrapper-bench">
+      <div class="product-slider">
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Digital Ways Combact Screwdriver Set 152 IN 1.webp" alt="Pyro Hot Air Station DW-2008">
+        </div>
 
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Power Supply DWPS3010D 30V 10A.webp" alt="Power Supply DWPS3010D 30V 10A">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Tornado Cooling Fan UV.webp" alt="Tornado Cooling Fan UV">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Sparta Screwdriver Set 118 In 1.webp" alt="Sparta Screwdriver Set 118 In 1">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/DIGITALWAYS Screwdriver Obeng Set iPhone DW-RANGER.webp" alt="Pyro Hot Air Station DW-2008">
-      </div>
-      
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Pyro Hot Air Station DW-2008.webp" alt="Pyro Hot Air Station DW-2008">
-      </div>
-      
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Macgyver Screwdriver Macbook Set.webp" alt="Macgyver Screwdriver Macbook Set">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Magma Pro Solder Station DW-210MP.webp" alt="Magma Pro Solder Station DW-210MP">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/mikroskop-putih-digitalways-shopee.webp" alt="Microscope Trinocular DW-TC-X">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/DIGITALWAYS Microscope Trinokuler DW-TC-Y Black.webp" alt="Microscope Trinokuler DW-TC-Y Black">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Microscope Binokuler DW-BC-X Black.webp" alt="Microscope Binokuler DW-BC-X Black">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/psu-putih-digitalways-shopee.webp" alt="Power Supply DWPS1505W DC 15V 5A">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/soldier-putih-digitalways-shopee.webp" alt="Compact Solder Station DW-210C">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Macco Iron Pad.webp" alt="Macco Iron Pad">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Ragum R1 360.webp" alt="Ragum R1 360">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Solder Wick 2.5MM 2M.webp" alt="Solder Wick 2.5MM 2M">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Vanadium Mini CUtpliers.webp" alt="Vanadium Mini CUtpliers">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Pinset Lurus Metal TZ-1.webp" alt="Pinset Lurus Metal TZ-1">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Pinset Bengkok Metal TZ-2.webp" alt="Pinset Bengkok Metal TZ-2">
-      </div>
-      <div class="product-card-img-only">
-        <img src="assets/alat sponsor/Pinset Bengkok Metal TZ-4.webp" alt="Pinset Bengkok Metal TZ-4">
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Power Supply DWPS3010D 30V 10A.webp" alt="Power Supply DWPS3010D 30V 10A">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Tornado Cooling Fan UV.webp" alt="Tornado Cooling Fan UV">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Sparta Screwdriver Set 118 In 1.webp" alt="Sparta Screwdriver Set 118 In 1">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/DIGITALWAYS Screwdriver Obeng Set iPhone DW-RANGER.webp" alt="Pyro Hot Air Station DW-2008">
+        </div>
+        
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Pyro Hot Air Station DW-2008.webp" alt="Pyro Hot Air Station DW-2008">
+        </div>
+        
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Macgyver Screwdriver Macbook Set.webp" alt="Macgyver Screwdriver Macbook Set">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Magma Pro Solder Station DW-210MP.webp" alt="Magma Pro Solder Station DW-210MP">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/mikroskop-putih-digitalways-shopee.webp" alt="Microscope Trinocular DW-TC-X">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/DIGITALWAYS Microscope Trinokuler DW-TC-Y Black.webp" alt="Microscope Trinokuler DW-TC-Y Black">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Microscope Binokuler DW-BC-X Black.webp" alt="Microscope Binokuler DW-BC-X Black">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/psu-putih-digitalways-shopee.webp" alt="Power Supply DWPS1505W DC 15V 5A">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/soldier-putih-digitalways-shopee.webp" alt="Compact Solder Station DW-210C">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Macco Iron Pad.webp" alt="Macco Iron Pad">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Ragum R1 360.webp" alt="Ragum R1 360">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Solder Wick 2.5MM 2M.webp" alt="Solder Wick 2.5MM 2M">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Vanadium Mini CUtpliers.webp" alt="Vanadium Mini CUtpliers">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Pinset Lurus Metal TZ-1.webp" alt="Pinset Lurus Metal TZ-1">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Pinset Bengkok Metal TZ-2.webp" alt="Pinset Bengkok Metal TZ-2">
+        </div>
+        <div class="product-card-img-only">
+          <img src="assets/alat sponsor/Pinset Bengkok Metal TZ-4.webp" alt="Pinset Bengkok Metal TZ-4">
+        </div>
       </div>
     </div>
 
@@ -1194,7 +1198,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ HARGA ══════════════════ -->
-<section class="band band-deep" id="harga">
+<section class="band band-deep fade-in" id="harga">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Investasi</p>
@@ -1203,6 +1207,9 @@ h3{font-size:1.16rem;font-weight:600}
 
     <div class="plans">
       <div class="plan plan-feat">
+        <!-- BADGE PALING POPULER -->
+        <span class="populer-badge">Paling Populer</span>
+        
         <p class="plan-tag">Paket Umum</p>
         <p class="price">Rp800.000</p>
         <p class="price-note">Sekali bayar akses selamanya / berlaku 12 bulan</p>
@@ -1233,7 +1240,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ CARA DAFTAR ══════════════════ -->
-<section class="band">
+<section class="band fade-in">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Cara daftar</p>
@@ -1264,7 +1271,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ FAQ ══════════════════ -->
-<section class="band band-paper on-paper">
+<section class="band band-paper on-paper fade-in">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow">Pertanyaan</p>
@@ -1278,7 +1285,8 @@ h3{font-size:1.16rem;font-weight:600}
       </details>
       <details>
         <summary>Rp800.000 itu sekali bayar atau bayar tiap bulan?</summary>
-        <p><span class="todo">[ISI: jawab tegas. Contoh — "Sekali bayar untuk akses selama 12 bulan penuh, termasuk semua materi baru yang terbit dalam periode itu."]</span></p>
+        <!-- PERBAIKAN: Teks TODO diganti dengan teks asli -->
+        <p>Sekali bayar untuk akses penuh selama 12 bulan. Dalam masa aktif tersebut, Anda sudah mendapatkan akses gratis untuk semua tambahan video bedah kasus baru yang dirilis oleh mentor.</p>
       </details>
       <details>
         <summary>Alat apa yang harus saya siapkan?</summary>
@@ -1290,7 +1298,8 @@ h3{font-size:1.16rem;font-weight:600}
       </details>
       <details>
         <summary>Materinya HP Android saja atau iPhone juga?</summary>
-        <p><span class="todo">[ISI: jelaskan cakupan aplikasi saat ini, dan sebutkan bila materi iPhone ada di kelas terpisah.]</span></p>
+        <!-- PERBAIKAN: Teks TODO diganti dengan teks asli -->
+        <p>Saat ini kurikulum VBATPonsel berfokus penuh pada fundamental dan perbaikan HP Android dari dasar hingga tingkat lanjut. Pembahasan skema dan perbaikan khusus iPhone akan dipisahkan pada kelas *Advanced* berikutnya.</p>
       </details>
       <details>
         <summary>Kalau saya sibuk dan ketinggalan, materinya hangus?</summary>
@@ -1317,7 +1326,7 @@ h3{font-size:1.16rem;font-weight:600}
 </section>
 
 <!-- ══════════════════ PENUTUP ══════════════════ -->
-<section class="closer">
+<section class="closer fade-in">
   <div class="wrap">
     <div class="band-head">
       <p class="eyebrow" style="justify-content:center">Keputusan</p>
@@ -1354,6 +1363,7 @@ h3{font-size:1.16rem;font-weight:600}
         <h4>Ketentuan</h4>
         <a href="/kebijakan-privasi">Kebijakan Privasi</a>
         <a href="/syarat-ketentuan">Syarat &amp; Ketentuan</a>
+        <a href="/pengembalian-dana">Kebijakan Pengembalian Dana</a>
       </div>
     </div>
     <p class="foot-base">© <span id="thn">2026</span> PT Quantum Telecommunication. Seluruh hak cipta dilindungi.</p>
@@ -1367,6 +1377,23 @@ h3{font-size:1.16rem;font-weight:600}
 
 <script>
 document.getElementById('thn').textContent = new Date().getFullYear();
+
+/* SCRIPT ANIMASI FADE-IN SAAT SCROLL */
+(function(){
+  var fadeElements = document.querySelectorAll('.fade-in');
+  var observer = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); 
+      }
+    });
+  }, { threshold: 0.1 }); 
+  
+  fadeElements.forEach(function(el) {
+    observer.observe(el);
+  });
+})();
 
 /* Panel alat ukur */
 (function(){
