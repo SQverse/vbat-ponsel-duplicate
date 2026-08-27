@@ -532,6 +532,36 @@ h3{font-size:1.16rem;font-weight:600}
   display: block;
 }
 
+/* ---------- FILTER TABS KATEGORI ALAT ---------- */
+.cat-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.cat-tab {
+  background: var(--bench);
+  border: 1px solid var(--line);
+  color: var(--muted-light);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.cat-tab:hover {
+  border-color: var(--lcd-dim);
+  color: var(--lcd);
+}
+.cat-tab.active {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: #151002;
+  font-weight: 600;
+}
+
 /* ---------- showcase produk slider ---------- */
 .product-slider {
   display: flex;
@@ -542,7 +572,7 @@ h3{font-size:1.16rem;font-weight:600}
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin; 
   scrollbar-color: var(--line) var(--bench-3);
-  margin: 20px -22px 0; 
+  margin: 0 -22px; 
   padding-left: 22px;
   padding-right: 22px;
   align-items: center; 
@@ -766,8 +796,10 @@ details[open] summary ~ * {
   .wa-slide { width: 75vw; max-width: 280px; } 
   .product-card-img-only { width: 80vw; max-width: 280px; } 
   
-  /* Sesuaikan lebar bayangan scroll hint di HP */
   .slider-wrapper::after { width: 40px; right: -22px; }
+  
+  /* Supaya tab rapi di HP */
+  .cat-tab { font-size: 0.8rem; padding: 6px 12px; }
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -1122,69 +1154,95 @@ details[open] summary ~ * {
       </p>
     </div>
     
+    <!-- TABS FILTER KATEGORI -->
+    <div class="cat-tabs fade-in">
+      <button class="cat-tab active" data-filter="all">Semua Alat</button>
+      <button class="cat-tab" data-filter="solder">Solder & Blower</button>
+      <button class="cat-tab" data-filter="mikroskop">Mikroskop</button>
+      <button class="cat-tab" data-filter="psu">Power Supply</button>
+      <button class="cat-tab" data-filter="obeng">Obeng & Pinset</button>
+    </div>
+
     <div class="slider-wrapper slider-wrapper-bench">
       <div class="product-slider">
-        <div class="product-card-img-only">
-          <img src="assets/alat sponsor/Digital Ways Combact Screwdriver Set 152 IN 1.webp" alt="Pyro Hot Air Station DW-2008">
+        <!-- ITEM 1: Obeng -->
+        <div class="product-card-img-only" data-category="obeng">
+          <img src="assets/alat sponsor/Digital Ways Combact Screwdriver Set 152 IN 1.webp" alt="Digital Ways Combact Screwdriver Set 152 IN 1">
         </div>
-
-        <div class="product-card-img-only">
+        <!-- ITEM 2: PSU -->
+        <div class="product-card-img-only" data-category="psu">
           <img src="assets/alat sponsor/Power Supply DWPS3010D 30V 10A.webp" alt="Power Supply DWPS3010D 30V 10A">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 3: Kipas/Lainnya ikut PSU -->
+        <div class="product-card-img-only" data-category="psu">
           <img src="assets/alat sponsor/Tornado Cooling Fan UV.webp" alt="Tornado Cooling Fan UV">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 4: Obeng -->
+        <div class="product-card-img-only" data-category="obeng">
           <img src="assets/alat sponsor/Sparta Screwdriver Set 118 In 1.webp" alt="Sparta Screwdriver Set 118 In 1">
         </div>
-        <div class="product-card-img-only">
-          <img src="assets/alat sponsor/DIGITALWAYS Screwdriver Obeng Set iPhone DW-RANGER.webp" alt="Pyro Hot Air Station DW-2008">
+        <!-- ITEM 5: Obeng -->
+        <div class="product-card-img-only" data-category="obeng">
+          <img src="assets/alat sponsor/DIGITALWAYS Screwdriver Obeng Set iPhone DW-RANGER.webp" alt="DIGITALWAYS Screwdriver Obeng Set iPhone DW-RANGER">
         </div>
-        
-        <div class="product-card-img-only">
+        <!-- ITEM 6: Solder & Blower -->
+        <div class="product-card-img-only" data-category="solder">
           <img src="assets/alat sponsor/Pyro Hot Air Station DW-2008.webp" alt="Pyro Hot Air Station DW-2008">
         </div>
-        
-        <div class="product-card-img-only">
+        <!-- ITEM 7: Obeng -->
+        <div class="product-card-img-only" data-category="obeng">
           <img src="assets/alat sponsor/Macgyver Screwdriver Macbook Set.webp" alt="Macgyver Screwdriver Macbook Set">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 8: Solder & Blower -->
+        <div class="product-card-img-only" data-category="solder">
           <img src="assets/alat sponsor/Magma Pro Solder Station DW-210MP.webp" alt="Magma Pro Solder Station DW-210MP">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 9: Mikroskop -->
+        <div class="product-card-img-only" data-category="mikroskop">
           <img src="assets/alat sponsor/mikroskop-putih-digitalways-shopee.webp" alt="Microscope Trinocular DW-TC-X">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 10: Mikroskop -->
+        <div class="product-card-img-only" data-category="mikroskop">
           <img src="assets/alat sponsor/DIGITALWAYS Microscope Trinokuler DW-TC-Y Black.webp" alt="Microscope Trinokuler DW-TC-Y Black">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 11: Mikroskop -->
+        <div class="product-card-img-only" data-category="mikroskop">
           <img src="assets/alat sponsor/Microscope Binokuler DW-BC-X Black.webp" alt="Microscope Binokuler DW-BC-X Black">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 12: PSU -->
+        <div class="product-card-img-only" data-category="psu">
           <img src="assets/alat sponsor/psu-putih-digitalways-shopee.webp" alt="Power Supply DWPS1505W DC 15V 5A">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 13: Solder -->
+        <div class="product-card-img-only" data-category="solder">
           <img src="assets/alat sponsor/soldier-putih-digitalways-shopee.webp" alt="Compact Solder Station DW-210C">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 14: Solder -->
+        <div class="product-card-img-only" data-category="solder">
           <img src="assets/alat sponsor/Macco Iron Pad.webp" alt="Macco Iron Pad">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 15: Obeng / Alat Bantu -->
+        <div class="product-card-img-only" data-category="obeng">
           <img src="assets/alat sponsor/Ragum R1 360.webp" alt="Ragum R1 360">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 16: Solder -->
+        <div class="product-card-img-only" data-category="solder">
           <img src="assets/alat sponsor/Solder Wick 2.5MM 2M.webp" alt="Solder Wick 2.5MM 2M">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 17: Obeng / Tang -->
+        <div class="product-card-img-only" data-category="obeng">
           <img src="assets/alat sponsor/Vanadium Mini CUtpliers.webp" alt="Vanadium Mini CUtpliers">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 18: Obeng / Pinset -->
+        <div class="product-card-img-only" data-category="obeng">
           <img src="assets/alat sponsor/Pinset Lurus Metal TZ-1.webp" alt="Pinset Lurus Metal TZ-1">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 19: Obeng / Pinset -->
+        <div class="product-card-img-only" data-category="obeng">
           <img src="assets/alat sponsor/Pinset Bengkok Metal TZ-2.webp" alt="Pinset Bengkok Metal TZ-2">
         </div>
-        <div class="product-card-img-only">
+        <!-- ITEM 20: Obeng / Pinset -->
+        <div class="product-card-img-only" data-category="obeng">
           <img src="assets/alat sponsor/Pinset Bengkok Metal TZ-4.webp" alt="Pinset Bengkok Metal TZ-4">
         </div>
       </div>
@@ -1285,7 +1343,6 @@ details[open] summary ~ * {
       </details>
       <details>
         <summary>Rp800.000 itu sekali bayar atau bayar tiap bulan?</summary>
-        <!-- PERBAIKAN: Teks TODO diganti dengan teks asli -->
         <p>Sekali bayar untuk akses penuh selama 12 bulan. Dalam masa aktif tersebut, Anda sudah mendapatkan akses gratis untuk semua tambahan video bedah kasus baru yang dirilis oleh mentor.</p>
       </details>
       <details>
@@ -1298,7 +1355,6 @@ details[open] summary ~ * {
       </details>
       <details>
         <summary>Materinya HP Android saja atau iPhone juga?</summary>
-        <!-- PERBAIKAN: Teks TODO diganti dengan teks asli -->
         <p>Saat ini kurikulum VBATPonsel berfokus penuh pada fundamental dan perbaikan HP Android dari dasar hingga tingkat lanjut. Pembahasan skema dan perbaikan khusus iPhone akan dipisahkan pada kelas *Advanced* berikutnya.</p>
       </details>
       <details>
@@ -1392,6 +1448,37 @@ document.getElementById('thn').textContent = new Date().getFullYear();
   
   fadeElements.forEach(function(el) {
     observer.observe(el);
+  });
+})();
+
+/* SCRIPT FILTER KATEGORI ALAT */
+(function() {
+  var tabs = document.querySelectorAll('.cat-tab');
+  var items = document.querySelectorAll('.product-card-img-only');
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      // Hilangkan status aktif dari semua tombol
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      // Berikan status aktif pada tombol yang diklik
+      this.classList.add('active');
+
+      var filter = this.getAttribute('data-filter');
+
+      items.forEach(function(item) {
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // Kembalikan scroll slider ke ujung kiri setiap kali pindah kategori
+      var slider = document.querySelector('.product-slider');
+      if(slider) {
+        slider.scrollLeft = 0;
+      }
+    });
   });
 })();
 
