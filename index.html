@@ -1133,7 +1133,7 @@ document.getElementById('thn').textContent = new Date().getFullYear();
 document.querySelectorAll('[data-cta]').forEach(function(el){
   el.addEventListener('click', function(){
     gtag('event','klik_cta',{lokasi: el.dataset.cta});
-  });
+  }); 
 });
 </script>
 </body>
