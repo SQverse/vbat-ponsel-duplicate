@@ -1130,9 +1130,11 @@ document.getElementById('thn').textContent = new Date().getFullYear();
   }, 3000);
 })();
 
+/* PELACAKAN KLIK TOMBOL CTA - GOOGLE ANALYTICS */
 document.querySelectorAll('[data-cta]').forEach(function(el){
   el.addEventListener('click', function(){
-    gtag('event','klik_cta',{lokasi: el.dataset.cta});
+    var namaTombol = el.dataset.cta.replace(/-/g, '_'); 
+    gtag('event', 'klik_' + namaTombol);
   }); 
 });
 </script>
