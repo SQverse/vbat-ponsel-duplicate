@@ -1176,9 +1176,9 @@ var observerSection = new IntersectionObserver(function(entries) {
         // Kirim event durasi HANYA jika pengunjung menetap lebih dari 3 detik
         // (untuk menyaring pengunjung yang hanya numpang lewat / scroll cepat)
         if (durasiDetik > 3) {
-          gtag('event', 'durasi_baca', {
-            'nama_section': namaSection,
-            'durasi_detik': durasiDetik
+          // Format nama event akan menjadi: baca_faq, baca_tabel_harga, dll.
+          gtag('event', 'baca_' + namaSection, {
+            'value': durasiDetik // Mengirim angka durasi ke GA4
           });
         }
         delete waktuMulaiSection[namaSection];
